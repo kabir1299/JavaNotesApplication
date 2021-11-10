@@ -1,0 +1,101 @@
+
+<h1>Java Abstract class and methods</h1>
+<p>&nbsp;</p>
+<p>In this tutorial, we will learn about abstract class and methods in Java along with understanding how we can implement abstraction using abstract classes. We will also have some code examples.</p>
+<h3>Abstract Class</h3>
+<p>A class which is declared using&nbsp;<strong>abstract keyword</strong>&nbsp;known as&nbsp;<strong>abstract class</strong>. An abstract class may or may not have abstract methods. We cannot create object of abstract class.</p>
+<p>It is used to achieve abstraction but it does not provide 100% abstraction because it can have concrete methods.</p>
+<ul class="content">
+<li>An abstract class must be declared with an abstract keyword.</li>
+<li>It can have abstract and non-abstract methods.</li>
+<li>It cannot be instantiated.</li>
+<li>It is used for abstraction.</li>
+</ul>
+<p><strong>Syntax:</strong></p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">class_name</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span></code></pre>
+<h3>Abstract method</h3>
+<p>Method that are declared without any body within an abstract class are called&nbsp;<strong>abstract method</strong>. The method body will be defined by its subclass. Abstract method can never be final and static. Any class that extends an abstract class must implement all the abstract methods.</p>
+<p><strong>Syntax:</strong></p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">abstract</span> return_type function_name <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//No definition</span></code></pre>
+<h3>Points to Remember about Abstract Class and Method</h3>
+<p>Here are some useful points to remember:</p>
+<ol class="content">
+<li>Abstract classes are not Interfaces. They are different, we will study this when we will study Interfaces.</li>
+<li>An abstract class may or may not have an abstract method. But if any class has even a single abstract method, then it must be declared abstract.</li>
+<li>Abstract classes can have Constructors, Member variables and Normal methods.</li>
+<li>Abstract classes are never instantiated.</li>
+<li>When you extend Abstract class with abstract method, you must define the abstract method in the child class, or make the child class abstract.</li>
+</ol>
+<h3>Example of Abstract class</h3>
+<p>Let's take an example of the Abstract class and try to understand how they can be used in Java.</p>
+<p>In this example, we created an abstract class A that contains a method&nbsp;<code>callme()</code>&nbsp;and Using class B, we are extending the abstract class.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">callme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">callme</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Calling..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>  
+    B b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">callme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">calling...</p>
+<div>&nbsp;</div>
+<h3>Abstract class with non-abstract method</h3>
+<p>Abstract classes can also have non abstract methods along with abstract methods. But remember while extending the class, provide definition for the abstract method.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">callme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"this is non-abstract method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">callme</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Calling..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    B b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">callme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p class="output">calling... this is non-abstract method</p>
+<h3>Abstraction using Abstract class</h3>
+<p>Abstraction is an important feature of OOPS. It means hiding complexity and show functionality only to the user. Abstract class is used to provide abstraction. Although it does not provide 100% abstraction because it can also have concrete method. Lets see how abstract class is used to provide abstraction.</p>
+<pre class=" language-java"><code class=" language-java"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Vehicle</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">engine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">engine</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Car engine"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// car engine implementation</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Vehicle v <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        v<span class="token punctuation">.</span><span class="token function">engine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">Car engine</p>
+<p>Here by casting instance of Car type to Vehicle reference, we are hiding the complexity of Car type under Vehicle. Now the Vehicle reference can be used to provide the implementation but it will hide the actual implementation process.</p>
+<h2>When to use Abstract Methods &amp; Abstract Class?</h2>
+<p>Abstract methods are usually declared where two or more subclasses are expected to do a similar thing in different ways through different implementations. These subclasses extend the same Abstract class and provide different implementations for the abstract methods.</p>
+<p>Abstract classes are used to define generic types of behaviors at the top of an object-oriented programming class hierarchy, and use its subclasses to provide implementation details of the abstract class.</p>

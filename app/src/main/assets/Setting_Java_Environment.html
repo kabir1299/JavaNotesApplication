@@ -1,0 +1,91 @@
+<h1>Setting Java Environment and Classpath</h1>
+
+<p class="text-align-justify">Java is almost a mandatory learning computer programming language by any engineering or diploma student. Learning Java, in fact, is the starting point of becoming a successful Android developer. Java is used in many electronic equipments&nbsp;like ATMs, Blue Ray Drives, Android Phones, Android Smart Wear, Games, Financial Application for Banks, Embedded Systems and others. Students find installing Java is difficult for the first time. It is easy to&nbsp;setup Java Environment in Windows 10 after following this tutorial.</p>
+<h2 class="text-align-justify">Setup Java Environment&nbsp;</h2>
+<p class="text-align-justify">To setup Java Environment in Windows 10 or older Windows operating systems, you need to&nbsp;<strong><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">download Java</a></strong>&nbsp;from Oracle website and Install it in the computer.&nbsp;There are two variations of Java.</p>
+<ol>
+<li class="text-align-justify">JDK or Java SE ( Java Standard Edition )</li>
+<li class="text-align-justify">JRE ( Java Runtime Environment )</li>
+</ol>
+<p class="text-align-justify"><strong>1. Java SE</strong></p>
+<p class="text-align-justify">Java SE installs both JDK and JRE. JDK is Java Developer Kit. If you are developing Java applications, you need to compile the java programs. Hence JDK is the right option to install in this case.</p>
+<p class="text-align-justify"><strong>2. JRE</strong></p>
+<p class="text-align-justify">JRE is useful only to run Java Applications but not for development works. Some websites force users to install JRE in order to display customized information that is displayed only on Java Supported (Or installed) browsers. If you do not develop any java programs or software, just install JRE on your machine.</p>
+<p class="text-align-justify">Setting up Java Environment in Windows is nothing but&nbsp;<strong>adding Java Installation Path</strong>&nbsp;to Operating System Variables. It is called Setting Up Java Home.</p>
+<div class="google-auto-placed ap_container">&nbsp;</div>
+<p class="text-align-justify">There are&nbsp;<span class="redcolor"><strong>two path variables</strong></span>&nbsp;to be set up in a Windows 10 Computer.</p>
+<ol class="border-left-4px-dashed-orange">
+<li class="text-align-justify">Setup JAVA_HOME or Java Home Directory - To access JDK, JRE Tools</li>
+<li class="text-align-justify">Setup CLASSPATH or Class Path - To attach or add Libraries and Helper Classes</li>
+</ol>
+<h2 class="greencode2"><strong>1. Setting Up Java Home or Java_Home Path</strong></h2>
+<p class="text-align-justify"><strong>Step 1</strong></p>
+<p class="text-align-justify">Open Control Panel. Go to System &amp; Security. Open System.</p>
+<p class="text-align-justify">or</p>
+<p class="text-align-justify">Right Click on My Computer and goto Properties.</p>
+<p class="text-align-justify"><img class="img-responsive" src="https://www.examtray.com/sites/default/files/2018-05/setup-java-environment-1-0.jpg" alt="setup java environment in windows step 1" width="296" height="189" data-entity-type="" data-entity-uuid="" /></p>
+<p class="text-align-justify"><strong>Step 2</strong></p>
+<p class="text-align-justify">Here you can see your computer hardware specifications like RAM, Processor Type and Windows Activation status etc. Go to Advanced System Settings on the left side.</p>
+<p class="text-align-justify"><img class="img-responsive" src="https://www.examtray.com/sites/default/files/2018-05/setup-java-environment-2-0.jpg" alt="setup java environment in windows step 2" width="305" height="202" data-entity-type="" data-entity-uuid="" /></p>
+<p class="text-align-justify"><strong>Step 3</strong></p>
+<p class="text-align-justify">Under system properties, go to&nbsp;<strong>Advanced</strong>&nbsp;Tab. On the bottom, you can find a button with name '<strong>Environment Variables..</strong>'. Just click.</p>
+<p class="text-align-justify"><img class="img-responsive" src="https://www.examtray.com/sites/default/files/2018-05/setup-java-environment-3-0.jpg" alt="setup java environment in windows step 3" width="304" height="345" data-entity-type="" data-entity-uuid="" /></p>
+<p class="text-align-justify"><strong>Step 4</strong></p>
+<p class="text-align-justify">Under Environment Variables, you can see two sections. The top section shows User variables and the bottom section shows System Variables. In either of them, find for Variable name&nbsp;<strong>PATH</strong>&nbsp;or&nbsp;<strong>path</strong>. If it is not available click&nbsp;<strong>New</strong>&nbsp;on any section and add PATH as variable NAME and Value as&nbsp;<strong>C:\Program Files\Java\jdk1.8.0_131\bin</strong>&nbsp;for example.</p>
+<p class="text-align-justify">If the PATH variable is already existing in any section, simply click Edit and add the Java Installation Path.</p>
+<div class="google-auto-placed ap_container">&nbsp;</div>
+<p class="text-align-justify">If the requirement is to set up&nbsp;<strong>java_home&nbsp;</strong>as required by any applications like Tomcat, add the Variable name as&nbsp;<strong>java_home&nbsp;</strong>and the&nbsp;<strong>path&nbsp;</strong>requested by the application.</p>
+<p class="text-align-justify"><img class="img-responsive" src="https://www.examtray.com/sites/default/files/2018-05/setup-java-environment-4-0.jpg" alt="setup java environment in windows step 3" width="307" height="186" data-entity-type="" data-entity-uuid="" /></p>
+<p>&nbsp;</p>
+<h2 class="greencode">2. Setting Up Java Class Path or CLASSPATH in Windows</h2>
+<p>Java programmers need to know how to set up CLASSPATH on a Windows 10 PC. Class Path or CLASSPATH refers to the path containing Library JAR and ZIP files along with CLASS files. These libraries are predefined or supplied by a third party vendor to enhance the functionality of a Java Application. Software companies develop their own libraries which are packed as JAR files that can be used by different projects.</p>
+<p>You should copy the JAR files in a particular location and mention the JAR file path a CLASSPATH while compiling and running java programs.</p>
+<p>There are two ways to add or include a CLASSPATH.</p>
+<ol class="list-upper-alpha border-left-4px-dashed-orange">
+<li>Using the Command Prompt (CMD) to add Class Path dynamically</li>
+<li>Using Environment Variables in Windows Operating System</li>
+</ol>
+<h3 class="redcolor">A. Setting CLASSPATH using Command Prompt or CMD</h3>
+<p>The advantage of adding Class path in command prompt is that you can include or add different libraries for different projects. This can be achieved using&nbsp;<strong>-cp&nbsp;</strong>or<strong>&nbsp;-classpath</strong>&nbsp;options as part of&nbsp;<strong>JAVAC and JAVA</strong>&nbsp;commands.</p>
+<pre class="doscode font20">C:\myfolder&gt;javac -cp "c:\folder1\files\abc.jar" Hello.java
+
+C:\myfolder&gt;java -classpath "c:\folder1\files\abc.jar" Hello
+</pre>
+<h3 class="redcolor">B. Adding CLASSPATH to Windows Environment Variables</h3>
+<p>This approach is not recommended as you can not have different libraries for different projects. Libraries required for one java project may not be required for another java project. Including unnecessary libraries consume memory and affects performance. Follow the below steps to add CLASSPATH to Windows Environment Variables.</p>
+<p><strong>Step 1:</strong>&nbsp;Open Environment Variables screen as shown in the above JAVA_HOME tutorial.</p>
+<div class="google-auto-placed ap_container">
+<p class="text-align-justify"><img class="img-responsive" src="https://www.examtray.com/sites/default/files/2019-06/check-java-installed-in-cmd.jpg" alt="how to check java is installed or not" width="340" height="650" data-entity-type="" data-entity-uuid="" /></p>
+</div>
+<p><strong>Step2:&nbsp;</strong>Check for CLASSPATH variable Under&nbsp;<strong>User Variables</strong>&nbsp;or&nbsp;<strong>System Variables.</strong>&nbsp;If CLASSPATH variable&nbsp;is available, add an entry with the path of your Libraries or Class Files.</p>
+<p><strong>Step 3</strong>: If the CLASSPATH variable is not available, add it manually under User Variables or System Variables and then add an entry or multiple entries with Paths of your libraries or JAR files.</p>
+<p><strong>Step 4</strong>: Restart Windows once. Now you can access the Java Libraries added in the CLASSPATH in your Hello.java program or any other programs or any projects running on the PC.</p>
+<h4 class="purplecolor"><strong>CLASSPATH Path Rules for Adding multiple Jar and Class Files</strong></h4>
+<p><strong>Rule 1</strong>: You can mention the full path of a Class file or Jar file for inclusion in Class Path.</p>
+<p><strong>Rule 2</strong>: You can mention the path up to a directory name to include all Jar files and Class Files in that directory.</p>
+<p><strong>Rule 3</strong>: Take care of the order of inclusion of files as some libraries depend on other libraries to be loaded first.</p>
+<p><strong>Rule 4</strong>: On a Windows machine, use Semicolon (;) to separate paths. If you are using Command Prompt, use Colon (:) to separate multiple paths.</p>
+<p>&nbsp;</p>
+<h2 class="greencode2">How to Check Java is Installed or Not</h2>
+<p class="text-align-justify">You can cross check whether you successfully installed Java or not using the command prompt. This check also covers whether Java Environment is setup properly or not.</p>
+<p class="text-align-justify"><strong>Step 1</strong>: Open CMD or Command Prompt</p>
+<p class="text-align-justify">&nbsp;</p>
+<p class="text-align-justify"><strong>Step 2</strong>: If you can get reply to java command, it means JRE is successfully setup for running java programs.</p>
+<pre class="doscode font20">C:\&gt; java</pre>
+<p class="text-align-justify"><strong>Step 3</strong>: If you can get reply to javac command, it means JDK or Java SE is successfully setup for compiling java programs. This check ensures successful setting up of JAVA_HOME path.</p>
+<pre class="doscode font20">C:\&gt; javac</pre>
+<p><strong>Step 4</strong>: You can also check the installed JAVA Version using&nbsp;<strong>-version</strong>&nbsp;command.</p>
+<pre class="doscode font20">C:\Users&gt;javac -version
+javac 10.0.2
+
+C:\Users&gt;java -version
+java version "10.0.2" 2018-07-17
+Java(TM) SE Runtime Environment 18.3 (build 10.0.2+13)
+Java HotSpot(TM) 64-Bit Server VM 18.3 (build 10.0.2+13, mixed mode)
+</pre>
+<p>&nbsp;</p>
+<h2 class="greencode2">How to solve error&nbsp;<strong>javac</strong>&nbsp;is not recognized as an internal or external command</h2>
+<p><strong>Step 1</strong>: Check whether you installed Java on the System or not by pinging 'javac' in command prompt. You should install&nbsp;<strong>Java SE or JDK</strong>&nbsp;but not JRE.</p>
+<p><strong>Step 2</strong>: Set up&nbsp;<strong>Java Home Path</strong>&nbsp;as explained in the above tutorial.&nbsp;<strong>BIN directory path</strong>&nbsp;should be either added to User Variables or System Variables under Environmental Variables.</p>
+<p><strong>Step 3</strong>: Restart&nbsp;<strong>CMD</strong>&nbsp;or Command Prompt.</p>
+<p><strong>Step 4</strong>: Restart Windows and&nbsp;<strong>ping javac</strong>&nbsp;again.</p>

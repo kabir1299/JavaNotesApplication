@@ -1,0 +1,84 @@
+<header class="entry-header"><header class="entry-header">
+
+<h1 class="entry-title" style="text-align: justify;">Java Program to Add two Numbers</h1>
+</header>
+<div class="entry-content" style="text-align: justify;">
+<p>Here we will see two programs to add two numbers, In the first program we specify the value of both the numbers in the program itself. The second programs takes both the numbers (entered by user) and prints the sum.</p>
+<h2>First Example: Sum of two numbers</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">AddTwoNumbers</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+        
+      <span class="kwd">int</span><span class="pln"> num1 </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">,</span><span class="pln"> num2 </span><span class="pun">=</span> <span class="lit">15</span><span class="pun">,</span><span class="pln"> sum</span><span class="pun">;</span><span class="pln">
+      sum </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">+</span><span class="pln"> num2</span><span class="pun">;</span>
+
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sum of these numbers: "</span><span class="pun">+</span><span class="pln">sum</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Sum</span><span class="pln"> of these numbers</span><span class="pun">:</span> <span class="lit">20</span></pre>
+<h2>Second Example: Sum of two numbers using Scanner</h2>
+<p>The scanner allows us to capture the user input so that we can get the values of both the numbers from user. The program then calculates the sum and displays it.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">AddTwoNumbers2</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+        
+        <span class="kwd">int</span><span class="pln"> num1</span><span class="pun">,</span><span class="pln"> num2</span><span class="pun">,</span><span class="pln"> sum</span><span class="pun">;</span>
+        <span class="typ">Scanner</span><span class="pln"> sc </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Enter First Number: "</span><span class="pun">);</span><span class="pln">
+        num1 </span><span class="pun">=</span><span class="pln"> sc</span><span class="pun">.</span><span class="pln">nextInt</span><span class="pun">();</span>
+        
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Enter Second Number: "</span><span class="pun">);</span><span class="pln">
+        num2 </span><span class="pun">=</span><span class="pln"> sc</span><span class="pun">.</span><span class="pln">nextInt</span><span class="pun">();</span><span class="pln">
+        
+        sc</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln">
+        sum </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">+</span><span class="pln"> num2</span><span class="pun">;</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sum of these numbers: "</span><span class="pun">+</span><span class="pln">sum</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="typ">Output</span><span class="pun">:</span></pre>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span> <span class="typ">First</span> <span class="typ">Number</span><span class="pun">:</span> 
+<span class="lit">121</span>
+<span class="typ">Enter</span> <span class="typ">Second</span> <span class="typ">Number</span><span class="pun">:</span> 
+<span class="lit">19</span>
+<span class="typ">Sum</span><span class="pln"> of these numbers</span><span class="pun">:</span> <span class="lit">140</span></pre>
+</div>
+<h1 class="entry-title" style="text-align: justify;">Java Program to Calculate Simple Interest</h1>
+</header>
+<div class="entry-content" style="text-align: justify;">
+<p>In this tutorial, we will&nbsp;<strong>write a java program to calculate simple interest</strong>.</p>
+<p>&nbsp;</p>
+<h2>Simple Interest Formula</h2>
+<pre class="prettyprint prettyprinted"><span class="typ">Simple</span> <span class="typ">Interest</span> <span class="pun">=</span> <span class="pun">(</span><span class="pln">P </span><span class="pun">&times;</span><span class="pln"> R </span><span class="pun">&times;</span><span class="pln"> T</span><span class="pun">)/</span><span class="lit">100</span></pre>
+<p><strong>P</strong>&nbsp;is Principal amount.<br /><strong>R</strong>&nbsp;is rate per annum.<br /><strong>T</strong>&nbsp;is time in years.</p>
+<p><strong>For example:</strong>&nbsp;<strong>Let&rsquo;s say a man deposit 2000 INR in bank account at a interest rate of 6% per annum for 3 years, calculate the simple interest at the end of 3 years.</strong></p>
+<div class="lq">&nbsp;</div>
+<p>Simple interest = 2000*6*3/100 = 360 INR</p>
+<h2>Java Program to calculate simple interest</h2>
+<p>In the following example we are taking the values of p, r and t from user and then we are calculating the simple interest based on entered values.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JavaExample</span>
+<span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span> 
+    <span class="pun">{</span>
+        <span class="kwd">float</span><span class="pln"> p</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">,</span><span class="pln"> t</span><span class="pun">,</span><span class="pln"> sinterest</span><span class="pun">;</span>
+        <span class="typ">Scanner</span><span class="pln"> scan </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter the Principal : "</span><span class="pun">);</span><span class="pln">
+        p </span><span class="pun">=</span><span class="pln"> scan</span><span class="pun">.</span><span class="pln">nextFloat</span><span class="pun">();</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter the Rate of interest : "</span><span class="pun">);</span><span class="pln">
+        r </span><span class="pun">=</span><span class="pln"> scan</span><span class="pun">.</span><span class="pln">nextFloat</span><span class="pun">();</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter the Time period : "</span><span class="pun">);</span><span class="pln">
+        t </span><span class="pun">=</span><span class="pln"> scan</span><span class="pun">.</span><span class="pln">nextFloat</span><span class="pun">();</span><span class="pln">
+        scan</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln">
+        sinterest </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">p </span><span class="pun">*</span><span class="pln"> r </span><span class="pun">*</span><span class="pln"> t</span><span class="pun">)</span> <span class="pun">/</span> <span class="lit">100</span><span class="pun">;</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Simple Interest is: "</span> <span class="pun">+</span><span class="pln">sinterest</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> the </span><span class="typ">Principal</span> <span class="pun">:</span> <span class="lit">2000</span>
+<span class="typ">Enter</span><span class="pln"> the </span><span class="typ">Rate</span><span class="pln"> of interest </span><span class="pun">:</span> <span class="lit">6</span>
+<span class="typ">Enter</span><span class="pln"> the </span><span class="typ">Time</span><span class="pln"> period </span><span class="pun">:</span> <span class="lit">3</span>
+<span class="typ">Simple</span> <span class="typ">Interest</span> <span class="kwd">is</span><span class="pun">:</span> <span class="lit">360.0</span></pre>
+</div>

@@ -1,0 +1,259 @@
+<h1>Introduction to Java String Handling</h1>
+
+<p>&nbsp;</p>
+<p>String is an&nbsp;<strong>object</strong>&nbsp;that represents sequence of characters. In Java, String is represented by String class which is located into&nbsp;<code>java.lang</code>&nbsp;package</p>
+<p>It is probably the most commonly used class in java library. In java, every string that we create is actually an object of type&nbsp;<strong>String</strong>. One important thing to notice about string object is that string objects are&nbsp;<strong>immutable</strong>&nbsp;that means once a string object is created it cannot be changed.</p>
+<p>The Java String class implements Serializable, Comparable and CharSequence interface that we have represented using the below image.</p>
+<p><img src="https://www.studytonight.com/java/images/string-handling-feature.JPG" alt="string-handling-feature " width="239" height="115" /></p>
+<p>In Java,&nbsp;<strong>CharSequence</strong>&nbsp;Interface is used for representing a sequence of characters. CharSequence interface is implemented by String, StringBuffer and StringBuilder classes. This three classes can be used for creating strings in java.</p>
+<p><img src="https://www.studytonight.com/java/images/char-string-handling-feature.JPG" alt="char-string-handling-feature" width="264" height="104" /></p>
+<h3>What is an Immutable object?</h3>
+<p>An object whose state cannot be changed after it is created is known as an Immutable object. String, Integer, Byte, Short, Float, Double and all other wrapper classes objects are immutable.</p>
+<h3>Creating a String object</h3>
+<p>String can be created in number of ways, here are a few ways of creating string object.</p>
+<h3>1) Using a String literal</h3>
+<p>String literal is a simple string enclosed in double quotes&nbsp;<code>" "</code>. A string literal is treated as a String object.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s1 <span class="token operator">=</span> <span class="token string">"Hello Java"</span><span class="token punctuation">;</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+</code></pre>
+<p class="output">Hello Java</p>
+<h3>2) Using new Keyword</h3>
+<p>We can create a new string object by using&nbsp;<strong>new</strong>&nbsp;operator that allocates memory for the object.</p>
+<pre class=" language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"Hello Java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+</code></pre>
+<p class="output">Hello Java</p>
+<p>Each time we create a String literal, the JVM checks the string pool first. If the string literal already exists in the pool, a reference to the pool instance is returned. If string does not exist in the pool, a new string object is created, and is placed in the pool. String objects are stored in a special memory area known as&nbsp;<strong>string constant pool</strong>&nbsp;inside the heap memory.</p>
+<h3>String object and How they are stored</h3>
+<p>When we create a new string object using string literal, that string literal is added to the string pool, if it is not present there already.</p>
+<pre class=" language-java"><code class=" language-java">String str<span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span></code></pre>
+<p><img src="https://www.studytonight.com/java/images/java-string1.jpg" alt="Creating String in heap" width="244" height="125" /></p>
+<p>And, when we create another object with same string, then a reference of the string literal already present in string pool is returned.</p>
+<pre class=" language-java"><code class=" language-java">String str2 <span class="token operator">=</span> str<span class="token punctuation">;</span></code></pre>
+<p><img src="https://www.studytonight.com/java/images/java-string2.jpg" alt="Creating String in heap" width="263" height="151" /></p>
+<p>But if we change the new string, its reference gets modified.</p>
+<pre class=" language-java"><code class=" language-java">str2<span class="token operator">=</span>str2<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">"world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><img src="https://www.studytonight.com/java/images/java-string3.jpg" alt="Creating String in heap" width="265" height="172" /></p>
+<h3>Concatenating String</h3>
+<p>There are 2 methods to concatenate two or more string.</p>
+<ol class="content">
+<li>Using&nbsp;<strong>concat()</strong>&nbsp;method</li>
+<li>Using&nbsp;<code>+</code>&nbsp;operator</li>
+</ol>
+<p>&nbsp;</p>
+<h3>1) Using concat() method</h3>
+<p><code>Concat()</code>&nbsp;method is used to add two or more string into a single string object. It is string class method and returns a string object.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>    
+	
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+    	String str <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+    	String str1 <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+</code></pre>
+<p class="output">HelloJava</p>
+<h3>2) Using + operator</h3>
+<p>Java uses&nbsp;<code>"+"</code>&nbsp;operator to concatenate two string objects into single one. It can also concatenate numeric value with string object. See the below example.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+    	String str <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+    	String str1 <span class="token operator">=</span> s<span class="token operator">+</span>str<span class="token punctuation">;</span>
+    	String str2 <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token operator">+</span><span class="token number">11</span><span class="token punctuation">;</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+</code></pre>
+<p class="output">HelloJava Java11</p>
+<h3>String Comparison</h3>
+<p>To compare string objects, Java provides methods and operators both. So we can compare string in following three ways.</p>
+<ol class="content">
+<li>Using&nbsp;<code>equals()</code>&nbsp;method</li>
+<li>Using&nbsp;<code>==</code>&nbsp;operator</li>
+<li>By&nbsp;<code>CompareTo()</code>&nbsp;method</li>
+</ol>
+<h3>Using equals() method</h3>
+<p><code>equals()</code>&nbsp;method compares two strings for equality. Its general syntax is,</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">boolean</span> equals <span class="token punctuation">(</span>Object str<span class="token punctuation">)</span></code></pre>
+<h3>Example</h3>
+<p>It compares the content of the strings. It will return&nbsp;<strong>true</strong>&nbsp;if string matches, else returns&nbsp;<strong>false</strong>.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s <span class="token operator">=</span> <span class="token string">"Hell"</span><span class="token punctuation">;</span>
+    	String s1 <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+    	String s2 <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+    	<span class="token keyword">boolean</span> b <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//true</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	b <span class="token operator">=</span>	s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span> <span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//false</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  <br /><br />output</code></pre>
+<p class="output">true false</p>
+<h3>Using == operator</h3>
+<p>The double&nbsp;<code>equal (==)</code>&nbsp;operator compares two object references to check whether they refer to same instance. This also, will return&nbsp;<strong>true</strong>&nbsp;on successful match else returns false.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s1 <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+    	String s2 <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+    	String s3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span> <span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token keyword">boolean</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//true</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	b <span class="token operator">=</span>	<span class="token punctuation">(</span>s1 <span class="token operator">==</span> s3<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//false</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  <br /><br />output</code></pre>
+<p class="output">true false</p>
+<h3>Explanation</h3>
+<p>We are creating a new object using new operator, and thus it gets created in a non-pool memory area of the heap. s1 is pointing to the String in string pool while s3 is pointing to the String in heap and hence, when we compare s1 and s3, the answer is false.</p>
+<p>The following image will explain it more clearly.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/not-equals-operator.png" alt="Data Warehouse Backup" width="253" height="140" /></p>
+<p>&nbsp;</p>
+<h3>By&nbsp;<code>compareTo()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>compareTo()</code>&nbsp;method compares values and returns an integer value which tells if the string compared is less than, equal to or greater than the other string. It compares the String based on natural ordering i.e alphabetically. Its general syntax is.</p>
+<h3>Syntax:</h3>
+<pre class=" language-java"><code class=" language-java"><span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span></code></pre>
+<h3>Example:</h3>
+<pre class=" language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span><span class="token punctuation">{</span>    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    	String s1 <span class="token operator">=</span> <span class="token string">"Abhi"</span><span class="token punctuation">;</span>
+    	String s2 <span class="token operator">=</span> <span class="token string">"Viraaj"</span><span class="token punctuation">;</span>
+    	String s3 <span class="token operator">=</span> <span class="token string">"Abhi"</span><span class="token punctuation">;</span>
+    	<span class="token keyword">int</span> a <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//return -21 because s1 &lt; s2 </span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	a <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>s3<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//return 0 because s1 == s3 </span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	a <span class="token operator">=</span> s2<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//return 21 because s2 &gt; s1</span>
+    	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span> <br />output</code></pre>
+<p class="output">-21 0 21</p>
+<p class="output">&nbsp;</p>
+<h1>Java String class functions</h1>
+<p class="output">&nbsp;</p>
+<p>The methods specified below are some of the most commonly used methods of the&nbsp;<code>String</code>&nbsp;class in Java. We will learn about each method with help of small code examples for better understanding.</p>
+<h3><code>charAt()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>charAt()</code>&nbsp;function returns the character located at the specified index.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+        String str <span class="token operator">=</span> <span class="token string">"Cubicles Developer"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Output:</strong>&nbsp;b</p>
+<p><strong>NOTE:&nbsp;</strong>Index of a String starts from 0, hence&nbsp;<code>str.charAt(2)</code>&nbsp;means third character of the String str.</p>
+<h3><code>equalsIgnoreCase()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>equalsIgnoreCase()</code>&nbsp;determines the equality of two Strings, ignoring their case (upper or lower case doesn't matter with this method).</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+        String str <span class="token operator">=</span> <span class="token string">"java"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span><span class="token string">"JAVA"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">true</p>
+<h3><code>indexOf()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>indexOf()</code>&nbsp;method returns the index of first occurrence of a substring or a character. indexOf() method has four override methods:</p>
+<ul class="content">
+<li><code>int indexOf(String str)</code>: It returns the index within this string of the first occurrence of the specified substring.</li>
+<li><code>int indexOf(int ch, int fromIndex)</code>: It returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.</li>
+<li><code>int indexOf(int ch)</code>: It returns the index within this string of the first occurrence of the specified character.</li>
+<li><code>int indexOf(String str, int fromIndex)</code>: It returns the index within this string of the first occurrence of the specified substring, starting at the specified index.</li>
+</ul>
+<div>&nbsp;</div>
+<h3><code>length()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>length()</code>&nbsp;function returns the number of characters in a String.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+        String str <span class="token operator">=</span> <span class="token string">"Count me"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">8</p>
+<h3><code>replace()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>replace()</code>&nbsp;method replaces occurances of character with a specified new character.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+        String str <span class="token operator">=</span> <span class="token string">"Change me"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'m'</span><span class="token punctuation">,</span><span class="token string">'M'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">;</span></code></pre>
+<p class="output">Change Me</p>
+<h3><code>substring()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>substring()</code>&nbsp;method returns a part of the string.&nbsp;<code>substring()</code>&nbsp;method has two override methods.</p>
+<p>1. public String substring(int begin);</p>
+<p>2. public String substring(int begin, int end);</p>
+<p>The first argument represents the starting point of the subtring. If the&nbsp;<code>substring()</code>&nbsp;method is called with only one argument, the subtring returns characters from specified starting point to the end of original string.</p>
+<p>If method is called with two arguments, the second argument specify the end point of substring.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        String str <span class="token operator">=</span> <span class="token string">"0123456789"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">456789 456</p>
+<h3><code>toLowerCase()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>toLowerCase()</code>&nbsp;method returns string with all uppercase characters converted to lowercase.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        String str <span class="token operator">=</span> <span class="token string">"ABCDEF"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">abcdef</p>
+<h3><code>toUpperCase()</code>&nbsp;method</h3>
+<p>This method returns string with all lowercase character changed to uppercase.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        String str <span class="token operator">=</span> <span class="token string">"abcdef"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">ABCDEF</p>
+<h3><code>valueOf()</code>&nbsp;method</h3>
+<p>String class uses overloaded version of&nbsp;<code>valueOf()</code>&nbsp;method for all primitive data types and for type Object.</p>
+<p><strong>NOTE:</strong>&nbsp;<code>valueOf()</code>&nbsp;function is used to convert&nbsp;<strong>primitive data types</strong>&nbsp;into Strings.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">;</span>
+         String s1 <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//converting int to String</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"type of num is: "</span><span class="token operator">+</span>s1<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">35 type of num is: java.lang.String</p>
+<h3><code>toString()</code>&nbsp;method</h3>
+<p>String&nbsp;<code>toString()</code>&nbsp;method returns the string representation of an object. It is declared in the Object class, hence can be overridden by any java class. (Object class is super class of all java classes).</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Car c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"This is my car object"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">This is my car object</p>
+<p>Whenever we will try to print any object of class Car, its&nbsp;<code>toString()</code>&nbsp;function will be called.</p>
+<p><strong>NOTE:</strong>&nbsp;If we don't override the&nbsp;<code>toString()</code>&nbsp;method and directly print the object, then it would print the object id that contains some hashcode.</p>

@@ -1,0 +1,141 @@
+<h1>Java throw, throws and finally Keyword</h1>
+
+<p>&nbsp;</p>
+<p><code>Throw, throws and finally</code>&nbsp;are the keywords in Java that are used in exception handling. The throw keyword is used to throw an exception and throws is used to declare the list of possible exceptions with the method signature. Whereas finally block is used to execute essential code, specially to release the occupied resources.</p>
+<p>Now lets discuss each in details with the examples.</p>
+<h3>Java Throw</h3>
+<p>The throw keyword is used to throw an exception explicitly. Only object of Throwable class or its sub classes can be thrown. Program execution stops on encountering&nbsp;<strong>throw</strong>&nbsp;statement, and the closest catch statement is checked for matching type of exception.</p>
+<p><strong>Syntax :</strong></p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">throw</span> ThrowableInstance</code></pre>
+<h3>Creating Instance of Throwable class</h3>
+<p>We allows to use new operator to create an instance of class Throwable,</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">new</span> <span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>This constructs an instance of NullPointerException with name test.</p>
+<h3>Example throw Exception</h3>
+<p>In this example, we are throwing Arithmetic exception explicitly by using the throw keyword that will be handle by catch block.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Test</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">avg</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ArithmeticException</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>ArithmeticException e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Exception caught"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+    <span class="token function">avg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In the above example the avg() method throw an instance of ArithmeticException, which is successfully handled using the catch statement and thus, the program prints the output "Exception caught".</p>
+<h2>Java&nbsp;<code>throws</code>&nbsp;Keyword</h2>
+<p>The throws keyword is used to declare the list of exception that a method may throw during execution of program. Any method that is capable of causing exceptions must list all the exceptions possible during its execution, so that anyone calling that method gets a prior knowledge about which exceptions are to be handled. A method can do so by using the&nbsp;<strong>throws</strong>&nbsp;keyword.</p>
+<p><strong>Syntax:</strong></p>
+<pre class="java language-java"><code class=" language-java">type <span class="token function">method_name</span><span class="token punctuation">(</span>parameter_list<span class="token punctuation">)</span> <span class="token keyword">throws</span> exception_list
+<span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// definition of method</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<div>&nbsp;</div>
+<h3>Example throws Keyword</h3>
+<p>Here, we have a method that can throw Arithmetic exception so we mentioned that with the method declaration and catch that using the catch handler in the main method.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Test</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> ArithmeticException
+  <span class="token punctuation">{</span>  
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Inside check function"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ArithmeticException</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">check</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>ArithmeticException e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"caught"</span> <span class="token operator">+</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Inside check function caughtjava.lang.ArithmeticException: demo</p>
+<hr />
+<h3>Difference between throw and throws</h3>
+<table class="center" style="height: 181px;" border="1" width="467">
+<tbody>
+<tr>
+<th style="width: 220.8px;">throw</th>
+<th style="width: 231.2px;">throws</th>
+</tr>
+<tr>
+<td style="width: 220.8px;">throw keyword is used to throw an exception explicitly.</td>
+<td style="width: 231.2px;">throws keyword is used to declare an exception possible during its execution.</td>
+</tr>
+<tr>
+<td style="width: 220.8px;">throw keyword is followed by an instance of Throwable class or one of its sub-classes.</td>
+<td style="width: 231.2px;">throws keyword is followed by one or more Exception class names separated by commas.</td>
+</tr>
+<tr>
+<td style="width: 220.8px;">throw keyword is declared inside a method body.</td>
+<td style="width: 231.2px;">throws keyword is used with method signature (method declaration).</td>
+</tr>
+<tr>
+<td style="width: 220.8px;">We cannot throw multiple exceptions using throw keyword.</td>
+<td style="width: 231.2px;">We can declare multiple exceptions (separated by commas) using throws keyword.</td>
+</tr>
+</tbody>
+</table>
+<h3><code>finally</code>&nbsp;clause</h3>
+<p>A finally keyword is used to create a block of code that follows a try block. A finally block of code is always executed whether an exception has occurred or not. Using a finally block, it lets you run any cleanup type statements that you want to execute, no matter what happens in the protected code. A finally block appears at the end of catch block.</p>
+<p><img src="https://www.studytonight.com/java/images/finally-block-in-java.gif" alt="finally clause in exception handling in java" width="273" height="205" /></p>
+<h3>Example finally Block</h3>
+<p>In this example, we are using finally block along with try block. This program throws an exception and due to exception, program terminates its execution but see code written inside the finally block executed. It is because of nature of finally block that guarantees to execute the code.</p>
+<pre class="java language-java"><code class=" language-java">Class <span class="token class-name">ExceptionTest</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"out of try"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Access invalid element"</span><span class="token operator">+</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">/* the above statement will throw ArrayIndexOutOfBoundException */</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">finally</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"finally is always executed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Out of try finally is always executed. Exception in thread main java. Lang. exception array Index out of bound exception.</p>
+<p>You can see in above example even if exception is thrown by the program, which is not handled by catch block, still finally block will get executed.</p>
+<h3>Example : Finally Block</h3>
+<p>finally block executes in all the scenario whether exception is caught or not. In previous example, we use finally where exception was not caught but here exception is caught and finally is used with handler.</p>
+<pre class=" language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Demo</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Access invalid element"</span><span class="token operator">+</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">/* the above statement will throw ArrayIndexOutOfBoundException */</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>ArrayIndexOutOfBoundsException e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Exception caught"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">finally</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"finally is always executed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">Exception caught finally is always executed</p>

@@ -1,0 +1,173 @@
+<h1>Java Synchronization</h1>
+
+<p>&nbsp;</p>
+<p>Synchronization is a process of handling resource accessibility by multiple thread requests. The main purpose of synchronization is to avoid thread interference. At times when more than one thread try to access a shared resource, we need to ensure that resource will be used by only one thread at a time. The process by which this is achieved is called synchronization. The synchronization keyword in java creates a block of code referred to as critical section.</p>
+<p><strong>General Syntax:</strong></p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">synchronized</span> <span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//statement to be synchronized</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Every Java object with a critical section of code gets a lock associated with the object. To enter critical section a thread need to obtain the corresponding object's lock.</p>
+<h3>Why we need Syncronization?</h3>
+<p>If we do not use syncronization, and let two or more threads access a shared resource at the same time, it will lead to distorted results.</p>
+<p>Consider an example, Suppose we have two different threads&nbsp;<strong>T1</strong>&nbsp;and&nbsp;<strong>T2</strong>, T1 starts execution and save certain values in a file&nbsp;<em>temporary.txt</em>&nbsp;which will be used to calculate some result when T1 returns. Meanwhile, T2 starts and before T1 returns, T2 change the values saved by T1 in the file temporary.txt (temporary.txt is the shared resource). Now obviously T1 will return wrong result.</p>
+<p>To prevent such problems, synchronization was introduced. With synchronization in above case, once T1 starts using&nbsp;<em>temporary.txt</em>&nbsp;file, this file will be&nbsp;<strong>locked</strong>(LOCK mode), and no other thread will be able to access or modify it until T1 returns.</p>
+<h3>Using Synchronized Methods</h3>
+<p>Using Synchronized methods is a way to accomplish synchronization. But lets first see what happens when we do not use synchronization in our program.</p>
+<p>&nbsp;</p>
+<h3>Example with no Synchronization</h3>
+<p>In this example, we are not using synchronization and creating multiple threads that are accessing display method and produce the random output.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">First</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span>String msg<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span>print <span class="token punctuation">(</span><span class="token string">"["</span><span class="token operator">+</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Second</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+  String msg<span class="token punctuation">;</span>
+  First fobj<span class="token punctuation">;</span>
+  Second <span class="token punctuation">(</span>First fp<span class="token punctuation">,</span>String str<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    fobj <span class="token operator">=</span> fp<span class="token punctuation">;</span>
+    msg <span class="token operator">=</span> str<span class="token punctuation">;</span>
+    <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    fobj<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Syncro</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    First fnew <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">First</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span> <span class="token string">"welcome"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss1<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span><span class="token string">"new"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span> <span class="token string">"programmer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">[welcome [ new [ programmer] ] ]</p>
+<div>&nbsp;</div>
+<p>In the above program, object&nbsp;<strong>fnew</strong>&nbsp;of class First is shared by all the three running threads(ss, ss1 and ss2) to call the shared method(void&nbsp;<strong>display</strong>). Hence the result is nonsynchronized and such situation is called&nbsp;<strong>Race condition</strong>..</p>
+<h3>Synchronized Keyword</h3>
+<p>To synchronize above program, we must&nbsp;<em>synchronize</em>&nbsp;access to the shared&nbsp;<strong>display()</strong>&nbsp;method, making it available to only one thread at a time. This is done by using keyword&nbsp;<strong>synchronized</strong>&nbsp;with display() method.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">synchronized</span> <span class="token keyword">void</span> display <span class="token punctuation">(</span>String msg<span class="token punctuation">)</span></code></pre>
+<h3>Example : implementation of synchronized method</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">First</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">synchronized</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span>String msg<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span>print <span class="token punctuation">(</span><span class="token string">"["</span><span class="token operator">+</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Second</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+  String msg<span class="token punctuation">;</span>
+  First fobj<span class="token punctuation">;</span>
+  Second <span class="token punctuation">(</span>First fp<span class="token punctuation">,</span>String str<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    fobj <span class="token operator">=</span> fp<span class="token punctuation">;</span>
+    msg <span class="token operator">=</span> str<span class="token punctuation">;</span>
+    <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    fobj<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    First fnew <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">First</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span> <span class="token string">"welcome"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss1<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span><span class="token string">"new"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span> <span class="token string">"programmer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">[welcome] [programmer] [new]</p>
+<h3>Using Synchronized block</h3>
+<p>If want to synchronize access to an object of a class or only a part of a method to be synchronized then we can use synchronized block for it. It is capable to make any part of the object and method synchronized.</p>
+<h3>Example</h3>
+<p>In this example, we are using synchronized block that will make the display method available for single thread at a time.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">First</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span>String msg<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span>print <span class="token punctuation">(</span><span class="token string">"["</span><span class="token operator">+</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span>println <span class="token punctuation">(</span><span class="token string">"]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Second</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+  String msg<span class="token punctuation">;</span>
+  First fobj<span class="token punctuation">;</span>
+  Second <span class="token punctuation">(</span>First fp<span class="token punctuation">,</span>String str<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    fobj <span class="token operator">=</span> fp<span class="token punctuation">;</span>
+    msg <span class="token operator">=</span> str<span class="token punctuation">;</span>
+    <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">synchronized</span><span class="token punctuation">(</span>fobj<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//Synchronized block</span>
+    <span class="token punctuation">{</span>
+      fobj<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    First fnew <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">First</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span> <span class="token string">"welcome"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss1<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span> <span class="token punctuation">(</span>fnew<span class="token punctuation">,</span><span class="token string">"new"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Second ss2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span>fnew<span class="token punctuation">,</span> <span class="token string">"programmer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+  </code></pre>
+<p class="output">[welcome] [new] [programmer]</p>
+<p>Because of synchronized block this program gives the expected output.</p>
+<h3>Difference between synchronized keyword and synchronized block</h3>
+<p>When we use synchronized keyword with a method, it acquires a lock in the object for the whole method. It means that no other thread can use any synchronized method until the current thread, which has invoked it's synchronized method, has finished its execution.</p>
+<p>synchronized block acquires a lock in the object only between parentheses after the synchronized keyword. This means that no other thread can acquire a lock on the locked object until the synchronized block exits. But other threads can access the rest of the code of the method.</p>
+<h3>Which is more preferred - Synchronized method or Synchronized block?</h3>
+<p>In Java, synchronized keyword causes a performance cost. A synchronized method in Java is very slow and can degrade performance. So we must use synchronization keyword in java when it is necessary else, we should use Java synchronized block that is used for synchronizing critical section only.</p>

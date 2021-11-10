@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context=".Aboutapp">
+
+    <RelativeLayout
+        android:id="@+id/rewqa"
+        android:layout_width="match_parent"
+        android:elevation="5dp"
+        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/tool"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/raleway_bold"
+            android:text="About App"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:padding="45dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/rewqa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/raleway_bold"
+        android:textSize="20sp"
+        android:text="You cannot run or execute programs in this app. If you are searching for an application to learn java basic to advance without any programming knowledge. You are at the right place. Whether you are an experienced programmer or not, this Application is intended for everyone who wishes to learn the Java programming language. There is no need to Internet anything we built this app keeping in mind that you are new to java we covered core topics that are necessary for java programming!"
+         />
+</RelativeLayout>

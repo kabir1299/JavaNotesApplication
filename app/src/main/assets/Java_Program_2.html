@@ -1,0 +1,214 @@
+<header class="entry-header">
+
+<h1 class="entry-title">Java Program to Make a Calculator using Switch Case</h1>
+</header>
+<div class="entry-content">
+<p>In this Program we are making a simple calculator that performs addition, subtraction, multiplication and division based on the user input. The program takes the value of both the numbers (entered by user) and then user is asked to enter the operation (+, -, * and /), based on the input program performs the selected operation on the entered numbers using switch case</p>
+<h2>Example: Program to make a calculator using switch case in Java</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JavaExample</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+    	<span class="kwd">double</span><span class="pln"> num1</span><span class="pun">,</span><span class="pln"> num2</span><span class="pun">;</span>
+        <span class="typ">Scanner</span><span class="pln"> scanner </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter first number:"</span><span class="pun">);</span>
+
+        <span class="com">/* We are using data type double so that user
+         * can enter integer as well as floating point
+         * value
+         */</span><span class="pln">
+        num1 </span><span class="pun">=</span><span class="pln"> scanner</span><span class="pun">.</span><span class="pln">nextDouble</span><span class="pun">();</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter second number:"</span><span class="pun">);</span><span class="pln">
+        num2 </span><span class="pun">=</span><span class="pln"> scanner</span><span class="pun">.</span><span class="pln">nextDouble</span><span class="pun">();</span>
+
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter an operator (+, -, *, /): "</span><span class="pun">);</span>
+        <span class="kwd">char</span> <span class="kwd">operator</span> <span class="pun">=</span><span class="pln"> scanner</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">().</span><span class="pln">charAt</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+
+        scanner</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+        <span class="kwd">double</span><span class="pln"> output</span><span class="pun">;</span>
+
+        <span class="kwd">switch</span><span class="pun">(</span><span class="kwd">operator</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="kwd">case</span> <span class="str">'+'</span><span class="pun">:</span><span class="pln">
+            	output </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">+</span><span class="pln"> num2</span><span class="pun">;</span>
+                <span class="kwd">break</span><span class="pun">;</span>
+
+            <span class="kwd">case</span> <span class="str">'-'</span><span class="pun">:</span><span class="pln">
+            	output </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">-</span><span class="pln"> num2</span><span class="pun">;</span>
+                <span class="kwd">break</span><span class="pun">;</span>
+
+            <span class="kwd">case</span> <span class="str">'*'</span><span class="pun">:</span><span class="pln">
+            	output </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">*</span><span class="pln"> num2</span><span class="pun">;</span>
+                <span class="kwd">break</span><span class="pun">;</span>
+
+            <span class="kwd">case</span> <span class="str">'/'</span><span class="pun">:</span><span class="pln">
+            	output </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">/</span><span class="pln"> num2</span><span class="pun">;</span>
+                <span class="kwd">break</span><span class="pun">;</span>
+
+            <span class="com">/* If user enters any other operator or char apart from
+             * +, -, * and /, then display an error message to user
+             * 
+             */</span>
+            <span class="kwd">default</span><span class="pun">:</span>
+                <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">printf</span><span class="pun">(</span><span class="str">"You have entered wrong operator"</span><span class="pun">);</span>
+                <span class="kwd">return</span><span class="pun">;</span>
+        <span class="pun">}</span>
+
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">num1</span><span class="pun">+</span><span class="str">" "</span><span class="pun">+</span><span class="kwd">operator</span><span class="pun">+</span><span class="str">" "</span><span class="pun">+</span><span class="pln">num2</span><span class="pun">+</span><span class="str">": "</span><span class="pun">+</span><span class="pln">output</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> first number</span><span class="pun">:</span><span class="lit">40</span>
+<span class="typ">Enter</span><span class="pln"> second number</span><span class="pun">:</span><span class="lit">4</span>
+<span class="typ">Enter</span><span class="pln"> an </span><span class="kwd">operator</span> <span class="pun">(+,</span> <span class="pun">-,</span> <span class="pun">*,</span> <span class="pun">/):</span> <span class="pun">/</span>
+<span class="lit">40.0</span> <span class="pun">/</span> <span class="lit">4.0</span><span class="pun">:</span> <span class="lit">10.0</span></pre>
+<p>&nbsp;</p>
+<header class="entry-header">
+<h1 class="entry-title">Java Program to find Sum of Natural Numbers</h1>
+<p class="entry-meta">&nbsp;</p>
+</header>
+<div class="entry-content">
+<p>The positive integers 1, 2, 3, 4 etc. are known as natural numbers. Here we will see three programs to calculate and display the sum of natural numbers.</p>
+<ul>
+<li>First Program calculates the sum using while loop</li>
+<li>Second Program calculates the sum using for loop</li>
+<li>Third Program takes the value of n(entered by user) and calculates the sum of n natural numbers</li>
+</ul>
+<h2>Example 1: Program to find the sum of natural numbers using while loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Demo</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+       <span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">,</span><span class="pln"> count </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">,</span><span class="pln"> total </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+
+       <span class="kwd">while</span><span class="pun">(</span><span class="pln">count </span><span class="pun">&lt;=</span><span class="pln"> num</span><span class="pun">)</span>
+       <span class="pun">{</span><span class="pln">
+           total </span><span class="pun">=</span><span class="pln"> total </span><span class="pun">+</span><span class="pln"> count</span><span class="pun">;</span><span class="pln">
+           count</span><span class="pun">++;</span>
+       <span class="pun">}</span>
+
+       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sum of first 10 natural numbers is: "</span><span class="pun">+</span><span class="pln">total</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Sum</span><span class="pln"> of first </span><span class="lit">10</span><span class="pln"> natural numbers </span><span class="kwd">is</span><span class="pun">:</span> <span class="lit">55</span></pre>
+<h2>Example 2: Program to calculate the sum of natural numbers using for loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Demo</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+       <span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">,</span><span class="pln"> total </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+
+       <span class="kwd">for</span><span class="pun">(</span><span class="pln">count </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span><span class="pln"> count </span><span class="pun">&lt;=</span><span class="pln"> num</span><span class="pun">;</span><span class="pln"> count</span><span class="pun">++){</span><span class="pln">
+           total </span><span class="pun">=</span><span class="pln"> total </span><span class="pun">+</span><span class="pln"> count</span><span class="pun">;</span>
+       <span class="pun">}</span>
+
+       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sum of first 10 natural numbers is: "</span><span class="pun">+</span><span class="pln">total</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<div class="lq">&nbsp;</div>
+<pre class="prettyprint prettyprinted"><span class="typ">Sum</span><span class="pln"> of first </span><span class="lit">10</span><span class="pln"> natural numbers </span><span class="kwd">is</span><span class="pun">:</span> <span class="lit">55</span></pre>
+<h2>Example 3: Program to find sum of first n (entered by user) natural numbers</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Demo</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+        <span class="kwd">int</span><span class="pln"> num</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">,</span><span class="pln"> total </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+
+        
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Enter the value of n:"</span><span class="pun">);</span>
+        <span class="com">//Scanner is used for reading user input</span>
+        <span class="typ">Scanner</span><span class="pln"> scan </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span>
+        <span class="com">//nextInt() method reads integer entered by user</span><span class="pln">
+        num </span><span class="pun">=</span><span class="pln"> scan</span><span class="pun">.</span><span class="pln">nextInt</span><span class="pun">();</span>
+        <span class="com">//closing scanner after use</span><span class="pln">
+        scan</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+        <span class="kwd">for</span><span class="pun">(</span><span class="pln">count </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span><span class="pln"> count </span><span class="pun">&lt;=</span><span class="pln"> num</span><span class="pun">;</span><span class="pln"> count</span><span class="pun">++){</span><span class="pln">
+            total </span><span class="pun">=</span><span class="pln"> total </span><span class="pun">+</span><span class="pln"> count</span><span class="pun">;</span>
+        <span class="pun">}</span>
+
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sum of first "</span><span class="pun">+</span><span class="pln">num</span><span class="pun">+</span><span class="str">" natural numbers is: "</span><span class="pun">+</span><span class="pln">total</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> the value of n</span><span class="pun">:</span>
+<span class="lit">20</span>
+<span class="typ">Sum</span><span class="pln"> of first </span><span class="lit">20</span><span class="pln"> natural numbers </span><span class="kwd">is</span><span class="pun">:</span> <span class="lit">210<br /><br /></span></pre>
+<header class="entry-header">
+<h1 class="entry-title">Java Program to Find Factorial using For and While loop</h1>
+</header>
+<div class="entry-content">
+<p>We will write three java programs to find factorial of a number. 1) using for loop 2) using while loop 3) finding factorial of a number entered by user. Before going through the program, lets understand what is factorial: Factorial of a number n is denoted as&nbsp;<code>n!</code>&nbsp;and the value of&nbsp;<code>n!</code>&nbsp;is: 1 * 2 * 3 * &hellip; (n-1) * n</p>
+<h2>Example: Finding factorial using for loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JavaExample</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+    	<span class="com">//We will find the factorial of this number</span>
+        <span class="kwd">int</span><span class="pln"> number </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span>
+        <span class="kwd">long</span><span class="pln"> fact </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span>
+        <span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> number</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+        <span class="pun">{</span><span class="pln">
+            fact </span><span class="pun">=</span><span class="pln"> fact </span><span class="pun">*</span><span class="pln"> i</span><span class="pun">;</span>
+        <span class="pun">}</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Factorial of "</span><span class="pun">+</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is: "</span><span class="pun">+</span><span class="pln">fact</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Factorial</span><span class="pln"> of </span><span class="lit">5</span> <span class="kwd">is</span><span class="pun">:</span> <span class="lit">120</span></pre>
+<h2>Example 2: Finding Factorial using while loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JavaExample</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+    	<span class="com">//We will find the factorial of this number</span>
+        <span class="kwd">int</span><span class="pln"> number </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span>
+        <span class="kwd">long</span><span class="pln"> fact </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span>
+        <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span>
+        <span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;=</span><span class="pln">number</span><span class="pun">)</span>
+        <span class="pun">{</span><span class="pln">
+            fact </span><span class="pun">=</span><span class="pln"> fact </span><span class="pun">*</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+            i</span><span class="pun">++;</span>
+        <span class="pun">}</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Factorial of "</span><span class="pun">+</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is: "</span><span class="pun">+</span><span class="pln">fact</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<div class="lq">&nbsp;</div>
+<pre class="prettyprint prettyprinted"><span class="typ">Factorial</span><span class="pln"> of </span><span class="lit">5</span> <span class="kwd">is</span><span class="pun">:</span> <span class="lit">120</span></pre>
+<h2>Example 3: Finding factorial of a number entered by user</h2>
+<p>Program finds the factorial of input number using while loop.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JavaExample</span> <span class="pun">{</span>
+
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+
+    	<span class="com">//We will find the factorial of this number</span>
+        <span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Enter the number: "</span><span class="pun">);</span>
+        <span class="typ">Scanner</span><span class="pln"> scanner </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span><span class="pln">
+        number </span><span class="pun">=</span><span class="pln"> scanner</span><span class="pun">.</span><span class="pln">nextInt</span><span class="pun">();</span><span class="pln">
+        scanner</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+        <span class="kwd">long</span><span class="pln"> fact </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span>
+        <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">1</span><span class="pun">;</span>
+        <span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&lt;=</span><span class="pln">number</span><span class="pun">)</span>
+        <span class="pun">{</span><span class="pln">
+            fact </span><span class="pun">=</span><span class="pln"> fact </span><span class="pun">*</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+            i</span><span class="pun">++;</span>
+        <span class="pun">}</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Factorial of "</span><span class="pun">+</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is: "</span><span class="pun">+</span><span class="pln">fact</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> the number</span><span class="pun">:</span> 
+<span class="lit">6</span>
+<span class="typ">Factorial</span><span class="pln"> of </span><span class="lit">6</span> <span class="kwd">is</span><span class="pun">:</span> <span class="lit">720</span></pre>
+</div>
+<pre class="prettyprint prettyprinted"><span class="lit">&nbsp;</span></pre>
+</div>
+<div class="lq">&nbsp;</div>
+</div>

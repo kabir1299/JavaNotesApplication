@@ -1,0 +1,110 @@
+
+<h1>Java Interfaces</h1>
+<p>&nbsp;</p>
+<p>Interface is a concept which is used to achieve abstraction in Java. This is the only way by which we can achieve full abstraction. Interfaces are syntactically similar to classes, but you cannot create instance of an&nbsp;<strong>Interface</strong>&nbsp;and their methods are declared without any body. It can have When you create an interface it defines what a class can do without saying anything about how the class will do it.</p>
+<p>It can have only abstract methods and static fields. However, from&nbsp;<strong>Java 8</strong>, interface can have&nbsp;<strong>default</strong>&nbsp;and&nbsp;<strong>static methods</strong>&nbsp;and from&nbsp;<strong>Java 9</strong>, it can have&nbsp;<strong>private methods</strong>&nbsp;as well.</p>
+<p>When an interface inherits another interface&nbsp;<strong>extends</strong>&nbsp;keyword is used whereas class use&nbsp;<strong>implements</strong>&nbsp;keyword to inherit an interface.</p>
+<h3>Advantages of Interface</h3>
+<ul class="content">
+<li>It Support multiple inheritance</li>
+<li>It helps to achieve abstraction</li>
+<li>It can be used to achieve loose coupling.</li>
+</ul>
+<p><strong>Syntax:</strong></p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">interface</span> <span class="token class-name">interface_name</span> <span class="token punctuation">{</span>  
+<span class="token comment" spellcheck="true">// fields</span>
+<span class="token comment" spellcheck="true">// abstract/private/default methods</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3>Interface Key Points</h3>
+<ul class="content">
+<li>Methods inside interface must not be static, final, native or strictfp.</li>
+<li>All variables declared inside interface are implicitly public, static and final.</li>
+<li>All methods declared inside interfaces are implicitly public and abstract, even if you don't use public or abstract keyword.</li>
+<li>Interface can extend one or more other interface.</li>
+<li>Interface cannot implement a class.</li>
+<li>Interface can be nested inside another interface.</li>
+</ul>
+<h2>Time for an Example!</h2>
+<p>Let's take a simple code example and understand what interfaces are:</p>
+<p>&nbsp;</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">interface</span> <span class="token class-name">Moveable</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">int</span> AVERAGE<span class="token operator">-</span>SPEED <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+ 	<span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&nbsp;</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/interface-in-java.jpg" alt="Interface in Java" width="290" height="190" /></p>
+<p><strong>NOTE:&nbsp;</strong>Compiler automatically converts methods of Interface as public and abstract, and the data members as public, static and final by default.</p>
+<div>&nbsp;</div>
+<h3>Example of Interface implementation</h3>
+<p>In this example, we created an interface and implemented using a class. lets see how to implement the interface.</p>
+<p>&nbsp;</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">interface</span> <span class="token class-name">Moveable</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">int</span> AVG<span class="token operator">-</span>SPEED <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+ 	<span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Vehicle</span> <span class="token keyword">implements</span> <span class="token class-name">Moveable</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		System <span class="token punctuation">.</span>out<span class="token punctuation">.</span> print in <span class="token punctuation">(</span><span class="token string">"Average speed is"</span><span class="token operator">+</span>AVG<span class="token operator">-</span>SPEED"<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> arg<span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		Vehicle vc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vehicle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  		vc<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&nbsp;</p>
+<p class="output">Average speed is 40.</p>
+<hr />
+<h3>Interfaces supports Multiple Inheritance</h3>
+<p>Though classes in Java doesn't support multiple inheritance, but a class can implement more than one interfaces.</p>
+<p>In this example, two interfaces are implemented by a class that show implementation of multiple inheritance.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">interface</span> <span class="token class-name">Moveable</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">boolean</span> <span class="token function">isMoveable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Rollable</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">boolean</span> isRollable
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Tyre</span> <span class="token keyword">implements</span> <span class="token class-name">Moveable</span><span class="token punctuation">,</span> Rollable
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">int</span> width<span class="token punctuation">;</span>
+
+ 	<span class="token keyword">boolean</span> <span class="token function">isMoveable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+
+ 	<span class="token keyword">boolean</span> <span class="token function">isRollable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+ 	
+ 	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		Tyre tr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tyre</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>tr<span class="token punctuation">.</span><span class="token function">isMoveable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>tr<span class="token punctuation">.</span><span class="token function">isRollable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">true true</p>
+<hr />
+<h3>Interface extends other Interface</h3>
+<p>Interface can inherit to another interface by using extends keyword. But in this case, interface just inherit, does not provide implementation. Implementation can be provided by a class only.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">interface</span> <span class="token class-name">NewsPaper</span>
+<span class="token punctuation">{</span>
+ 	<span class="token function">news</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Magazine</span> <span class="token keyword">extends</span> <span class="token class-name">NewsPaper</span>
+<span class="token punctuation">{</span>
+ 	<span class="token function">colorful</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>

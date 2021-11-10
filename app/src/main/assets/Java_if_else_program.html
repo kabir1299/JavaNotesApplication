@@ -1,0 +1,98 @@
+<header class="entry-header"><header class="entry-header"><header class="entry-header">
+
+<h1 class="entry-title" style="text-align: justify;">Java Program to check if Number is Positive or Negative</h1>
+<p class="entry-meta" style="text-align: justify;">&nbsp;</p>
+</header>
+<div class="entry-content" style="text-align: justify;">
+<p>In this post, we will write two java programs, first java programs checks whether the specified number is positive or negative. The second program takes the input number (entered by user) and checks whether it is positive or negative and displays the result.<br />&rarr; If a number is greater than zero then it is a positive number<br />&rarr; If a number is less than zero then it is a negative number<br />&rarr; If a number is equal to zero then it is neither negative nor positive.</p>
+<p>Lets write this logic in a Java Program.</p>
+<h2>Example 1: Program to check whether the given number is positive or negative</h2>
+<p>In this program we have specified the value of number during declaration and the program checks whether the specified number is positive or negative.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> Number
+<span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> 
+    <span class="pun">{</span>
+        <span class="kwd">int</span><span class="pln"> number</span><span class="pun">=</span><span class="lit">109</span><span class="pun">;</span>
+        <span class="kwd">if</span><span class="pun">(</span><span class="pln">number </span><span class="pun">&gt;</span> <span class="lit">0</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is a positive number"</span><span class="pun">);</span>
+        <span class="pun">}</span>
+        <span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">number </span><span class="pun">&lt;</span> <span class="lit">0</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is a negative number"</span><span class="pun">);</span>
+        <span class="pun">}</span>
+        <span class="kwd">else</span>
+        <span class="pun">{</span>
+            <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is neither positive nor negative"</span><span class="pun">);</span>
+        <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<div class="lq">&nbsp;</div>
+<pre class="prettyprint prettyprinted">109 <span class="kwd">is</span><span class="pln"> a positive number</span></pre>
+<h2>Example 2: Check whether the input number(entered by user) is positive or negative</h2>
+<p>Here we are using Scanner to read the number entered by user&nbsp;and then the program checks and displays the result.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+<span class="kwd">public</span> <span class="kwd">class</span> Number
+<span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> 
+    <span class="pun">{</span>
+        <span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span>
+        <span class="typ">Scanner</span><span class="pln"> scan </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Enter the number you want to check:"</span><span class="pun">);</span><span class="pln">
+        number </span><span class="pun">=</span><span class="pln"> scan</span><span class="pun">.</span><span class="pln">nextInt</span><span class="pun">();</span><span class="pln">
+        scan</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span>
+        <span class="kwd">if</span><span class="pun">(</span><span class="pln">number </span><span class="pun">&gt;</span> <span class="lit">0</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is positive number"</span><span class="pun">);</span>
+        <span class="pun">}</span>
+        <span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">number </span><span class="pun">&lt;</span> <span class="lit">0</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is negative number"</span><span class="pun">);</span>
+        <span class="pun">}</span>
+        <span class="kwd">else</span>
+        <span class="pun">{</span>
+            <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">number</span><span class="pun">+</span><span class="str">" is neither positive nor negative"</span><span class="pun">);</span>
+        <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> the number you want to check</span><span class="pun">:-</span><span class="lit">12</span>
+<span class="pun">-</span><span class="lit">12</span> <span class="kwd">is</span><span class="pln"> negative number<br /><br /></span></pre>
+<header class="entry-header">
+<h1 class="entry-title">Java Program to check Even or Odd number</h1>
+</header>
+<div class="entry-content">
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="typ">Scanner</span><span class="pun">;</span>
+
+<span class="kwd">class</span> <span class="typ">CheckEvenOdd</span>
+<span class="pun">{</span>
+  <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span>
+  <span class="pun">{</span>
+    <span class="kwd">int</span><span class="pln"> num</span><span class="pun">;</span>
+    <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Enter an Integer number:"</span><span class="pun">);</span>
+
+    <span class="com">//The input provided by user is stored in num</span>
+    <span class="typ">Scanner</span><span class="pln"> input </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Scanner</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">in</span><span class="pun">);</span><span class="pln">
+    num </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">nextInt</span><span class="pun">();</span>
+
+    <span class="com">/* If number is divisible by 2 then it's an even number
+     * else odd number*/</span>
+    <span class="kwd">if</span> <span class="pun">(</span><span class="pln"> num </span><span class="pun">%</span> <span class="lit">2</span> <span class="pun">==</span> <span class="lit">0</span> <span class="pun">)</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Entered number is even"</span><span class="pun">);</span>
+     <span class="kwd">else</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Entered number is odd"</span><span class="pun">);</span>
+  <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output 1:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> an </span><span class="typ">Integer</span><span class="pln"> number</span><span class="pun">:</span>
+<span class="lit">78</span>
+<span class="typ">Entered</span><span class="pln"> number </span><span class="kwd">is</span><span class="pln"> even</span></pre>
+<p>Output 2:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Enter</span><span class="pln"> an </span><span class="typ">Integer</span><span class="pln"> number</span><span class="pun">:</span>
+<span class="lit">77</span>
+<span class="typ">Entered</span><span class="pln"> number </span><span class="kwd">is</span><span class="pln"> odd</span></pre>
+</div>
+<pre class="prettyprint prettyprinted"><span class="pln">&nbsp;</span></pre>
+</div>
+</header></header>

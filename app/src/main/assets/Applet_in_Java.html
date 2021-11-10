@@ -1,0 +1,233 @@
+<h1>Applet in Java</h1>
+
+<p>&nbsp;</p>
+<p>An applet is a special kind of Java program that runs in a Java enabled browser. This is the first Java program that can run over the network using the browser. Applet is typically embedded inside a web page and runs in the browser.</p>
+<p>In other words, we can say that Applets are small Java applications that can be accessed on an Internet server, transported over Internet, and can be automatically installed and run as apart of a web document.</p>
+<p>After a user receives an applet, the applet can produce a graphical user interface. It has limited access to resources so that it can run complex computations without introducing the risk of viruses or breaching data integrity.</p>
+<p>To create an applet, a class must class extends&nbsp;<strong>java.applet.Applet</strong>&nbsp;class.</p>
+<p>An Applet class does not have any main() method. It is viewed using JVM. The JVM can use either a plug-in of the Web browser or a separate runtime environment to run an applet application.</p>
+<p>JVM creates an instance of the applet class and invokes&nbsp;<code>init()</code>&nbsp;method to initialize an Applet.</p>
+<p><strong>Note:</strong>&nbsp;Java Applet is deprecated since Java 9. It means Applet API is no longer considered important.</p>
+<h3>Lifecycle of Java Applet</h3>
+<p>Following are the stages in Applet</p>
+<ol class="content">
+<li>Applet is initialized.</li>
+<li>Applet is started</li>
+<li>Applet is painted.</li>
+<li>Applet is stopped.</li>
+<li>Applet is destroyed.</li>
+</ol>
+<p class="center"><img src="https://www.studytonight.com/java/images/life-cycle-applet.JPG" alt="life-cycle-applet" width="258" height="221" /></p>
+<hr />
+<h2>A Simple Applet</h2>
+<p>&nbsp;</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">/*&lt;applet code="Simple" width=670 height=650&gt;<br /> &lt;/applet&gt;*/<br />import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>applet<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Simple</span> <span class="token keyword">extends</span> <span class="token class-name">Applet</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span>Graphics g<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      g<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span><span class="token string">"A simple Applet"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}<br /><br /></span></code></pre>
+<p>To execute the applet by appletviewer tool, write in the command prompt:</p>
+<pre class="java language-java"><code class=" language-java"></code></pre>
+<div class="codeblock3">
+<pre><strong>c:\&gt;</strong>javac Simple.java
+<strong>c:\&gt;</strong>appletviewer Simple.java</pre>
+</div>
+<pre class="java language-java"><code class=" language-java"></code></pre>
+<p>&nbsp;</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/creating-simple-applet.jpg" alt="creating simple applet" width="283" height="216" /></p>
+<p>&nbsp;</p>
+<p>Every Applet application must import two packages -&nbsp;<code>java.awt</code>&nbsp;and&nbsp;<code>java.applet</code>.</p>
+<p><code>java.awt.*</code>&nbsp;imports the Abstract Window Toolkit (AWT) classes. Applets interact with the user (either directly or indirectly) through the AWT. The AWT contains support for a window-based, graphical user interface.&nbsp;<code>java.applet.*</code>&nbsp;imports the applet package, which contains the class Applet. Every applet that you create must be a subclass of Applet class.</p>
+<p>The class in the program must be declared as public, because it will be accessed by code that is outside the program.Every Applet application must declare a&nbsp;<code>paint()</code>&nbsp;method. This method is defined by AWT class and must be overridden by the applet. The paint() method is called each time when an applet needs to redisplay its output. Another important thing to notice about applet application is that, execution of an applet does not begin at&nbsp;<code>main()</code>&nbsp;method. In fact an applet application does not have any&nbsp;<code>main()</code>&nbsp;method.</p>
+<div>&nbsp;</div>
+<h3>Advantages of Applets</h3>
+<ol class="content">
+<li>It takes very less response time as it works on the client side.</li>
+<li>It can be run on any browser which has JVM running in it.</li>
+</ol>
+<h3>Applet class</h3>
+<p>Applet class provides all necessary support for applet execution, such as initializing and destroying of applet. It also provide methods that load and display images and methods that load and play audio clips.</p>
+<h3>An Applet Skeleton</h3>
+<p>Most applets override these four methods. These four methods forms Applet lifecycle.</p>
+<ul class="content">
+<li><strong>init() :</strong>&nbsp;init() is the first method to be called. This is where variable are initialized. This method is called only once during the runtime of applet.</li>
+<li><strong>start() :</strong>&nbsp;start() method is called after init(). This method is called to restart an applet after it has been stopped.</li>
+<li><strong>stop() :</strong>&nbsp;stop() method is called to suspend thread that does not need to run when applet is not visible.</li>
+<li><strong>destroy() :</strong>&nbsp;destroy() method is called when your applet needs to be removed completely from memory.</li>
+</ul>
+<p><strong>Note:&nbsp;</strong>The stop() method is always called before destroy() method.</p>
+<h3>Example of an Applet Skeleton</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>applet<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AppletTest</span> <span class="token keyword">extends</span> <span class="token class-name">Applet</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//initialization</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> start <span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//start or resume execution</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//suspend execution</span>
+ <span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//perform shutdown activity</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> paint <span class="token punctuation">(</span>Graphics g<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//display the content of window</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3>Example of an Applet</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">/*&lt;applet code="MyApplet" width=670 height=650&gt;<br /> &lt;/applet&gt;*/<br />import</span> java<span class="token punctuation">.</span>applet<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyApplet</span> <span class="token keyword">extends</span> <span class="token class-name">Applet</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">int</span> height<span class="token punctuation">,</span> width<span class="token punctuation">;</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  height <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+  width <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+  <span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"MyApplet"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span>Graphics g<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  g<span class="token punctuation">.</span><span class="token function">drawRoundRect</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}<br /><br />output<br /><strong>c:\&gt;</strong>javac MyApplet.java <br /><strong>c:\&gt;</strong>appletviewer MyApplet.java</span></code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/example-of-applet.jpg" alt="applet example" width="276" height="210" /></p>
+<p class="center">&nbsp;</p>
+<h1>Java GUI Event Handling</h1>
+<p class="center">&nbsp;</p>
+<p>Any program that uses GUI (graphical user interface) such as Java application written for windows, is event driven. Event describes the change in state of any object.&nbsp;<strong>For Example :</strong>&nbsp;Pressing a button, Entering a character in Textbox, Clicking or Dragging a mouse, etc.</p>
+<hr />
+<h2>Components of Event Handling</h2>
+<p>Event handling has three main components,</p>
+<ul class="content">
+<li><strong>Events :</strong>&nbsp;An event is a change in state of an object.</li>
+<li><strong>Events Source :</strong>&nbsp;Event source is an object that generates an event.</li>
+<li><strong>Listeners :</strong>&nbsp;A listener is an object that listens to the event. A listener gets notified when an event occurs.</li>
+</ul>
+<hr />
+<h2>How Events are handled?</h2>
+<p>A source generates an Event and send it to one or more listeners registered with the source. Once event is received by the listener, they process the event and then return. Events are supported by a number of Java packages, like&nbsp;<strong>java.util</strong>,&nbsp;<strong>java.awt</strong>&nbsp;and&nbsp;<strong>java.awt.event</strong>.</p>
+<hr />
+<h3>Important Event Classes and Interface</h3>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Event Classes</th>
+<th>Description</th>
+<th>Listener Interface</th>
+</tr>
+<tr>
+<td><strong>ActionEvent</strong></td>
+<td>generated when button is pressed, menu-item is selected, list-item is double clicked</td>
+<td>ActionListener</td>
+</tr>
+<tr>
+<td><strong>MouseEvent</strong></td>
+<td>generated when mouse is dragged, moved,clicked,pressed or released and also when it enters or exit a component</td>
+<td>MouseListener</td>
+</tr>
+<tr>
+<td><strong>KeyEvent</strong></td>
+<td>generated when input is received from keyboard</td>
+<td>KeyListener</td>
+</tr>
+<tr>
+<td><strong>ItemEvent</strong></td>
+<td>generated when check-box or list item is clicked</td>
+<td>ItemListener</td>
+</tr>
+<tr>
+<td><strong>TextEvent</strong></td>
+<td>generated when value of textarea or textfield is changed</td>
+<td>TextListener</td>
+</tr>
+<tr>
+<td><strong>MouseWheelEvent</strong></td>
+<td>generated when mouse wheel is moved</td>
+<td>MouseWheelListener</td>
+</tr>
+<tr>
+<td><strong>WindowEvent</strong></td>
+<td>generated when window is activated, deactivated, deiconified, iconified, opened or closed</td>
+<td>WindowListener</td>
+</tr>
+<tr>
+<td><strong>ComponentEvent</strong></td>
+<td>generated when component is hidden, moved, resized or set visible</td>
+<td>ComponentEventListener</td>
+</tr>
+<tr>
+<td><strong>ContainerEvent</strong></td>
+<td>generated when component is added or removed from container</td>
+<td>ContainerListener</td>
+</tr>
+<tr>
+<td><strong>AdjustmentEvent</strong></td>
+<td>generated when scroll bar is manipulated</td>
+<td>AdjustmentListener</td>
+</tr>
+<tr>
+<td><strong>FocusEvent</strong></td>
+<td>generated when component gains or loses keyboard focus</td>
+<td>FocusListener</td>
+</tr>
+</tbody>
+</table>
+<div>&nbsp;</div>
+<hr />
+<h3>Steps to handle events:</h3>
+<ol class="content">
+<li>Implement appropriate interface in the class.</li>
+<li>Register the component with the listener.</li>
+</ol>
+<hr />
+<h3>Example of Event Handling</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">/*&lt;applet code="Test" width=300, height=100&gt; &lt;/applet&gt;*/<br />import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>applet<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>applet<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token keyword">extends</span> <span class="token class-name">Applet</span> <span class="token keyword">implements</span> <span class="token class-name">KeyListener</span>
+<span class="token punctuation">{</span>
+	String msg<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">addKeyListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyPressed</span><span class="token punctuation">(</span>KeyEvent k<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">showStatus</span><span class="token punctuation">(</span><span class="token string">"KeyPressed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyReleased</span><span class="token punctuation">(</span>KeyEvent k<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">showStatus</span><span class="token punctuation">(</span><span class="token string">"KeyRealesed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">keyTyped</span><span class="token punctuation">(</span>KeyEvent k<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		msg <span class="token operator">=</span> msg<span class="token operator">+</span>k<span class="token punctuation">.</span><span class="token function">getKeyChar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">repaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span>Graphics g<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		g<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&nbsp;</p>
+<pre class="xml"><strong>c:\&gt;</strong>javac Test.java<br /><strong>c:\&gt;</strong>appletviewer Test.java
+</pre>
+<p class="center">&nbsp;</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/event-handling-example.jpg" alt="event handling example" width="311" height="239" /></p>

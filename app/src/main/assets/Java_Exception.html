@@ -1,0 +1,163 @@
+<h1>Java Exception Handling</h1>
+
+<p>&nbsp;</p>
+<p>Exception Handling is a mechanism to handle exception at runtime. Exception is a condition that occurs during program execution and lead to program termination abnormally. There can be several reasons that can lead to exceptions, including programmer error, hardware failures, files that need to be opened cannot be found, resource exhaustion etc.</p>
+<p>Suppose we run a program to read data from a file and if the file is not available then the program will stop execution and terminate the program by reporting the exception message.</p>
+<p>The problem with the exception is, it terminates the program and skip rest of the execution that means if a program has 100 lines of code and at line 10 an exception occurs then program will terminate immediately by skipping execution of rest 90 lines of code.</p>
+<p>To handle this problem, we use exception handling that avoid program termination and continue the execution by skipping exception code.</p>
+<p>Java exception handling provides a meaningful message to the user about the issue rather than a system generated message, which may not be understandable to a user.</p>
+<h3>Uncaught Exceptions</h3>
+<p>Lets understand exception with an example. When we don't handle the exceptions, it leads to unexpected program termination. In this program, an ArithmeticException will be throw due to divide by zero.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">UncaughtException</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">7</span><span class="token operator">/</span>a<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// Divide by zero, will lead to exception</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>This will lead to an exception at runtime, hence the Java run-time system will construct an exception and then throw it. As we don't have any mechanism for handling exception in the above program, hence the default handler (JVM) will handle the exception and will print the details of the exception on the terminal.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/uncaught-exception-error-in-java.gif" alt="Uncaught Exception in java" width="290" height="87" /></p>
+<h3>Java Exception</h3>
+<p>A Java Exception is an object that describes the exception that occurs in a program. When an exceptional events occurs in java, an exception is said to be thrown. The code that's responsible for doing something about the exception is called an&nbsp;<strong>exception handler</strong></p>
+<h3>How to Handle Exception</h3>
+<p>Java provides controls to handle exception in the program. These controls are listed below.</p>
+<ul class="content">
+<li>Try : It is used to enclose the suspected code.</li>
+<li>Catch: It acts as exception handler.</li>
+<li>Finally: It is used to execute necessary code.</li>
+<li>Throw: It throws the exception explicitly.</li>
+<li>Throws: It informs for the possible exception.</li>
+</ul>
+<p>We will discuss about all these in our next tutorials.</p>
+<h3>Types of Exceptions</h3>
+<p>In Java, exceptions broadly can be categories into checked exception, unchecked exception and error based on the nature of exception.</p>
+<ul class="content">
+<ul class="content">
+<li><strong>Checked Exception</strong></li>
+</ul>
+</ul>
+<p>The exception that can be predicted by the JVM at the compile time for&nbsp;<strong>example</strong>&nbsp;: File that need to be opened is not found, SQLException etc. These type of exceptions must be checked at compile time.</p>
+<ul class="content">
+<ul class="content">
+<li><strong>Unchecked Exception</strong></li>
+</ul>
+</ul>
+<p>Unchecked exceptions are the class that extends RuntimeException class. Unchecked exception are ignored at compile time and checked at runtime. For&nbsp;<strong>example</strong>&nbsp;: ArithmeticException, NullPointerException, Array Index out of Bound exception. Unchecked exceptions are checked at runtime.</p>
+<ul class="content">
+<ul class="content">
+<li><strong>Error</strong></li>
+</ul>
+</ul>
+<p>Errors are typically ignored in code because you can rarely do anything about an error. For&nbsp;<strong>example</strong>, if stack overflow occurs, an error will arise. This type of error cannot be handled in the code.</p>
+<div>&nbsp;</div>
+<h2>Java Exception class Hierarchy</h2>
+<p>All exception types are subclasses of class&nbsp;<strong>Throwable</strong>, which is at the top of exception class hierarchy.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/exception-class-hierarchy-java.jpg" alt="exception handling in java" width="291" height="170" /></p>
+<ul class="content">
+<li><strong>Exception</strong>&nbsp;class is for exceptional conditions that program should catch. This class is extended to create user specific exception classes.</li>
+<li><strong>RuntimeException</strong>&nbsp;is a subclass of Exception. Exceptions under this class are automatically defined for programs.</li>
+<li><strong>Exceptions</strong>&nbsp;of type&nbsp;<strong>Error</strong>&nbsp;are used by the Java run-time system to indicate errors having to do with the run-time environment, itself. Stack overflow is an example of such an error.</li>
+</ul>
+<h1><code>try</code>&nbsp;and&nbsp;<code>catch</code>&nbsp;in Java</h1>
+<p>&nbsp;</p>
+<p><strong>Try</strong>&nbsp;and&nbsp;<strong>catch</strong>&nbsp;both are Java&nbsp;<strong>keywords</strong>&nbsp;and used for&nbsp;<strong>exception handling</strong>. The try block is used to enclose the&nbsp;<strong>suspected</strong>&nbsp;code. Suspected code is a code that may raise an exception during program execution.</p>
+<p>For example, if a code raise arithmetic exception due to divide by zero then we can wrap that code into the try block.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">int</span> c <span class="token operator">=</span> a<span class="token operator">/</span>b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// exception</span>
+<span class="token punctuation">}</span>
+  </code></pre>
+<p>The&nbsp;<strong>catch</strong>&nbsp;block also known as&nbsp;<strong>handler</strong>&nbsp;is used to handle the exception. It handles the exception thrown by the code enclosed into the try block. Try block must provide a catch handler or a finally block. We will discuss about finally block in our next tutorials.</p>
+<p>The catch block must be used after the try block only. We can also use multiple catch block with a single try block.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">int</span> c <span class="token operator">=</span> a<span class="token operator">/</span>b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// exception</span>
+<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>ArithmeticException e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+  </code></pre>
+<h3>Try Catch Syntax</h3>
+<p>To declare try catch block, a general syntax is given below.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// suspected code</span>
+<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>ExceptionClass ec<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+  </code></pre>
+<p>Exception handling is done by transferring the execution of a program to an appropriate exception handler (catch block) when exception occurs.</p>
+<h3>Example: Handling Exception</h3>
+<p>Now lets understand the try and catch by a simple example in which we are dividing a number by zero. The code is enclosed into try block and a catch handler is provided to handle the exception.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Excp</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">;</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+      a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+      c <span class="token operator">=</span> b<span class="token operator">/</span>a<span class="token punctuation">;</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This line will not be executed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>ArithmeticException e<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Divided by zero"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"After exception is handled"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&nbsp;</p>
+<p class="output">Divided by zero After exception is handled</p>
+<h3>Explanation</h3>
+<p>An exception will thrown by this program as we are trying to divide a number by zero inside&nbsp;<strong>try</strong>&nbsp;block. The program control is transferred outside&nbsp;<strong>try</strong>&nbsp;block. Thus the line "<em>This line will not be executed</em>" is never parsed by the compiler. The exception thrown is handled in&nbsp;<strong>catch</strong>&nbsp;block. Once the exception is handled, the program control is continue with the next line in the program i.e after catch block. Thus the line "<em>After exception is handled</em>" is printed.</p>
+<div>&nbsp;</div>
+<hr />
+<h3>Multiple catch blocks</h3>
+<p>A try block can be followed by multiple catch blocks. It means we can have any number of catch blocks after a single try block. If an exception occurs in the guarded code(try block) the exception is passed to the first catch block in the list. If the exception type matches with the first catch block it gets caught, if not the exception is passed down to the next catch block. This continue until the exception is caught or falls through all catches.</p>
+<h3>Multiple Catch Syntax</h3>
+<p>To declare the multiple catch handler, we can use the following syntax.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">try</span>  
+  <span class="token punctuation">{</span>  
+   <span class="token comment" spellcheck="true">// suspected code</span>
+  <span class="token punctuation">}</span>  
+  <span class="token keyword">catch</span><span class="token punctuation">(</span>Exception1 e<span class="token punctuation">)</span>  
+  <span class="token punctuation">{</span>  
+    <span class="token comment" spellcheck="true">// handler code</span>
+  <span class="token punctuation">}</span>   
+<span class="token keyword">catch</span><span class="token punctuation">(</span>Exception2 e<span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+  <span class="token comment" spellcheck="true">// handler code</span>
+<span class="token punctuation">}</span>  
+
+  </code></pre>
+<p>Now lets see an example to implement the multiple catch block that are used to catch possible exception.</p>
+<p>The multiple catch blocks are useful when we are not sure about the type of exception during program execution.</p>
+<h3>Examples for Multiple Catch blocks</h3>
+<p>In this example, we are trying to fetch integer value of an Integer object. But due to bad input, it throws number format exception.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span> 
+      Integer in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      in<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ArithmeticException</span> e<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span> 
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Arithmetic "</span> <span class="token operator">+</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NumberFormatException</span> e<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span> 
+      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Number Format Exception "</span> <span class="token operator">+</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}<br /></span>output
+  </code></pre>
+<p class="output">Number Format Exception java.lang.NumberFormatException: For input string: "abc"</p>
+<p>In the above example, we used multiple catch blocks and based on the type of exception second catch block is executed.</p>

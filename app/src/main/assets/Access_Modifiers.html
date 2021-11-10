@@ -1,0 +1,152 @@
+<h1>Access Modifiers in Java</h1>
+<p>&nbsp;</p>
+<p>Access modifiers are keywords in Java that are used to set accessibility. An access modifier restricts the access of a class, constructor, data member and method in another class.</p>
+<p>Java language has four access modifier to control access level for classes and its members.</p>
+<ul class="content">
+<li><strong>Default:</strong>&nbsp;Default has scope only inside the same package</li>
+<li><strong>Public:</strong>&nbsp;Public has scope that is visible everywhere</li>
+<li><strong>Protected:</strong>&nbsp;Protected has scope within the package and all sub classes</li>
+<li><strong>Private:</strong>&nbsp;Private has scope only within the classes</li>
+</ul>
+<p>Java also supports many non-access modifiers, such as&nbsp;<strong>static, abstract, synchronized, native, volatile, transient</strong>&nbsp;etc. We will cover these in our other tutorial.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/access-modifier.jpg" alt="Access modifier in java" width="262" height="241" /></p>
+<hr />
+<h3>Default Access Modifier</h3>
+<p>If we don&rsquo;t specify any access modifier then it is&nbsp;<strong>treated as default</strong>&nbsp;modifier. It is used to set accessibility within the package. It means we can not access its method or class fro outside the package. It is also known as package accessibility modifier.</p>
+<h4>Example:</h4>
+<p>In this example, we created a&nbsp;<strong>Demo class</strong>&nbsp;inside the&nbsp;<strong>package1</strong>&nbsp;and another class&nbsp;<strong>Test</strong>&nbsp;by which we are accessing show() method of Demo class. We did not mentioned access modifier for the show() method that&rsquo;s why it is not accessible and reports an error during compile time.</p>
+<p>Demo.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">package</span> package1<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+  
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// default access modifier</span>
+  <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+  </code></pre>
+<p>Test.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">import</span> package1<span class="token punctuation">.</span>Demo<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+   
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Demo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    demo<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// compile error</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+   </code></pre>
+<p class="output">The method show() from the type Demo is not visible</p>
+<h3>Public Access Modifier</h3>
+<p>public access modifier is used to set public accessibility to a variable, method or a class. Any variable or method which is declared as public can be accessible from anywhere in the application.</p>
+<h4>Example:</h4>
+<p>Here, we have two class Demo and Test located in two different package. Now we want to access show method of Demo class from Test class. The method has public accessibility so it works fine. See the below example.</p>
+<p>Demo.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">package</span> package1<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+  
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// public access modifier</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+  </code></pre>
+<p>Test.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">package</span> package2<span class="token punctuation">;</span>
+<span class="token keyword">import</span> package1<span class="token punctuation">.</span>Demo<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+   
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Demo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    demo<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+  </code></pre>
+<p class="output">10</p>
+<h3>Protected Access Modifier</h3>
+<p>Protected modifier protects the variable, method from accessible from outside the class. It is accessible within class, and in the child class (inheritance) whether child is&nbsp;<strong>located</strong>&nbsp;in the&nbsp;<strong>same package</strong>&nbsp;or some&nbsp;<strong>other package</strong>.</p>
+<h4>Example:</h4>
+<p>In this example, Test class is extended by Demo and called a protected method show() which is accessible now due to inheritance.</p>
+<p>Demo.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">package</span> package1<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+  
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// public access modifier</span>
+  <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+  </code></pre>
+<p>Test.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">package</span> package2<span class="token punctuation">;</span>
+<span class="token keyword">import</span> package1<span class="token punctuation">.</span>Demo<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token keyword">extends</span> <span class="token class-name">Demo</span><span class="token punctuation">{</span>
+   
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Test test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    test<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+  </code></pre>
+<p class="output">10</p>
+<h3>Private Access Modifier</h3>
+<p>Private modifier is most restricted modifier which allows accessibility within same class only. We can set this modifier to any variable, method or even constructor as well.</p>
+<h4>Example:</h4>
+<p>In this example, we set private modifier to show() method and try to access that method from outside the class. Java does not allow to access it from outside the class.</p>
+<p>Demo.java</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+  
+  <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+  </code></pre>
+<p>Test.java</p>
+
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+   
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Demo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    demo<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// compile error</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+  </code></pre>
+<p class="output">The method show() from the type Demo is not visible</p>
+<h3>Non-access Modifier</h3>
+<p>Along with access modifiers, Java provides non-access modifiers as well. These modifier are&nbsp;<strong>used to set special properties&nbsp;</strong>to the variable or method.</p>
+<p>Non-access modifiers do not change the accessibility of variable or method, but they provide special properties to them. Java provides following non-access modifiers.</p>
+<ol class="content">
+<li>Final</li>
+<li>Static</li>
+<li>Transient</li>
+<li>Synchronized</li>
+<li>Volatile</li>
+</ol>
+<h3>Final Modifier</h3>
+<p>Final modifier can be used with&nbsp;<strong>variable, method</strong>&nbsp;and class. if&nbsp;<strong>variable</strong>&nbsp;is declared&nbsp;<strong>final</strong>&nbsp;then we&nbsp;<strong>cannot change</strong>&nbsp;its value. If&nbsp;<strong>method</strong>&nbsp;is declared&nbsp;<strong>final</strong>&nbsp;then it&nbsp;<strong>can not be overridden&nbsp;</strong>and if a&nbsp;<strong>class</strong>&nbsp;is declared&nbsp;<strong>final&nbsp;</strong>then we&nbsp;<strong>can not inherit it</strong>.</p>
+<h3>Static modifier</h3>
+<p>static modifier is used to make field static. We can use it to declare static variable, method, class etc. static can be use to declare class level variable. If a method is declared static then we don&rsquo;t need to have object to access that. We can use static to create nested class.</p>
+<h3>Transient modifier</h3>
+<p>When an instance variable is declared as transient, then its value doesn't persist when an object is serialized</p>
+<h3>Synchronized modifier</h3>
+<p>When a method is synchronized it can be accessed by only one thread at a time. We will discuss it in detail in Thread.</p>
+<h3>Volatile modifier</h3>
+<p>Volatile modifier tells to the compiler that the volatile variable can be changed unexpectedly by other parts of a program. Volatile variables are used in case of multi-threading program.&nbsp;<strong>volatile</strong>&nbsp;keyword cannot be used with a method or a class. It can be only used with a variable.</p>

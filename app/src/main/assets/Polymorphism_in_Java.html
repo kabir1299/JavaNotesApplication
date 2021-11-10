@@ -1,0 +1,124 @@
+
+<header class="entry-header">
+<h1 class="entry-title">Polymorphism in Java with example</h1>
+</header>
+<div class="entry-content">
+<p>Polymorphism&nbsp;is one of the OOP's feature that allows us to perform a single action in different ways. For example, lets say we have a class&nbsp;<code>Animal</code>&nbsp;that has a method&nbsp;<code>sound()</code>. Since this is a generic class so we can&rsquo;t give it a implementation like: Roar, Meow, Oink etc. We had to give a generic message.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Animal</span><span class="pun">{</span>
+   <span class="pun">...</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> sound</span><span class="pun">(){</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Animal is making a sound"</span><span class="pun">);</span>   
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Now lets say we two subclasses of Animal class:&nbsp;<code>Horse</code>&nbsp;and&nbsp;<code>Cat</code>&nbsp;that extends &nbsp;<code>Animal</code>&nbsp;class. We can provide the implementation to the same method like this:</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Horse</span> <span class="kwd">extends</span> <span class="typ">Animal</span><span class="pun">{</span>
+<span class="pun">...</span>
+    <span class="lit">@Override</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> sound</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Neigh"</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>and</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Cat</span> <span class="kwd">extends</span> <span class="typ">Animal</span><span class="pun">{</span>
+<span class="pun">...</span>
+    <span class="lit">@Override</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> sound</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Meow"</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>As you can see that although we had the common action for all subclasses&nbsp;<code>sound()</code>&nbsp;but there were different ways to do the same action. This is a perfect example of polymorphism (feature that allows us to perform a single action in different ways). It would not make any sense to just call the generic sound() method as each Animal has a different sound. Thus we can say that the action this method performs is based on the type of object.</p>
+<div class="lq">&nbsp;</div>
+<h2>What is polymorphism in programming?</h2>
+<p>Polymorphism is the capability of a method to do different things based on the object that it is acting upon. In other words, polymorphism allows you define one interface and have multiple implementations. As we have seen in the above example that we have defined the method sound() and have the multiple implementations of it in the different-2 sub classes.<br />Which sound() method will be called is determined at runtime so the example we gave above is a&nbsp;<strong>runtime polymorphism example</strong>.</p>
+<p>&nbsp;</p>
+<h2>Example 1: Polymorphism in Java</h2>
+<p><strong>Runtime Polymorphism example:</strong><br />Animal.java</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Animal</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> sound</span><span class="pun">(){</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Animal is making a sound"</span><span class="pun">);</span>   
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Horse.java</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">Horse</span> <span class="kwd">extends</span> <span class="typ">Animal</span><span class="pun">{</span>
+    <span class="lit">@Override</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> sound</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Neigh"</span><span class="pun">);</span>
+    <span class="pun">}</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+    	<span class="typ">Animal</span><span class="pln"> obj </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Horse</span><span class="pun">();</span><span class="pln">
+    	obj</span><span class="pun">.</span><span class="pln">sound</span><span class="pun">();</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Neigh</span></pre>
+<p>Cat.java</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Cat</span> <span class="kwd">extends</span> <span class="typ">Animal</span><span class="pun">{</span>
+    <span class="lit">@Override</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> sound</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Meow"</span><span class="pun">);</span>
+    <span class="pun">}</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+    	<span class="typ">Animal</span><span class="pln"> obj </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Cat</span><span class="pun">();</span><span class="pln">
+    	obj</span><span class="pun">.</span><span class="pln">sound</span><span class="pun">();</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Meow</span></pre>
+<h2>Example 2: Compile time Polymorphism</h2>
+<p>Method Overloading on the other hand is a compile time polymorphism example.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">Overload</span>
+<span class="pun">{</span>
+    <span class="kwd">void</span><span class="pln"> demo </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> a</span><span class="pun">)</span>
+    <span class="pun">{</span>
+       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println </span><span class="pun">(</span><span class="str">"a: "</span> <span class="pun">+</span><span class="pln"> a</span><span class="pun">);</span>
+    <span class="pun">}</span>
+    <span class="kwd">void</span><span class="pln"> demo </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> a</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b</span><span class="pun">)</span>
+    <span class="pun">{</span>
+       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println </span><span class="pun">(</span><span class="str">"a and b: "</span> <span class="pun">+</span><span class="pln"> a </span><span class="pun">+</span> <span class="str">","</span> <span class="pun">+</span><span class="pln"> b</span><span class="pun">);</span>
+    <span class="pun">}</span>
+    <span class="kwd">double</span><span class="pln"> demo</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> a</span><span class="pun">)</span> <span class="pun">{</span>
+       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"double a: "</span> <span class="pun">+</span><span class="pln"> a</span><span class="pun">);</span>
+       <span class="kwd">return</span><span class="pln"> a</span><span class="pun">*</span><span class="pln">a</span><span class="pun">;</span>
+    <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">MethodOverloading</span>
+<span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main </span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args </span><span class="pun">[])</span>
+    <span class="pun">{</span>
+        <span class="typ">Overload</span> <span class="typ">Obj</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Overload</span><span class="pun">();</span>
+        <span class="kwd">double</span><span class="pln"> result</span><span class="pun">;</span>
+        <span class="typ">Obj</span> <span class="pun">.</span><span class="pln">demo</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span>
+        <span class="typ">Obj</span> <span class="pun">.</span><span class="pln">demo</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">20</span><span class="pun">);</span><span class="pln">
+        result </span><span class="pun">=</span> <span class="typ">Obj</span> <span class="pun">.</span><span class="pln">demo</span><span class="pun">(</span><span class="lit">5.5</span><span class="pun">);</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"O/P : "</span> <span class="pun">+</span><span class="pln"> result</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Here the method&nbsp;<code>demo()</code>&nbsp;is overloaded 3 times: first method has 1 int parameter, second method has 2 int parameters and third one is having double parameter. Which method is to be called is determined by the arguments we pass while calling methods. This happens at&nbsp;<del datetime="2018-08-19T08:47:08+00:00">runtime</del>&nbsp;compile time so this type of polymorphism is known as compile time polymorphism.</p>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="pln">a</span><span class="pun">:</span> <span class="lit">10</span><span class="pln">
+a </span><span class="kwd">and</span><span class="pln"> b</span><span class="pun">:</span> <span class="lit">10</span><span class="pun">,</span><span class="lit">20</span>
+<span class="kwd">double</span><span class="pln"> a</span><span class="pun">:</span> <span class="lit">5.5</span><span class="pln">
+O</span><span class="pun">/</span><span class="pln">P </span><span class="pun">:</span> <span class="lit">30.25<br /><br /></span></pre>
+<h2>Runtime Polymorphism (or Dynamic polymorphism)</h2>
+<p>It is also known as Dynamic Method Dispatch. Dynamic polymorphism is a process in which a call to an overridden method is resolved at runtime, thats why it is called runtime polymorphism.</p>
+<p><strong>Example</strong><br />In this example we have two classes ABC and XYZ. ABC is a parent class and XYZ is a child class. The child class is overriding the method myMethod() of parent class. In this example we have child class object assigned to the parent class reference so in order to determine which method would be called, the type of the object would be determined at run-time. It is the type of object that determines which version of the method would be called (not the type of reference).</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span><span class="pln"> ABC</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> myMethod</span><span class="pun">(){</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Overridden Method"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">public</span> <span class="kwd">class</span><span class="pln"> XYZ </span><span class="kwd">extends</span><span class="pln"> ABC</span><span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> myMethod</span><span class="pun">(){</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Overriding Method"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span><span class="pln">
+	ABC obj </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> XYZ</span><span class="pun">();</span><span class="pln">
+	obj</span><span class="pun">.</span><span class="pln">myMethod</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Overriding</span> <span class="typ">Method</span></pre>
+<p>When an overridden method is called through a reference of parent class, then type of the object determines which method is to be executed. Thus, this determination is made at run time.<br />Since both the classes, child class and parent class have the same method&nbsp;<code>animalSound</code>. Which version of the method(child class or parent class) will be called is determined at runtime by JVM.</p>
+<pre class="prettyprint prettyprinted"><span class="lit">&nbsp;</span></pre>
+</div>

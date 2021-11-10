@@ -1,0 +1,135 @@
+<h1>Java Package</h1>
+
+<p>&nbsp;</p>
+<p>Package is a collection of related classes. Java uses package to group related classes, interfaces and sub-packages.</p>
+<p>We can assume package as a folder or a directory that is used to store similar files.</p>
+<p>In Java, packages are used to avoid name conflicts and to control access of class, interface and enumeration etc. Using package it becomes easier to locate the related classes and it also provides a good structure for projects with hundreds of classes and other files.</p>
+<p>Lets understand it by a simple example, Suppose, we have some math related classes and interfaces then to collect them into a simple place, we have to create a package.</p>
+<h3>Types Of Package</h3>
+<p>Package can be built-in and user-defined, Java provides rich set of built-in packages in form of API that stores related classes and sub-packages.</p>
+<ul class="content">
+<li><strong>Built-in Package:</strong>&nbsp;math, util, lang, i/o etc are the example of built-in packages.</li>
+<li><strong>User-defined-package:</strong>&nbsp;Java package created by user to categorize their project's classes and interface are known as user-defined packages.</li>
+</ul>
+<p class="center"><img src="https://www.studytonight.com/java/images/package-in-java.jpg" alt="Packages in java" width="242" height="141" /></p>
+<h3>How to Create a Package</h3>
+<p>Creating a package in java is quite easy, simply include a package command followed by name of the package as the first statement in java source file.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">package</span> mypack<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">employee</span> 
+<span class="token punctuation">{</span>
+    String empId<span class="token punctuation">;</span>
+    String name<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The above statement will create a package woth name&nbsp;<strong>mypack</strong>&nbsp;in the project directory.</p>
+<p>Java uses file system directories to store packages. For example the&nbsp;<code>.java</code>&nbsp;file for any class you define to be part of&nbsp;<strong>mypack</strong>&nbsp;package must be stored in a&nbsp;<strong>directory</strong>&nbsp;called&nbsp;<strong>mypack</strong>.</p>
+<h3>Additional points about package:</h3>
+<ul class="content">
+<li>Package statement must be first statement in the program even before the import statement.</li>
+<li>A package is always defined as a separate folder having the same name as the package name.</li>
+<li>Store all the classes in that package folder.</li>
+<li>All classes of the package which we wish to access outside the package must be declared public.</li>
+<li>All classes within the package must have the package statement as its first line.</li>
+<li>All classes of the package must be compiled before use.</li>
+</ul>
+<div>&nbsp;</div>
+<hr />
+<h4>Example of Java packages</h4>
+<p>Now lets understand package creation by an example, here we created a&nbsp;<strong>leanjava</strong>&nbsp;package that stores the FirstProgram class file.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token comment" spellcheck="true">//save as FirstProgram.java  </span>
+<span class="token keyword">package</span> learnjava<span class="token punctuation">;</span>  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FirstProgram</span><span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Welcome to package example"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre>
+<h3>How to compile Java programs inside packages?</h3>
+<p>This is just like compiling a normal java program. If you are not using any IDE, you need to follow the steps given below to successfully compile your packages:</p>
+<pre class=" language-java"><code class=" language-java">javac <span class="token operator">-</span>d <span class="token punctuation">.</span> FirstProgram<span class="token punctuation">.</span>java</code></pre>
+<p>The&nbsp;<code>-d</code>&nbsp;switch specifies the destination where to put the generated class file. You can use any directory name like&nbsp;<strong>d:/abc</strong>&nbsp;(in case of windows) etc. If you want to keep the package within the same directory, you can use&nbsp;<code>.</code>&nbsp;(dot).</p>
+<p>&nbsp;</p>
+<h3>How to run Java package program?</h3>
+<p>To run the compiled class that we compiled using above command, we need to specify package name too. Use the below command to run the class file.</p>
+<pre class=" language-java"><code class=" language-java">java learnjava<span class="token punctuation">.</span>FirstProgram</code></pre>
+<p class="output">Welcome to package example</p>
+<p>After running the program, we will get &ldquo;Welcome to package example&rdquo; message to the console. You can tally that with print statement used in the program.</p>
+<h3>How to import Java Package</h3>
+<p>To import java package into a class, we need to use java&nbsp;<strong>import</strong>&nbsp;keyword which is used to access package and its classes into the java program.</p>
+<p>Use import to access built-in and user-defined packages into your java source file so that your class can refer to a class that is in another package by directly using its name.</p>
+<p>There are 3 different ways to refer to any class that is present in a different package:</p>
+<ol class="content">
+<li>without import the package</li>
+<li>import package with specified class</li>
+<li>import package with all classes</li>
+</ol>
+<p>Lets understand each one with the help of example.</p>
+<h3>Accessing package without import keyword</h3>
+<p>If you use fully qualified name to import any class into your program, then only that particular class of the package will be accessible in your program, other classes in the same package will not be accessible. For this approach, there is no need to use the&nbsp;<code>import</code>&nbsp;statement. But you will have to use the fully qualified name every time you are accessing the class or the interface. This is generally used when two packages have classes with same names. For example:&nbsp;<code>java.util</code>&nbsp;and&nbsp;<code>java.sql</code>&nbsp;packages contain&nbsp;<code>Date class</code>.</p>
+<h3>Example</h3>
+<p>In this example, we are creating a class A in package pack and in another class B, we are accessing it while creating object of class A.</p>
+<pre class=" language-java"><code class=" language-java"><span class="token comment" spellcheck="true">//save by A.java  </span>
+<span class="token keyword">package</span> pack<span class="token punctuation">;</span>  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+
+<span class="token comment" spellcheck="true">//save by B.java  </span>
+<span class="token keyword">package</span> mypack<span class="token punctuation">;</span>  
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        pack<span class="token punctuation">.</span>A obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">pack<span class="token punctuation">.</span>A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//using fully qualified name  </span>
+        obj<span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">Hello</p>
+<h3>Import the Specific Class</h3>
+<p>Package can have many classes but sometimes we want to access only specific class in our program in that case, Java allows us to specify class name along with package name. If we use import&nbsp;<code>packagename.classname</code>&nbsp;statement then only the class with name classname in the package will be available for use.</p>
+<h3>Example:</h3>
+<p>In this example, we created a class Demo stored into pack package and in another class Test, we are accessing Demo class by importing package name with class name.</p>
+<pre class=" language-java"><code class=" language-java"><span class="token comment" spellcheck="true">//save by Demo.java  </span>
+<span class="token keyword">package</span> pack<span class="token punctuation">;</span>  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+
+<span class="token comment" spellcheck="true">//save by Test.java  </span>
+<span class="token keyword">package</span> mypack<span class="token punctuation">;</span>  
+<span class="token keyword">import</span> pack<span class="token punctuation">.</span>Demo<span class="token punctuation">;</span>  
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        Demo obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        obj<span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">Hello</p>
+<h3>Import all classes of the package</h3>
+<p>If we use&nbsp;<strong>packagename.* statement</strong>, then all the classes and interfaces of this package will be accessible but the classes and interface inside the subpackages will not be available for use.</p>
+<p>The&nbsp;<code>import</code>&nbsp;keyword is used to make the classes of another package accessible to the current package.</p>
+<h3>Example :</h3>
+<p>In this example, we created a class First in&nbsp;<strong>learnjava</strong>&nbsp;package that access it in another class Second by using import keyword.</p>
+<pre class=" language-java"><code class=" language-java"><span class="token comment" spellcheck="true">//save by First.java  </span>
+<span class="token keyword">package</span> learnjava<span class="token punctuation">;</span>  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">First</span><span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+
+<span class="token comment" spellcheck="true">//save by Second.java  </span>
+<span class="token keyword">package</span> Java<span class="token punctuation">;</span>  
+<span class="token keyword">import</span> learnjava<span class="token punctuation">.</span>*<span class="token punctuation">;</span>    
+<span class="token keyword">class</span> <span class="token class-name">Second</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        First obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">First</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        obj<span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">Hello</p>

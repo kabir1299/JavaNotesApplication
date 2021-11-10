@@ -1,0 +1,195 @@
+<header class="entry-header">
+
+<h1 class="entry-title">Constructors in Java &ndash; A complete study!!</h1>
+</header>
+<div class="entry-content">
+<p>Constructor is a block of code that initializes the newly created object. A constructor resembles an instance method in java but it&rsquo;s not a method as it doesn&rsquo;t have a return type. In short constructor and method are different(More on this at the end of this guide). People often refer constructor as special type of method in Java.</p>
+<p>Constructor has same name as the class and looks like this in a java code.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">MyClass</span><span class="pun">{</span>
+   <span class="com">//This is the constructor</span>
+   <span class="typ">MyClass</span><span class="pun">(){</span>
+   <span class="pun">}</span>
+   <span class="pun">..</span>
+<span class="pun">}</span></pre>
+<blockquote>
+<p>Note that the constructor name matches with the class name and it doesn&rsquo;t have a return type.</p>
+</blockquote>
+<h2>How does a constructor work</h2>
+<p>To understand the working of constructor, lets take an example. let's say we have a class&nbsp;<code>MyClass</code>.<br />When we create the object of&nbsp;<code>MyClass</code>&nbsp;like this:</p>
+<div class="lq">&nbsp;</div>
+<pre class="prettyprint prettyprinted"><span class="typ">MyClass</span><span class="pln"> obj </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">MyClass</span><span class="pun">()</span></pre>
+<p>The&nbsp;<strong>new keyword</strong>&nbsp;here creates the object of class&nbsp;<code>MyClass</code>&nbsp;and invokes the constructor to initialize this newly created object.</p>
+<p>You may get a little lost here as I have not shown you any initialization example, lets have a look at the code below:</p>
+<h3>A simple constructor program in java</h3>
+<p>Here we have created an object&nbsp;<code>obj</code>&nbsp;of class&nbsp;<code>Hello</code>&nbsp;and then we displayed the instance variable&nbsp;<code>name</code>&nbsp;of the object. As you can see that the output is Cubicles Developer&nbsp;which is what we have passed to the&nbsp;<code>name</code>&nbsp;during initialization in constructor. This shows that when we created the object&nbsp;<code>obj</code>&nbsp;the constructor got invoked. In this example we have used&nbsp;<strong>this keyword</strong>, which refers to the current object, object&nbsp;<code>obj</code>&nbsp;in this example. We will cover this keyword in detail in the next tutorial.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Hello</span> <span class="pun">{</span>
+   <span class="typ">String</span><span class="pln"> name</span><span class="pun">;</span>
+   <span class="com">//Constructor</span>
+   <span class="typ">Hello</span><span class="pun">(){</span>
+      <span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span> <span class="str">"Cubicles Developer"</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="typ">Hello</span><span class="pln"> obj </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Hello</span><span class="pun">();</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted">Cubicles Developer<br /><br /></pre>
+<h2>Types of Constructors</h2>
+<p>There are three types of constructors: Default, No-arg constructor and Parameterized.</p>
+<h3>Default constructor</h3>
+<p>If you do not implement any constructor in your class, Java compiler inserts a default Constructor into your code on your behalf. This constructor is known as default constructor. You would not find it in your source code(the java file) as it would be inserted into the code during compilation and exists in .class file. This process is shown in the diagram below:</p>
+<p><img src="https://www.studytonight.com/java/images/default-constructor.JPG" alt="default-constructor" width="300" height="112" /></p>
+<p>If you implement any constructor then you no longer receive a default constructor from Java compiler.</p>
+<p>&nbsp;</p>
+<h3>no-arg constructor:</h3>
+<p>Constructor with no arguments is known as&nbsp;<strong>no-arg constructor</strong>. The signature is same as default constructor, however body can have any code unlike default constructor where the body of the constructor is empty.</p>
+<blockquote>
+<p>Although you may see some people claim that that default and no-arg constructor is same but in fact they are not, even if you write&nbsp;<strong>public Demo() { }</strong>&nbsp;in your class&nbsp;<code>Demo</code>&nbsp;it cannot be called default constructor since you have written the code of it.</p>
+</blockquote>
+<h4>Example: no-arg constructor</h4>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">Demo</span>
+<span class="pun">{</span>
+     <span class="kwd">public</span> <span class="typ">Demo</span><span class="pun">()</span>
+     <span class="pun">{</span>
+         <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"This is a no argument constructor"</span><span class="pun">);</span>
+     <span class="pun">}</span>
+     <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span> <span class="pun">{</span>
+    	 <span class="kwd">new</span> <span class="typ">Demo</span><span class="pun">();</span>
+     <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:<br />This is a no argument constructor</p>
+<h3>Parameterized constructor</h3>
+<p>Constructor with arguments(or you can say parameters) is known as a Parameterized constructor</p>
+<h4>Example: parameterized constructor</h4>
+<p>In this example we have a parameterized constructor with two parameters&nbsp;<code>id</code>&nbsp;and&nbsp;<code>name</code>. While creating the objects&nbsp;<code>obj1</code>&nbsp;and&nbsp;<code>obj2</code>&nbsp;I have passed two arguments so that this constructor gets invoked after creation of obj1 and obj2.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Employee</span> <span class="pun">{</span>
+
+   <span class="kwd">int</span><span class="pln"> empId</span><span class="pun">;</span>  
+   <span class="typ">String</span><span class="pln"> empName</span><span class="pun">;</span>  
+	    
+   <span class="com">//parameterized constructor with two parameters</span>
+   <span class="typ">Employee</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> id</span><span class="pun">,</span> <span class="typ">String</span><span class="pln"> name</span><span class="pun">){</span>  
+       <span class="kwd">this</span><span class="pun">.</span><span class="pln">empId </span><span class="pun">=</span><span class="pln"> id</span><span class="pun">;</span>  
+       <span class="kwd">this</span><span class="pun">.</span><span class="pln">empName </span><span class="pun">=</span><span class="pln"> name</span><span class="pun">;</span>  
+   <span class="pun">}</span>  
+   <span class="kwd">void</span><span class="pln"> info</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Id: "</span><span class="pun">+</span><span class="pln">empId</span><span class="pun">+</span><span class="str">" Name: "</span><span class="pun">+</span><span class="pln">empName</span><span class="pun">);</span>
+   <span class="pun">}</span>  
+	   
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>  
+	<span class="typ">Employee</span><span class="pln"> obj1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Employee</span><span class="pun">(</span><span class="lit">10245</span><span class="pun">,</span><span class="str">"Chaitanya"</span><span class="pun">);</span>  
+	<span class="typ">Employee</span><span class="pln"> obj2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Employee</span><span class="pun">(</span><span class="lit">92232</span><span class="pun">,</span><span class="str">"Negan"</span><span class="pun">);</span><span class="pln">  
+	obj1</span><span class="pun">.</span><span class="pln">info</span><span class="pun">();</span><span class="pln">  
+	obj2</span><span class="pun">.</span><span class="pln">info</span><span class="pun">();</span>  
+   <span class="pun">}</span>  
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Id</span><span class="pun">:</span> <span class="lit">10245</span> <span class="typ">Name</span><span class="pun">:</span> <span class="typ">Chaitanya</span>
+<span class="typ">Id</span><span class="pun">:</span> <span class="lit">92232</span> <span class="typ">Name</span><span class="pun">:</span> <span class="typ">Negan</span></pre>
+<h4>Example2: parameterized constructor</h4>
+<p>In this example, we have two constructors, a default constructor and a parameterized constructor. When we do not pass any parameter while creating the object using new keyword then default constructor is invoked, however when you pass a parameter then parameterized constructor that matches with the passed parameters list gets invoked.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">Example2</span>
+<span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">int</span> <span class="kwd">var</span><span class="pun">;</span>
+      <span class="com">//default constructor</span>
+      <span class="kwd">public</span> <span class="typ">Example2</span><span class="pun">()</span>
+      <span class="pun">{</span>
+             <span class="kwd">this</span><span class="pun">.</span><span class="kwd">var</span> <span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="com">//parameterized constructor</span>
+      <span class="kwd">public</span> <span class="typ">Example2</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">)</span>
+      <span class="pun">{</span>
+             <span class="kwd">this</span><span class="pun">.</span><span class="kwd">var</span> <span class="pun">=</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> getValue</span><span class="pun">()</span>
+      <span class="pun">{</span>
+              <span class="kwd">return</span> <span class="kwd">var</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span>
+      <span class="pun">{</span>
+              <span class="typ">Example2</span><span class="pln"> obj </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Example2</span><span class="pun">();</span>
+              <span class="typ">Example2</span><span class="pln"> obj2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Example2</span><span class="pun">(</span><span class="lit">100</span><span class="pun">);</span>
+              <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"var is: "</span><span class="pun">+</span><span class="pln">obj</span><span class="pun">.</span><span class="pln">getValue</span><span class="pun">());</span>
+              <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"var is: "</span><span class="pun">+</span><span class="pln">obj2</span><span class="pun">.</span><span class="pln">getValue</span><span class="pun">());</span>
+      <span class="pun">}</span>
+<span class="pun">}</span>
+</pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="kwd">var</span> <span class="kwd">is</span><span class="pun">:</span> <span class="lit">10</span>
+<span class="kwd">var</span> <span class="kwd">is</span><span class="pun">:</span> <span class="lit">100</span></pre>
+<h2>What if you implement only parameterized constructor in class</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">Example3</span>
+<span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">int</span> <span class="kwd">var</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">Example3</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">)</span>
+      <span class="pun">{</span>
+             <span class="kwd">var</span><span class="pun">=</span><span class="pln">num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> getValue</span><span class="pun">()</span>
+      <span class="pun">{</span>
+              <span class="kwd">return</span> <span class="kwd">var</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span>
+      <span class="pun">{</span>
+              <span class="typ">Example3</span><span class="pln"> myobj </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Example3</span><span class="pun">();</span>
+              <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"value of var is: "</span><span class="pun">+</span><span class="pln">myobj</span><span class="pun">.</span><span class="pln">getValue</span><span class="pun">());</span>
+      <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output</strong>: It will throw a compilation error. The reason is, the statement&nbsp;<code>Example3 myobj = new Example3()</code>&nbsp;is invoking a default constructor which we don&rsquo;t have in our program. when you don&rsquo;t implement any constructor in your class, compiler inserts the default constructor into your code, however when you implement any constructor (in above example I have implemented parameterized constructor with int parameter), then you don&rsquo;t receive the default constructor by compiler into your code.</p>
+<p>If we remove the parameterized constructor from the above code then the program would run fine, because then compiler would insert the default constructor into your code.</p>
+<p>&nbsp;</p>
+<h2>Super()</h2>
+<p>Whenever a child class constructor gets invoked it implicitly invokes the constructor of parent class. You can also say that the compiler inserts a&nbsp;<code>super();</code>&nbsp;statement&nbsp;at the beginning of child class constructor.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">MyParentClass</span> <span class="pun">{</span>
+   <span class="typ">MyParentClass</span><span class="pun">(){</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"MyParentClass Constructor"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">MyChildClass</span> <span class="kwd">extends</span> <span class="typ">MyParentClass</span><span class="pun">{</span>
+   <span class="typ">MyChildClass</span><span class="pun">()</span> <span class="pun">{</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"MyChildClass Constructor"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span> <span class="pun">{</span>
+	<span class="kwd">new</span> <span class="typ">MyChildClass</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">MyParentClass</span> <span class="typ">Constructor</span>
+<span class="typ">MyChildClass</span> <span class="typ">Constructor</span></pre>
+<p>&nbsp;</p>
+<h2>Java Copy Constructor</h2>
+<p>A copy constructor is used for copying the values of one object to another object.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">JavaExample</span><span class="pun">{</span>  
+   <span class="typ">String</span><span class="pln"> web</span><span class="pun">;</span> 
+   <span class="typ">JavaExample</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> w</span><span class="pun">){</span><span class="pln">  
+	web </span><span class="pun">=</span><span class="pln"> w</span><span class="pun">;</span>
+   <span class="pun">}</span>  
+
+   <span class="com">/* This is the Copy Constructor, it 
+    * copies the values of one object
+    * to the another object (the object
+    * that invokes this constructor)
+    */</span>
+   <span class="typ">JavaExample</span><span class="pun">(</span><span class="typ">JavaExample</span><span class="pln"> je</span><span class="pun">){</span><span class="pln">  
+	web </span><span class="pun">=</span><span class="pln"> je</span><span class="pun">.</span><span class="pln">web</span><span class="pun">;</span> 
+   <span class="pun">}</span>  
+   <span class="kwd">void</span><span class="pln"> disp</span><span class="pun">(){</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Website: "</span><span class="pun">+</span><span class="pln">web</span><span class="pun">);</span>
+   <span class="pun">}</span>  
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>  
+	<span class="typ">JavaExample</span><span class="pln"> obj1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JavaExample</span><span class="pun">(</span><span class="str">"Cubicles Developer"</span><span class="pun">);</span>  
+		
+	<span class="com">/* Passing the object as an argument to the constructor
+	 * This will invoke the copy constructor
+	 */</span>
+	<span class="typ">JavaExample</span><span class="pln"> obj2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JavaExample</span><span class="pun">(</span><span class="pln">obj1</span><span class="pun">);</span><span class="pln">  
+	obj1</span><span class="pun">.</span><span class="pln">disp</span><span class="pun">();</span><span class="pln">  
+	obj2</span><span class="pun">.</span><span class="pln">disp</span><span class="pun">();</span>  
+   <span class="pun">}</span>  
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">Website</span><span class="pun">:</span> <span class="typ">BeginnersBook</span>
+<span class="typ">Website</span><span class="pun">:</span> <span class="typ">BeginnersBook</span></pre>
+</div>

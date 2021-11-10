@@ -1,0 +1,59 @@
+<h1>Introduction to Multithreading in Java</h1>
+
+<p>&nbsp;</p>
+<p>Multithreading is a concept of running multiple threads simultaneously. Thread is a lightweight unit of a process that executes in multithreading environment.</p>
+<p>A program can be divided into a number of small processes. Each small process can be addressed as a single thread (a lightweight process). You can think of a lightweight process as a virtual CPU that executes code or system calls. You usually do not need to concern yourself with lightweight processes to program with threads. Multithreaded programs contain two or more threads that can run concurrently and each thread defines a separate path of execution. This means that a single program can perform two or more tasks simultaneously. For example, one thread is writing content on a file at the same time another thread is performing spelling check.</p>
+<p>In Java, the word&nbsp;<strong>thread</strong>&nbsp;means two different things.</p>
+<ul class="content">
+<li>An instance of&nbsp;<strong>Thread</strong>&nbsp;class.</li>
+<li>or, A thread of execution.</li>
+</ul>
+<p>An instance of&nbsp;<strong>Thread</strong>&nbsp;class is just an object, like any other object in java. But a thread of execution means an individual "lightweight" process that has its own call stack. In java each thread has its own call stack.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/thread-call-stack.jpg" alt="thread call stack" width="349" height="185" /></p>
+<h3>Advantage of Multithreading</h3>
+<p>Multithreading&nbsp;<strong>reduces</strong>&nbsp;the CPU&nbsp;<strong>idle time</strong>&nbsp;that increase overall performance of the system. Since thread is lightweight process then it takes&nbsp;<strong>less memory</strong>&nbsp;and perform&nbsp;<strong>context switching</strong>&nbsp;as well that helps to share the memory and reduce time of switching between threads.</p>
+<h3>Multitasking</h3>
+<p>Multitasking is a process of performing multiple tasks simultaneously. We can understand it by computer system that perform multiple tasks like: writing data to a file, playing music, downloading file from remote server at the same time.</p>
+<p>Multitasking can be achieved either by using multiprocessing or multithreading. Multitasking by using multiprocessing involves multiple processes to execute multiple tasks simultaneously whereas Multithreading involves multiple threads to executes multiple tasks.</p>
+<h3>Why Multithreading ?</h3>
+<p>Thread has many advantages over the process to perform multitasking. Process is heavy weight, takes more memory and occupy CPU for longer time that may lead to performance issue with the system. To overcome these issue process is broken into small unit of independent sub-process. These sub-process are called threads that can perform independent task efficiently. So nowadays computer systems prefer to use thread over the process and use multithreading to perform multitasking.</p>
+<h3>How to Create Thread ?</h3>
+<p>To create a thread, Java provides a class&nbsp;<strong>Thread</strong>&nbsp;and an interface&nbsp;<strong>Runnable</strong>&nbsp;both are located into java.lang package.</p>
+<p>We can create thread either by extending Thread class or implementing Runnable interface. Both includes a run method that must be override to provide thread implementation.</p>
+<p>It is recommended to use Runnable interface if you just want to create a thread but can use Thread class for implementation of other thread functionalities as well.</p>
+<p>We will discuss it in details in our next topics.</p>
+<h3>The&nbsp;<code>main</code>&nbsp;thread</h3>
+<p>When we run any java program, the program begins to execute its code starting from the main method. Therefore, the JVM creates a thread to start executing the code present in&nbsp;<strong>main</strong>&nbsp;method. This thread is called as&nbsp;<strong>main</strong>&nbsp;thread. Although the main thread is automatically created, you can control it by obtaining a reference to it by calling&nbsp;<strong>currentThread()</strong>&nbsp;method.</p>
+<p>Two important things to know about&nbsp;<strong>main</strong>&nbsp;thread are,</p>
+<ul class="content">
+<li>It is the thread from which other threads will be produced.</li>
+<li>It must be always the last thread to finish execution.</li>
+</ul>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">MainThread</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		Thread t <span class="token operator">=</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  		t<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"MainThread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Name of thread is "</span><span class="token operator">+</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Name of thread is Thread[MainThread,5,main]</p>
+<div>&nbsp;</div>
+<h3>Life cycle of a Thread</h3>
+<p>Like process, thread have its life cycle that includes various phases like: new, running, terminated etc. we have described it using the below image.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/thread-life-cycle.jpg" alt="thread life cycle" width="293" height="181" /></p>
+<ol class="content">
+<li><strong>New :</strong>&nbsp;A thread begins its life cycle in the new state. It remains in this state until the start() method is called on it.</li>
+<li><strong>Runnable :</strong>&nbsp;After invocation of start() method on new thread, the thread becomes runnable.</li>
+<li><strong>Running :</strong>&nbsp;A thread is in running state if the thread scheduler has selected it.</li>
+<li><strong>Waiting :</strong>&nbsp;A thread is in waiting state if it waits for another thread to perform a task. In this stage the thread is still alive.</li>
+<li><strong>Terminated :</strong>&nbsp;A thread enter the terminated state when it complete its task.</li>
+</ol>
+<h3>Daemon Thread</h3>
+<p>Daemon threads is a low priority thread that provide supports to user threads. These threads can be user defined and system defined as well. Garbage collection thread is one of the system generated daemon thread that runs in background. These threads run in the background to perform tasks such as garbage collection. Daemon thread does allow JVM from existing until all the threads finish their execution. When a JVM founds daemon threads it terminates the thread and then shutdown itself, it does not care Daemon thread whether it is running or not.</p>
+<h3>Thread Pool</h3>
+<p>In Java, is used for reusing the threads which were created previously for executing the current task. It also provides the solution if any problem occurs in the thread cycle or in resource thrashing. In Java Thread pool a group of threads are created, one thread is selected and assigned job and after completion of job, it is sent back in the group.</p>
+<h3>Thread Priorities</h3>
+<p>In Java, when we create a thread, always a priority is assigned to it. In a Multithreading environment, the processor assigns a priority to a thread scheduler. The priority is given by the JVM or by the programmer itself explicitly. The range of the priority is between 1 to 10 and there are three variables which are static to define priority in a Thread Class.</p>
+<p><strong>Note:&nbsp;</strong>Thread priorities cannot guarantee that a higher priority thread will always be executed first than the lower priority thread. The selection of the threads for execution depends upon the thread scheduler which is platform dependent.</p>

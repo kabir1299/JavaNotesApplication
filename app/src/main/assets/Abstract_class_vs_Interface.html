@@ -1,0 +1,259 @@
+<h1>Difference Between Concrete Class, Abstract Class, Final Class, Interface.</h1>
+<p>&nbsp;</p>
+
+<p>Class, interface, abstract class, final class are the important component of the Java language. Before discussing about the differences among them first lets get little intro about all these. So that we can get some idea what these terms refer to.</p>
+<h3>Concrete Class</h3>
+<p>A class that has all its methods implemented, no method is present without body is known as concrete class.</p>
+<p>In other words, a class that contains only non-abstract method will be called concrete class.</p>
+<h3>Abstract Class</h3>
+<p>A class which is declared as abstract using abstract keyword is known as abstract class. abstract contains abstract methods and used to achieve abstraction, an important feature of OOP programming. Abstract class can not be instantiated.</p>
+<p>&nbsp;</p>
+<h3>Interface</h3>
+<p>Interface is a blueprint of an class and used to achieve abstraction in Java. Interface contains abstract methods and default, private methods. We can not create object of the interface. Interface can be used to implement multiple inheritance in Java.</p>
+<p>&nbsp;</p>
+<h3>Final class</h3>
+<p>Final class is a class, which is declared using final keyword. Final class are used to prevent inheritance, since we cannot inherit final class. We can create its object and can create static and non-static methods as well.</p>
+<p>&nbsp;</p>
+<p>Here in this table we are differentiating class, abstract class, interface etc based on some properties like: access modifier, static, non-static etc.</p>
+<table class="table table-bordered" style="height: 795px; width: 416.6px;">
+<tbody>
+<tr>
+<th style="width: 103px;">&nbsp;</th>
+<th style="width: 70px;">Concrete Class</th>
+<th style="width: 66px;">Abstract Class</th>
+<th style="width: 80px;">Final Class</th>
+<th style="width: 64.6px;">Interface</th>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Constructor</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">No</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Non-static (method)</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">Yes</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Non-static (variable)</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">No</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Access Modifier (by default)</strong></td>
+<td style="width: 70px;">Default</td>
+<td style="width: 66px;">Default</td>
+<td style="width: 80px;">Default</td>
+<td style="width: 64.6px;">Public</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Object Declaration</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">Yes</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Instantiation</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">No</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">No</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Relation</strong></td>
+<td style="width: 70px;">Both (IS-A &amp; HAS-A)</td>
+<td style="width: 66px;">IS-A</td>
+<td style="width: 80px;">HAS-A</td>
+<td style="width: 64.6px;">IS-A</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Final Declarations</strong></td>
+<td style="width: 70px;">May or May not be</td>
+<td style="width: 66px;">May or May not be</td>
+<td style="width: 80px;">May or May not be</td>
+<td style="width: 64.6px;">Only Final</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Abstract Declarations</strong></td>
+<td style="width: 70px;">No</td>
+<td style="width: 66px;">May or May not be</td>
+<td style="width: 80px;">No</td>
+<td style="width: 64.6px;">Fully Abstract</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Inheritance Keyword</strong></td>
+<td style="width: 70px;">Extends</td>
+<td style="width: 66px;">Extends</td>
+<td style="width: 80px;">No Inheritance</td>
+<td style="width: 64.6px;">Implements</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Overloading</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">Yes</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Overriding</strong></td>
+<td style="width: 70px;">No</td>
+<td style="width: 66px;">No</td>
+<td style="width: 80px;">No</td>
+<td style="width: 64.6px;">No</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Super keyword</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">No</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>This keyword</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">Yes</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Byte Code</strong></td>
+<td style="width: 70px;">.class</td>
+<td style="width: 66px;">.class</td>
+<td style="width: 80px;">.class</td>
+<td style="width: 64.6px;">.class</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Anonymous Class</strong></td>
+<td style="width: 70px;">No</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">No</td>
+<td style="width: 64.6px;">Yes</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Keywords used for declaration</strong></td>
+<td style="width: 70px;">No keyword</td>
+<td style="width: 66px;">Abstract keyword</td>
+<td style="width: 80px;">Final keyword</td>
+<td style="width: 64.6px;">Interface keyword</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Inheritance</strong></td>
+<td style="width: 70px;">Single</td>
+<td style="width: 66px;">Single</td>
+<td style="width: 80px;">No Inheritance</td>
+<td style="width: 64.6px;">Multiple</td>
+</tr>
+<tr>
+<td style="width: 103px;"><strong>Static Variables</strong></td>
+<td style="width: 70px;">Yes</td>
+<td style="width: 66px;">Yes</td>
+<td style="width: 80px;">Yes</td>
+<td style="width: 64.6px;">Yes</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="height: 477px; width: 514px;" border="1" cellspacing="0" cellpadding="0"><colgroup><col width="32" /><col width="454" /><col width="370" /></colgroup>
+<tbody>
+<tr>
+<td style="width: 12px;">&nbsp;</td>
+<td style="width: 292.6px;"><strong>&nbsp;Abstract Class</strong></td>
+<td style="width: 201.4px;"><strong>&nbsp;Interface</strong></td>
+</tr>
+<tr>
+<td style="width: 12px;">1</td>
+<td style="width: 292.6px;">&nbsp;An abstract class can extend only one class or one abstract class at a time</td>
+<td style="width: 201.4px;">&nbsp;An&nbsp;interface can extend any number of interfaces at a time</td>
+</tr>
+<tr>
+<td style="width: 12px;">2</td>
+<td style="width: 292.6px;">&nbsp; An&nbsp;abstract class can extend another concrete (regular) class or abstract class</td>
+<td style="width: 201.4px;">&nbsp;An&nbsp;interface can only extend another interface</td>
+</tr>
+<tr>
+<td style="width: 12px;">3</td>
+<td style="width: 292.6px;">&nbsp;An&nbsp;abstract&nbsp;class&nbsp;can&nbsp;have&nbsp;both&nbsp;abstract and concrete methods</td>
+<td style="width: 201.4px;">&nbsp;An&nbsp;interface can have only abstract methods</td>
+</tr>
+<tr>
+<td style="width: 12px;">4</td>
+<td style="width: 292.6px;">&nbsp;In abstract class keyword &ldquo;abstract&rdquo; is mandatory to declare a method as an abstract</td>
+<td style="width: 201.4px;">&nbsp;In an interface keyword &ldquo;abstract&rdquo; is optional to declare a method as an abstract</td>
+</tr>
+<tr>
+<td style="width: 12px;">5</td>
+<td style="width: 292.6px;">&nbsp;An abstract class can have protected and public abstract methods</td>
+<td style="width: 201.4px;">&nbsp;An interface can have only have public abstract methods</td>
+</tr>
+<tr>
+<td style="width: 12px;">6</td>
+<td style="width: 292.6px;">&nbsp;An abstract class can have static, final or static final&nbsp;variable with any access specifier&nbsp;</td>
+<td style="width: 201.4px;">&nbsp;interface&nbsp;can&nbsp;only have public static final (constant) variable</td>
+</tr>
+</tbody>
+</table>
+<p>Each of the above mentioned points are explained&nbsp;with an example below:</p>
+<h2>Abstract class vs interface in Java</h2>
+<h3>Difference No.1: Abstract class can extend only one class or one abstract class at a time</h3>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">Example1</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display1</span><span class="pun">(){</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"display1 method"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">abstract</span> <span class="kwd">class</span> <span class="typ">Example2</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display2</span><span class="pun">(){</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"display2 method"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">abstract</span> <span class="kwd">class</span> <span class="typ">Example3</span> <span class="kwd">extends</span> <span class="typ">Example1</span><span class="pun">{</span>
+   <span class="kwd">abstract</span> <span class="kwd">void</span><span class="pln"> display3</span><span class="pun">();</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Example4</span> <span class="kwd">extends</span> <span class="typ">Example3</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display3</span><span class="pun">(){</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"display3 method"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Demo</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+       <span class="typ">Example4</span><span class="pln"> obj</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">Example4</span><span class="pun">();</span><span class="pln">
+       obj</span><span class="pun">.</span><span class="pln">display3</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="pln">display3 method</span></pre>
+<p><strong>Interface can extend any number of interfaces at a time</strong></p>
+<div class="lq">&nbsp;</div>
+<pre class="prettyprint prettyprinted"><span class="com">//first interface</span>
+<span class="kwd">interface</span> <span class="typ">Example1</span><span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display1</span><span class="pun">();</span>
+<span class="pun">}</span>
+<span class="com">//second interface</span>
+<span class="kwd">interface</span> <span class="typ">Example2</span> <span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display2</span><span class="pun">();</span>
+<span class="pun">}</span>
+<span class="com">//This interface is extending both the above interfaces</span>
+<span class="kwd">interface</span> <span class="typ">Example3</span> <span class="kwd">extends</span> <span class="typ">Example1</span><span class="pun">,</span><span class="typ">Example2</span><span class="pun">{</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Example4</span> <span class="kwd">implements</span> <span class="typ">Example3</span><span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display1</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"display2 method"</span><span class="pun">);</span>
+    <span class="pun">}</span>
+    <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display2</span><span class="pun">(){</span>
+        <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"display3 method"</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span>
+<span class="kwd">class</span> <span class="typ">Demo</span><span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+        <span class="typ">Example4</span><span class="pln"> obj</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">Example4</span><span class="pun">();</span><span class="pln">
+        obj</span><span class="pun">.</span><span class="pln">display1</span><span class="pun">();</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Output:</p>
+<pre class="prettyprint prettyprinted"><span class="pln">display2 method</span></pre>

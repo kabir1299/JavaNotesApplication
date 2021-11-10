@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".ContactUs">
+
+    <RelativeLayout
+        android:id="@+id/rewqa"
+        android:layout_width="match_parent"
+        android:elevation="5dp"
+        android:backgroundTint="@color/purple_500"
+        android:background="@drawable/tool"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Contact Us"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/recy"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="-270dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="email:cubiclesdeveloper@gmail.com"
+        android:textColor="@color/white"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="-101dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Kabir Mishra\nRupesh Gupta"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/recy"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="-85dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Cubicles Developer"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <RelativeLayout
+        android:id="@+id/recy"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/rewqa"
+        >
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

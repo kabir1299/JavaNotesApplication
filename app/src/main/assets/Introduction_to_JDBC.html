@@ -1,0 +1,320 @@
+<h1>Introduction to JDBC</h1>
+
+<p>&nbsp;</p>
+<p><strong>Java Database Connectivity(JDBC)</strong>&nbsp;is an&nbsp;<strong>Application Programming Interface(API)</strong>&nbsp;used to connect Java application with Database. JDBC is used to interact with various type of Database such as Oracle, MS Access, My SQL and SQL Server. JDBC can also be defined as the platform-independent interface between a relational database and Java programming. It allows java program to execute SQL statement and retrieve result from database.</p>
+<p>The JDBC API consists of classes and methods that are used to perform various operations like: connect, read, write and store data in the database. In this tutorial we will learn the JDBC with examples.</p>
+<p>You can get idea of how JDBC connect Java Application to the database by following image.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/jdbc-architecture.jpg" alt="architecture of JDBC" width="276" height="264" /></p>
+<h3>What's new in JDBC 4.0</h3>
+<p>Java introduced&nbsp;<strong>JDBC 4.0</strong>, a new version which is advance specification of JDBC. It provides the following advance features</p>
+<ul class="content">
+<li>Connection Management</li>
+<li>Auto loading of Driver Interface.</li>
+<li>Better exception handling</li>
+<li>Support for large object</li>
+<li>Annotation in SQL query.</li>
+</ul>
+<h3>JDBC 4.1</h3>
+<p>The JDBC 4.1 version was introduced with Java SE 7 and includes the following features:</p>
+<ul class="content">
+<li>Allows to use a&nbsp;<strong>try-with-resources</strong>&nbsp;statement to automatically close resources of type&nbsp;<strong>Connection, ResultSet</strong>&nbsp;etc.</li>
+<li>Introduced the&nbsp;<strong>RowSetFactory</strong>&nbsp;interface and the&nbsp;<strong>RowSetProvider&nbsp;</strong>class to create all types of row sets supported by your JDBC driver.</li>
+</ul>
+<h3>JDBC 4.2</h3>
+<p>version is introduced with Java SE 8 and includes the following features:</p>
+<ul class="content">
+<li>The REF_CURSOR support.</li>
+<li>Added an interface&nbsp;<strong>java.sql.DriverAction</strong></li>
+<li>Added an interface&nbsp;<strong>java.sql.SQLType</strong></li>
+<li>Added an Enum&nbsp;<strong>java.sql.JDBCType</strong></li>
+<li>Add Support for large update counts</li>
+<li>Improved the existing interfaces:&nbsp;<strong>Driver, DriverManage, DatabaseMetaData</strong>.</li>
+<li>Interfaces and classes enhanced for RowSet1.2:</li>
+</ul>
+<h3>JDBC 4.3</h3>
+<ul class="content">
+<li>Added support to Statement for enquoting literals and simple identifiers</li>
+<li>Added Sharding support</li>
+<li>Enhanced Connection to be able to provide hints to the driver that a request, an independent unit of work, is beginning or ending</li>
+<li>Enhanced DatabaseMetaData to determine if Sharding is supported</li>
+<li>Added the method drivers to DriverManager to return a Stream of the currently loaded and available JDBC drivers</li>
+</ul>
+<h3>JDBC Driver</h3>
+<p>JDBC Driver is required to establish connection between application and database. It also helps to process SQL requests and generating result. The following are the different types of driver available in JDBC which are used by the application based on the scenario and type of application.</p>
+<ul>
+<li><strong>Type-1 Driver</strong>&nbsp;or&nbsp;<strong>JDBC-ODBC bridge</strong></li>
+<li><strong>Type-2 Driver</strong>&nbsp;or&nbsp;<strong>Native API Partly Java Driver</strong></li>
+<li><strong>Type-3 Driver</strong>&nbsp;or&nbsp;<strong>Network Protocol Driver</strong></li>
+<li><strong>Type-4 Driver</strong>&nbsp;or&nbsp;<strong>Thin Driver</strong></li>
+</ul>
+<div>&nbsp;</div>
+<h3>JDBC-ODBC bridge</h3>
+<p><strong>Type-1 Driver</strong>&nbsp;act as a bridge between JDBC and other database connectivity mechanism(ODBC). This driver converts JDBC calls into ODBC calls and redirects the request to the ODBC driver.</p>
+<p><strong>Note</strong>: In Java 8, the JDBC-ODBC Bridge has been removed.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/jdbc-driver1.jpg" alt="JDBC-ODBC bridge" width="287" height="172" /></p>
+<p><strong>Advantage</strong></p>
+<ul class="content">
+<li>Easy to use</li>
+<li>Allow easy connectivity to all database supported by the ODBC Driver.</li>
+</ul>
+<p><strong>Disadvantage</strong></p>
+<ul class="content">
+<li>Slow execution time</li>
+<li>Dependent on ODBC Driver.</li>
+<li>Uses Java Native Interface(JNI) to make ODBC call.</li>
+</ul>
+<h3>Native API Driver</h3>
+<p>This type of driver make use of Java Native Interface(JNI) call on database specific native client API. These native client API are usually written in C and C++.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/jdbc-driver2.jpg" alt="Native API Driver" width="298" height="179" /></p>
+<p><strong>Advantage</strong></p>
+<ul class="content">
+<li>faster as compared to&nbsp;<strong>Type-1 Driver</strong></li>
+<li>Contains additional features.</li>
+</ul>
+<p><strong>Disadvantage</strong></p>
+<ul class="content">
+<li>Requires native library</li>
+<li>Increased cost of Application</li>
+</ul>
+<h3>Network Protocol Driver</h3>
+<p>This driver translate the JDBC calls into a database server independent and Middleware server-specific calls. Middleware server further translate JDBC calls into database specific calls.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/jdbc-driver3.jpg" alt="Network Protocol Driver" width="297" height="178" /></p>
+<p><strong>Advantage</strong></p>
+<ul class="content">
+<li>Does not require any native library to be installed.</li>
+<li>Database Independency.</li>
+<li>Provide facility to switch over from one database to another database.</li>
+</ul>
+<p><strong>Disadvantage</strong></p>
+<ul class="content">
+<li>Slow due to increase number of network call.</li>
+</ul>
+<h3>Thin Driver</h3>
+<p>This is Driver called Pure Java Driver because. This driver interact directly with database. It does not require any native database library, that is why it is also known as Thin Driver.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/jdbc-driver4.jpg" alt="Thin Driver" width="283" height="170" /></p>
+<p><strong>Advantage</strong></p>
+<ul class="content">
+<li>Does not require any native library.</li>
+<li>Does not require any Middleware server.</li>
+<li>Better Performance than other driver.</li>
+</ul>
+<p><strong>Disadvantage</strong></p>
+<ul class="content">
+<li>Slow due to increase number of network call.</li>
+</ul>
+<h3>DriverManager class</h3>
+<p>In Java, the DriverManager class it an interface between the User and the Driver. This class is used to have a watch on driver which is been used for establishing the connection between a database and a driver. The DriverManager class have a list of Driver class which are registered and are called as&nbsp;<code>DriverManager.registerDriver()</code>.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>S.No.</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>public static void registerDriver(Driver driver)</td>
+<td>It is used for Registering the Driver with the Driver Manager.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>public static void deregisterDriver(Driver driver)</td>
+<td>It is used for Deregistering the Driver with the Driver Manager.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>public static Connection getConnection(String Url)</td>
+<td>It is used for establishing a connection with the given URL.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>public static Connection getConnection(String Url, String username, String password)</td>
+<td>It is used for establishing the connection with the given URL, username and password.</td>
+</tr>
+</tbody>
+</table>
+<h1>JDBC API</h1>
+<p>&nbsp;</p>
+<p>JDBC API is mainly divided into two package. Each when we are using JDBC, we have to import these packages to use classes and interfaces in our application.</p>
+<ol class="content">
+<li><code>java.sql</code></li>
+<li><code>javax.sql</code></li>
+</ol>
+<h3>java.sql package</h3>
+<p>This package include classes and interface to perform almost all JDBC operation such as creating and executing SQL Queries.</p>
+<h3>Important classes and interface of&nbsp;<code>java.sql</code>&nbsp;package</h3>
+<table class="table table-bordered table-striped" style="height: 1061px;" width="471">
+<tbody>
+<tr>
+<th style="width: 200.8px;">classes/interface</th>
+<th style="width: 255.2px;">Description</th>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.BLOB</code></td>
+<td style="width: 255.2px;">Provide support for BLOB(Binary Large Object) SQL type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.Connection</code></td>
+<td style="width: 255.2px;">creates a connection with specific database</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.CallableStatement</code></td>
+<td style="width: 255.2px;">Execute stored procedures</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.CLOB</code></td>
+<td style="width: 255.2px;">Provide support for CLOB(Character Large Object) SQL type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.Date</code></td>
+<td style="width: 255.2px;">Provide support for Date SQL type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.Driver</code></td>
+<td style="width: 255.2px;">create an instance of a driver with the DriverManager.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.DriverManager</code></td>
+<td style="width: 255.2px;">This class manages database drivers.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.PreparedStatement</code></td>
+<td style="width: 255.2px;">Used to create and execute parameterized query.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.ResultSet</code></td>
+<td style="width: 255.2px;">It is an interface that provide methods to access the result row-by-row.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.Savepoint</code></td>
+<td style="width: 255.2px;">Specify savepoint in transaction.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.SQLException</code></td>
+<td style="width: 255.2px;">Encapsulate all JDBC related exception.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;"><code>java.sql.Statement</code></td>
+<td style="width: 255.2px;">This interface is used to execute SQL statements.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">DatabaseMetaData</td>
+<td style="width: 255.2px;">Comprehensive information about the database as a whole.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">DriverAction</td>
+<td style="width: 255.2px;">An interface that must be implemented when a Driver wants to be notified by DriverManager.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">ResultSetMetaData</td>
+<td style="width: 255.2px;">An object that can be used to get information about the types and properties of the columns in a ResultSet object.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">RowId</td>
+<td style="width: 255.2px;">The representation (mapping) in the Java programming language of an SQL ROWID value.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">Savepoint</td>
+<td style="width: 255.2px;">The representation of a savepoint, which is a point within the current transaction that can be referenced from the&nbsp;<strong>Connection.rollback</strong>&nbsp;method.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">SQLData</td>
+<td style="width: 255.2px;">The interface used for the custom mapping of an SQL user-defined type (UDT) to a class in the Java programming language.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">SQLInput</td>
+<td style="width: 255.2px;">An input stream that contains a stream of values representing an instance of an SQL structured type or an SQL distinct type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">SQLOutput</td>
+<td style="width: 255.2px;">The output stream for writing the attributes of a user-defined type back to the database.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">SQLType</td>
+<td style="width: 255.2px;">An object that is used to identify a generic SQL type, called a JDBC type or a vendor specific data type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">SQLXML</td>
+<td style="width: 255.2px;">cThe mapping in the JavaTM programming language for the SQL XML type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">Statement</td>
+<td style="width: 255.2px;">The object used for executing a static SQL statement and returning the results it produces.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">Struct</td>
+<td style="width: 255.2px;">The standard mapping in the Java programming language for an SQL structured type.</td>
+</tr>
+<tr>
+<td style="width: 200.8px;">Wrapper</td>
+<td style="width: 255.2px;">Interface for JDBC classes which provide the ability to retrieve the delegate instance when the instance in question is in fact a proxy class.</td>
+</tr>
+</tbody>
+</table>
+<h3>The javax.sql package</h3>
+<p>This package is also known as JDBC extension API. It provides classes and interface to access server-side data.</p>
+<h3>Important classes and interface of&nbsp;<code>javax.sql</code>&nbsp;package</h3>
+<table class="table table-bordered table-striped">
+<tbody>
+<tr>
+<th>classes/interface</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>javax.sql.ConnectionEvent</code></td>
+<td>Provide information about occurence of event.</td>
+</tr>
+<tr>
+<td><code>javax.sql.ConnectionEventListener</code></td>
+<td>Used to register event generated by&nbsp;<strong>PooledConnection</strong>&nbsp;object.</td>
+</tr>
+<tr>
+<td><code>javax.sql.DataSource</code></td>
+<td>Represent the&nbsp;<strong>DataSource</strong>&nbsp;interface used in an application.</td>
+</tr>
+<tr>
+<td><code>javax.sql.PooledConnection</code></td>
+<td>provide object to manage connection pools.</td>
+</tr>
+<tr>
+<td>CommonDataSource</td>
+<td>Interface that defines the methods which are common between&nbsp;<strong>DataSource, XADataSource and ConnectionPoolDataSource</strong>.</td>
+</tr>
+<tr>
+<td>RowSet</td>
+<td>The interface that adds support to the JDBC API for the JavaBeans&trade; component model.</td>
+</tr>
+<tr>
+<td>RowSetInternal</td>
+<td>The interface that a RowSet object implements in order to present itself to a&nbsp;<strong>RowSetReader or RowSetWriter</strong>&nbsp;object.</td>
+</tr>
+<tr>
+<td>RowSetListener</td>
+<td>An interface that must be implemented by a component that wants to be notified when a significant event happens in the life of a&nbsp;<strong>RowSet</strong>&nbsp;object.</td>
+</tr>
+<tr>
+<td>RowSetMetaData</td>
+<td>An object that contains information about the columns in a&nbsp;<strong>RowSet</strong>&nbsp;object.</td>
+</tr>
+<tr>
+<td>RowSetReader</td>
+<td>The facility that a disconnected&nbsp;<strong>RowSet</strong>&nbsp;object calls on to populate itself with rows of data.</td>
+</tr>
+<tr>
+<td>RowSetWriter</td>
+<td>An object that implements the&nbsp;<strong>RowSetWriter</strong>&nbsp;interface, called a&nbsp;<strong>writer</strong>.</td>
+</tr>
+<tr>
+<td>StatementEventListener</td>
+<td>An object that registers to be notified of events that occur on PreparedStatements that are in the Statement pool.</td>
+</tr>
+<tr>
+<td>XAConnection</td>
+<td>An object that provides support for distributed transactions.</td>
+</tr>
+<tr>
+<td>XADataSource</td>
+<td>A factory for&nbsp;<strong>XAConnection&nbsp;</strong>objects that is used internally.</td>
+</tr>
+</tbody>
+</table>

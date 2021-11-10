@@ -1,0 +1,31 @@
+
+<html>
+
+
+<h1>Java JVM, JDK and JRE</h1>
+<p>&nbsp;</p>
+<p>In this tutorial we will cover what Java Virtual Machine is, and what is JRE and JDK.</p>
+<p>Java virtual Machine(JVM) is a virtual Machine that provides runtime environment to execute java byte code. The JVM doesn't understand Java typo, that's why you compile your&nbsp;<code>*.java</code>&nbsp;files to obtain&nbsp;<code>*.class</code>&nbsp;files that contain the bytecodes understandable by the JVM.</p>
+<p>JVM control execution of every Java program. It enables features such as automated exception handling, Garbage-collected heap.</p>
+<hr />
+<h2>JVM Architecture</h2>
+<p class="center"><img src="https://www.studytonight.com/java/images/architecture-of-jvm.jpg" alt="JVM architecture in Java" width="393" height="347" /></p>
+<p><strong>Class Loader :</strong>&nbsp;Class loader loads the Class for execution.</p>
+<p><strong>Method area :</strong>&nbsp;Stores pre-class structure as constant pool.</p>
+<p><strong>Heap :</strong>&nbsp;Heap is a memory area in which objects are allocated.</p>
+<div>&nbsp;</div>
+<p><strong>Stack :</strong>&nbsp;Local variables and partial results are store here. Each thread has a private JVM stack created when the thread is created.</p>
+<p><strong>Program register :</strong>&nbsp;Program register holds the address of JVM instruction currently being executed.</p>
+<p><strong>Native method stack :</strong>&nbsp;It contains all native used in application.</p>
+<p><strong>Executive Engine :</strong>&nbsp;Execution engine controls the execute of instructions contained in the methods of the classes.</p>
+<p><strong>Native Method Interface :</strong>&nbsp;Native method interface gives an interface between java code and native code during execution.</p>
+<p><strong>Native Method Libraries :</strong>&nbsp;Native Libraries consist of files required for the execution of native code.</p>
+<hr />
+<h3>Difference between JDK and JRE</h3>
+<p><strong>JRE</strong>&nbsp;: The Java Runtime Environment (JRE) provides the libraries, the Java Virtual Machine, and other components to run applets and applications written in the Java programming language. JRE does not contain tools and utilities such as compilers or debuggers for developing applets and applications.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/what-is-jre.png" alt="What is JRE" /></p>
+<p>&nbsp;</p>
+<p><strong>JDK</strong>&nbsp;: The JDK also called Java Development Kit is a superset of the JRE, and contains everything that is in the JRE, plus tools such as the compilers and debuggers necessary for developing applets and applications.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/what-is-jdk.png" alt="What is JDK" /></p>
+</body>
+</html>

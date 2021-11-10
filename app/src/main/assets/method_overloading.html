@@ -1,0 +1,102 @@
+
+<h1 style="text-align: justify;">Method Overloading in Java</h1>
+<p style="text-align: justify;">Method overloading&nbsp;<strong>is a concept</strong>&nbsp;that allows to declare&nbsp;<strong>multiple methods with same name but different parameters in the same class.</strong></p>
+<p style="text-align: justify;">Java supports method overloading and always occur in the same class(unlike method overriding).</p>
+<p style="text-align: justify;">Method overloading is one of the ways through which java supports polymorphism. Polymorphism is a concept of object oriented programming that deal with multiple forms. We will cover polymorphism in separate topics later on.</p>
+<p style="text-align: justify;">Method overloading can be done by&nbsp;<strong>changing number of arguments</strong>&nbsp;or by&nbsp;<strong>changing the data type of arguments</strong>.</p>
+<p style="text-align: justify;">If two or more method have same name and same parameter list&nbsp;<strong>but differs in return type</strong>&nbsp;can not be overloaded.</p>
+<p style="text-align: justify;"><strong>Note:</strong>&nbsp;Overloaded method can have different access modifiers and it does not have any significance in method overloading.</p>
+<hr />
+<h3>There are two different ways of method overloading.</h3>
+<ol class="content">
+<li>Different datatype of arguments</li>
+<li>Different number of arguments</li>
+</ol>
+<h4>Method overloading by changing data type of arguments.</h4>
+<p><strong>Example:</strong></p>
+<p>In this example, we have two sum() methods that take integer and float type arguments respectively.</p>
+<p>Notice that in the same class we have two&nbsp;<strong>methods with same name but different types of parameters</strong></p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Calculate</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">void</span> sum <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"sum is"</span><span class="token operator">+</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">void</span> sum <span class="token punctuation">(</span><span class="token keyword">float</span> a<span class="token punctuation">,</span> <span class="token keyword">float</span> b<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"sum is"</span><span class="token operator">+</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  Public <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Calculate  cal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Calculate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cal<span class="token punctuation">.</span>sum <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//sum(int a, int b) is method is called.</span>
+    cal<span class="token punctuation">.</span>sum <span class="token punctuation">(</span><span class="token number">4.6f</span><span class="token punctuation">,</span> <span class="token number">3.8f</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//sum(float a, float b) is called.</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Sum is 13 Sum is 8.4</p>
+<p>You can see that sum() method is overloaded two times. The first takes two integer arguments, the second takes two float arguments.</p>
+<hr />
+<h3>Method overloading by changing no. of argument.</h3>
+<p><strong>Example</strong>:</p>
+<p>In this example, we have two methods</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Demo</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">void</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Result is"</span><span class="token operator">+</span><span class="token punctuation">(</span>l<span class="token operator">*</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">void</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> h<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Result is"</span><span class="token operator">+</span><span class="token punctuation">(</span>l<span class="token operator">*</span>b<span class="token operator">*</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Demo  ar <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ar<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//multiply(int l, int b) is method is called</span>
+    ar<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//multiply(int l, int b,int h) is called</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Result is 40</p>
+<p class="output">Result is 48</p>
+<p class="output">&nbsp;</p>
+<p style="text-align: justify;">In this example the&nbsp;<code>multiply()</code>&nbsp;method is overloaded twice. The first method takes two arguments and the second method takes three arguments.</p>
+<p style="text-align: justify;">When an overloaded method is called Java look for match between the arguments to call the method and the its parameters. This match need not always be exact, sometime when exact match is not found, Java automatic type conversion plays a vital role.</p>
+<p><strong>NOTE&nbsp;</strong></p>
+<p>can we overload&nbsp; main method ?&nbsp;</p>
+<p>yes,we can</p>
+<h3>Overloading main Method</h3>
+<p>In Java, we can overload the main() method using different number and types of parameter but the JVM only understand the original main() method.</p>
+<p><strong>Example:</strong></p>
+<p>In this example, we created three main() methods having different parameter types.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MethodDemo10</span><span class="token punctuation">{</span> 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>intargs<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span> 
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main Method with int argument Executing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">char</span> args<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span> 
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main Method with char argument Executing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>Double<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span> 
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Main Method with Double Executing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span> 
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Original main Executing"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  MethodDemo10<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  MethodDemo10<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  MethodDemo10<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token number">1236</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}<br /><br /></span></code></pre>
+<p>C:\Users\RUPESH\Desktop\project java&gt; javac MethodDemo10.java</p>
+<pre class=" language-java"><code class=" language-java"></code></pre>
+<p>C:\Users\RUPESH\Desktop\project java&gt; java MethodDemo10</p>
+<p>outpur<br />Original main Executing<br />Main Method with int argument Executing<br />12<br />Main Method with char argument Executing<br />c<br />Main Method with int argument Executing<br />1236</p>
+<pre class=" language-java"><code class=" language-java"></code></pre>
+<p>C:\Users\RUPESH\Desktop\project java&gt;</p>
+<pre class=" language-java"><code class=" language-java"></code></pre>

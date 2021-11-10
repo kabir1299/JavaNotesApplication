@@ -1,0 +1,63 @@
+
+<header class="entry-header"><header class="entry-header"><header class="entry-header"><header class="entry-header">
+<h1 class="entry-title">While loop in Java with examples</h1>
+</header>
+<div class="entry-content">
+<p>&nbsp;In this tutorial we will discuss while loop. As discussed in previous tutorial, loops are used to execute a set of statements repeatedly until a particular condition is satisfied.</p>
+<h4>Syntax of while loop</h4>
+<pre class="prettyprint prettyprinted"><span class="kwd">while</span><span class="pun">(</span><span class="pln">condition</span><span class="pun">)</span>
+<span class="pun">{</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span></pre>
+<h2>How while Loop works?</h2>
+<p>In while loop, condition is evaluated first and if it returns true then the statements inside while loop execute. When condition returns false, the control comes out of loop and jumps to the next statement after while loop.</p>
+<blockquote>
+<p>Note: The important point to note when using while loop is that we need to use increment or decrement statement inside while loop so that the loop variable gets changed on each iteration, and at some point condition returns false. This way we can end the execution of while loop otherwise the loop would execute indefinitely.</p>
+<p><img src="https://www.studytonight.com/java/images/while-loop.JPG" alt="while loop DFD" width="278" height="276" /></p>
+</blockquote>
+<p>&nbsp;</p>
+<div class="lq">
+<div data-type="ad" data-publisher="Beginnersbook.com" data-format="300x250" data-zone="ros">
+<div id="div-gpt-ad-Beginnersbook.com/ros-1" data-google-query-id="CLfPyYy7iOoCFUyTcAodD-oMGg">
+<div id="google_ads_iframe_/6839/Beginnersbook.com/ros_0__container__">&nbsp;</div>
+<div><strong>Simple while loop example</strong></div>
+</div>
+</div>
+</div>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">WhileLoopExample</span> <span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+         <span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span>
+         <span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&gt;</span><span class="lit">1</span><span class="pun">){</span>
+              <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+              i</span><span class="pun">--;</span>
+         <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="lit">10</span>
+<span class="lit">9</span>
+<span class="lit">8</span>
+<span class="lit">7</span>
+<span class="lit">6</span>
+<span class="lit">5</span>
+<span class="lit">4</span>
+<span class="lit">3</span>
+<span class="lit">2</span></pre>
+<h2>Infinite while loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">WhileLoopExample2</span> <span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+         <span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span>
+         <span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&gt;</span><span class="lit">1</span><span class="pun">)</span>
+         <span class="pun">{</span>
+             <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+              i</span><span class="pun">++;</span>
+         <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>This loop would never end, its an infinite while loop. This is because condition is i&gt;1 which would always be true as we are incrementing the value of i inside while loop.</p>
+<p>Here is another example of infinite while loop:</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">while</span> <span class="pun">(</span><span class="kwd">true</span><span class="pun">){</span><span class="pln">
+    statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span></pre>
+</div>
+</header></header></header>

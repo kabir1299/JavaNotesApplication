@@ -1,0 +1,304 @@
+<h1>Java Sleeping Thread</h1>
+
+<p>&nbsp;</p>
+<p>To sleep a thread for a specified time, Java provides sleep method which is defined in Thread class. The sleep method is an overloaded method which are given below. It throws interrupted exception so make sure to provide proper handler.</p>
+<p>It always pause the current thread execution. Any other thread can interrupt the current thread in sleep, in that case InterruptedException is thrown.</p>
+<h3>Syntax</h3>
+<pre class=" language-java"><code class=" language-java"><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token keyword">long</span> millis<span class="token punctuation">)</span><span class="token keyword">throws</span> InterruptedException
+<span class="token function">sleep</span><span class="token punctuation">(</span><span class="token keyword">long</span> millis<span class="token punctuation">,</span> <span class="token keyword">int</span> nanos<span class="token punctuation">)</span><span class="token keyword">throws</span> InterruptedException
+</code></pre>
+<h3>Example : Sleeping a thread</h3>
+<p>In this example, we are sleeping threads by using sleep method. Each thread will sleep for 1500 milliseconds and then resume its execution. See the below example.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+        <span class="token function">MyThread</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" Started"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span><span class="token punctuation">{</span>
+                    MyThread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                    <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ie<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" Finished"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"first thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                MyThread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"second thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">first thread Started second thread Started first thread Finished second thread Finished</p>
+<h3>Example</h3>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+        <span class="token function">MyThread</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" Started"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span><span class="token punctuation">{</span>
+                    MyThread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" Sleeping.."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ie<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" Finished"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"first thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                MyThread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"second thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" state: "</span><span class="token operator">+</span>t1<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" state: "</span><span class="token operator">+</span>t1<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" state: "</span><span class="token operator">+</span>t2<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" state: "</span><span class="token operator">+</span>t2<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">first thread state: NEW first thread state: RUNNABLE second thread state: NEW first thread Started second thread state: RUNNABLE second thread Started first thread Sleeping.. second thread Sleeping.. second thread Finished first thread Finished</p>
+<p><code>Thread.sleep()</code>&nbsp;interacts with the thread scheduler to put the current thread in wait state for specified period of time. Once the wait time is over, thread state is changed to runnable state and wait for the CPU for further execution. So the actual time that current thread sleep depends on the thread scheduler that is part of operating system.</p>
+<p>&nbsp;</p>
+<h1>Java Naming Thread</h1>
+<p>&nbsp;</p>
+<p>Each thread in Java has its own name which is set by the JVM by default. Although there are many other attributes associated to the thread like: id, priority etc.</p>
+<p>we can get name of a thread by calling&nbsp;<code>getName()</code>&nbsp;method of Thread class. If we wish to set new name of the thread then&nbsp;<strong>setName()</strong>&nbsp;method can be used. Both methods belongs to Thread class and even we can set name of thread by passing into constructor during creating object. Lets understand by the examples.</p>
+<h3>Syntax of the two methods is given below.</h3>
+<pre class=" language-java"><code class=" language-java"><span class="token function">setName</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span>
+<span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h3>Example: Fetch Thread Name</h3>
+<p>lets first fetch the thread name set by the JVM. It is default name so initially we cannot predict it.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread name: "</span><span class="token operator">+</span>t1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">thread running... thread name: Thread-0</p>
+<p>we can also use static currentThread() method of Thread class. it returns thread name, priority etc. it is static method so object is not require to call it. See the below example.</p>
+<h3>Example: Thread.currentThread()</h3>
+<p>In this example, we are using currentThread method of Thread class to get name of the thread.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread name: "</span><span class="token operator">+</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">thread running... Thread name: Thread[Thread-0,5,main]</p>
+<h3>Example: Setting Name</h3>
+<p>In this example, we are using setName() method to set name of the thread and getName() method to get name of the thread.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t1<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"mythread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Name: "</span><span class="token operator">+</span>t1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">thread running... Thread Name: mythread</p>
+<h3>Example : Setting Name using constructor</h3>
+<p>We can set name of a thread by passing through the constructor. Thread class constructor that allows a string type argument can be used to set name. See the below example.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+    <span class="token function">MyThread</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"mythread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Name: "</span><span class="token operator">+</span>t1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">thread running... Thread Name: mythread</p>
+<p>Since we are extending the Thread class so we call its constructor through the super call and passed thread name to the MyThread class.</p>
+<h3>Example: Setting Name</h3>
+<p>We can directly pass the thread name to the constructor by creating thread class object.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span>
+<span class="token punctuation">{</span> 
+    
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+               System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                Thread t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t1<span class="token punctuation">,</span> <span class="token string">"mythread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Name: "</span><span class="token operator">+</span>t<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">thread running... Thread Name: mythread</p>
+<p>In this topic, we learned to fetch thread name using&nbsp;<code>getName()</code>&nbsp;and&nbsp;<code>currentThread()</code>&nbsp;methods, and to set the name using setName() method and passing name to the constructor.</p>
+<p>&nbsp;</p>
+<h1>Java Thread Priorities</h1>
+<p>&nbsp;</p>
+<p>Priority of a thread describes how early it gets execution and selected by the thread scheduler. In Java, when we create a thread, always a priority is assigned to it. In a Multithreading environment, the processor assigns a priority to a thread scheduler. The priority is given by the JVM or by the programmer itself explicitly. The range of the priority is between 1 to 10 and there are three constant variables which are static and used to fetch priority of a Thread. They are as following:</p>
+<h3>1. public static int MIN_PRIORITY</h3>
+<p>It holds the minimum priority that can be given to a thread. The value for this is 1.</p>
+<h3>2. public static int NORM_PRIORITY</h3>
+<p>It is the default priority that is given to a thread if it is not defined. The value for this is 0.</p>
+<h3>3. public static int MAX_PRIORITY</h3>
+<p>It is the maximum priority that can be given to a thread. The value for this is 10.</p>
+<h3>Get and Set methods in Thread priority</h3>
+<h4><strong>1. public final intgetPriority()</strong></h4>
+<p>In Java, getPriority() method is in java.lang.Thread package. it is used to get the priority of a thread.</p>
+<h4><strong>2. public final void setPriority(intnewPriority)</strong></h4>
+<p>In Java setPriority(intnewPriority) method is in java.lang.Thread package. It is used to set the priority of a thread. The setPriority() method throws IllegalArgumentException if the value of new priority is above minimum and maximum limit.</p>
+<h3>Example: Fetch Thread Priority</h3>
+<p>If we don&rsquo;t set thread priority of a thread then by default it is set by the JVM. In this example, we are getting thread&rsquo;s default priority by using the&nbsp;<code>getPriority()</code>&nbsp;method.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> 
+<span class="token punctuation">{</span> 
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span> 
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span>args<span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		MyThread p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		MyThread p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		MyThread p3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		p1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"P1 thread priority : "</span> <span class="token operator">+</span> p1<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"P2 thread priority : "</span> <span class="token operator">+</span> p2<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"P3 thread priority : "</span> <span class="token operator">+</span> p3<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		
+	<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">P1 thread priority : 5 Thread Running... P2 thread priority : 5 P3 thread priority : 5</p>
+<h3>Example: Thread Constants</h3>
+<p>We can fetch priority of a thread by using some predefined constants provided by the Thread class. these constants returns the max, min and normal priority of a thread.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> 
+<span class="token punctuation">{</span> 
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span> 
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span>args<span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		MyThread p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		p1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"max thread priority : "</span> <span class="token operator">+</span> p1<span class="token punctuation">.</span>MAX_PRIORITY<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"min thread priority : "</span> <span class="token operator">+</span> p1<span class="token punctuation">.</span>MIN_PRIORITY<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"normal thread priority : "</span> <span class="token operator">+</span> p1<span class="token punctuation">.</span>NORM_PRIORITY<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+		
+	<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+	</code></pre>
+<p class="output">Thread Running... max thread priority : 10 min thread priority : 1 normal thread priority : 5</p>
+<h3>Example : Set Priority</h3>
+<p>To set priority of a thread,&nbsp;<code>setPriority()</code>&nbsp;method of thread class is used. It takes an integer argument that must be between 1 and 10. see the below example.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> 
+<span class="token punctuation">{</span> 
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span> 
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span>args<span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		MyThread p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment" spellcheck="true">// Starting thread</span>
+		p1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment" spellcheck="true">// Setting priority</span>
+		p1<span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment" spellcheck="true">// Getting priority</span>
+		<span class="token keyword">int</span> p <span class="token operator">=</span> p1<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread priority : "</span> <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+		
+	<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+	</code></pre>
+<p class="output">thread priority : 2 Thread Running...</p>
+<h3>Example:</h3>
+<p>In this example, we are setting priority of two thread and running them to see the effect of thread priority. Does setting higher priority thread get CPU first. See the below example.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span> 
+<span class="token punctuation">{</span> 
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Thread Running... "</span><span class="token operator">+</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span> 
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span>args<span class="token punctuation">)</span> 
+	<span class="token punctuation">{</span> 
+		MyThread p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		MyThread p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment" spellcheck="true">// Starting thread</span>
+		p1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		p2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment" spellcheck="true">// Setting priority</span>
+		p1<span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment" spellcheck="true">// Getting -priority</span>
+		p2<span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p <span class="token operator">=</span> p1<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> p22 <span class="token operator">=</span> p2<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"first thread priority : "</span> <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"second thread priority : "</span> <span class="token operator">+</span> p22<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+	<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+	</code></pre>
+<p class="output">Thread Running... Thread-0 first thread priority : 5 second thread priority : 1 Thread Running... Thread-1</p>
+<p><strong>Note:</strong>&nbsp;Thread priorities cannot guarantee that a higher priority thread will always be executed first than the lower priority thread. The selection of the threads for execution depends upon the thread scheduler which is platform dependent.</p>

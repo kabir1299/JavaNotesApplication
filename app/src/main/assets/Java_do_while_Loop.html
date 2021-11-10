@@ -1,0 +1,36 @@
+
+<header class="entry-header"><header class="entry-header"><header class="entry-header"><header class="entry-header"><header class="entry-header">
+<h1 class="entry-title">do-while loop in Java with example</h1>
+</header>
+<div class="entry-content">
+<p>&nbsp;In this tutorial we will discuss do-while loop in java. do-while loop is similar to while loop, however there is a difference between them: In while loop, condition is evaluated before the execution of loop&rsquo;s body but in do-while loop condition is evaluated after the execution of loop&rsquo;s body.</p>
+<h4>Syntax of do-while loop:</h4>
+<pre class="prettyprint prettyprinted"><span class="kwd">do</span>
+<span class="pun">{</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span> <span class="kwd">while</span><span class="pun">(</span><span class="pln">condition</span><span class="pun">);</span></pre>
+<h2>How do-while loop works?</h2>
+<p>First, the statements inside loop execute and then the condition gets evaluated, if the condition returns true then the control gets transferred to the &ldquo;do&rdquo; else it jumps to the next statement after do-while.<br /><br /></p>
+<p><img src="https://www.studytonight.com/java/images/do-while-dfd.JPG" alt="do-while-dfd diagram" width="244" height="259" /></p>
+<h2>do-while loop example</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">class</span> <span class="typ">DoWhileLoopExample</span> <span class="pun">{</span>
+    <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+         <span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span>
+         <span class="kwd">do</span><span class="pun">{</span>
+              <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+              i</span><span class="pun">--;</span>
+         <span class="pun">}</span><span class="kwd">while</span><span class="pun">(</span><span class="pln">i</span><span class="pun">&gt;</span><span class="lit">1</span><span class="pun">);</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="lit">10</span>
+<span class="lit">9</span>
+<span class="lit">8</span>
+<span class="lit">7</span>
+<span class="lit">6</span>
+<span class="lit">5</span>
+<span class="lit">4</span>
+<span class="lit">3</span>
+<span class="lit">2</span></pre>
+</div>
+</header></header></header></header>

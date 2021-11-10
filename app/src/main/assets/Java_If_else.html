@@ -1,0 +1,143 @@
+<header class="entry-header"><header class="entry-header">
+
+<h1 class="entry-title">If, If..else Statement in Java with Examples</h1>
+</header>
+<div class="entry-content">
+<p>When we need to execute a set of statements based on a condition then we need to use&nbsp;<strong>control flow statements</strong>. For example, if a number is greater than zero then we want to print &ldquo;Positive Number&rdquo; but if it is less than zero then we want to print &ldquo;Negative Number&rdquo;. In this case we have two print statements in the program, but only one print statement executes at a time based on the input value. We will see how to write such type of conditions in the java program using control statements.</p>
+<p>In this tutorial, we will see four types of control statements that you can use in java programs based on the requirement: In this tutorial we will cover following conditional statements:</p>
+<p>a) if statement<br />b) nested if statement<br />c) if-else statement<br />d) if-else-if statement</p>
+<h2>If statement</h2>
+<p>If statement consists a condition, followed by statement or a set of statements as shown below:</p>
+<div class="lq">&nbsp;</div>
+<pre class="prettyprint prettyprinted"><span class="pun">if(</span><span class="pln">condition</span><span class="pun">)<br />{</span>
+  <span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span></pre>
+<p>The statements gets executed only when the given condition is true. If the condition is false then the statements inside if statement body are completely ignored.</p>
+<h4><strong>Data-flow-diagram of If Block</strong></h4>
+<p class="center"><img src="https://www.studytonight.com/java/images/if-block.JPG" alt="If Block Flow" width="266" height="316" /></p>
+<h3>Example of if statement</h3>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">IfStatementExample<br /></span><span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+      <span class="kwd">int</span><span class="pln"> num</span><span class="pun">=</span><span class="lit">70</span><span class="pun">;</span>
+      <span class="kwd">if</span><span class="pun">(</span><span class="pln"> num </span><span class="pun">&lt;</span> <span class="lit">100</span> <span class="pun">){</span>
+	  <span class="com">/* This println statement will only execute,
+	   * if the above condition is true
+	   */</span>
+	  <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"number is less than 100"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="pln">number </span><span class="kwd">is</span><span class="pln"> less than </span><span class="lit">100<br /><br /></span></pre>
+<h2>Nested if statement in Java</h2>
+<p>When there is an if statement inside another if statement then it is called the&nbsp;<strong>nested if statement</strong>.<br />The structure of nested if looks like this:</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln">condition_1</span><span class="pun">)<br /></span><span class="pun">{</span>
+   <span class="typ">Statement1</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln">condition_2</span><span class="pun">)<br /></span>   <span class="pun">{</span>
+      <span class="typ">Statement2</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>Statement1 would execute if the condition_1 is true. Statement2 would only execute if both the conditions( condition_1 and condition_2) are true.</p>
+<h3>Example of Nested if statement</h3>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">NestedIfExample</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+        <span class="kwd">int</span><span class="pln"> num</span><span class="pun">=</span><span class="lit">70</span><span class="pun">;</span>
+	<span class="kwd">if</span><span class="pun">(</span><span class="pln"> num </span><span class="pun">&lt;</span> <span class="lit">100</span> <span class="pun">){</span> 
+           <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"number is less than 100"</span><span class="pun">);</span> 
+           <span class="kwd">if</span><span class="pun">(</span><span class="pln">num </span><span class="pun">&gt;</span> <span class="lit">50</span><span class="pun">){</span>
+	      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"number is greater than 50"</span><span class="pun">);</span>
+	   <span class="pun">}</span>
+	<span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="pln">number </span><span class="kwd">is</span><span class="pln"> less than </span><span class="lit">100</span><span class="pln">
+number </span><span class="kwd">is</span><span class="pln"> greater than </span><span class="lit">50<br /><br /></span></pre>
+<h2>If else statement in Java</h2>
+<p>This is how an if-else statement looks:</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln">condition</span><span class="pun">)<br /></span><span class="pun">{</span>
+   <span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span>
+<span class="kwd">else<br /></span> <span class="pun">{</span>
+   <span class="typ">Statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span></pre>
+<p>The statements inside &ldquo;if&rdquo; would execute if the condition is true, and the statements inside &ldquo;else&rdquo; would execute if the condition is false.</p>
+<h4><strong>Data-flow-diagram of If Else Block</strong></h4>
+<p><img src="https://www.studytonight.com/java/images/if-else-data-flow-diagram.JPG" alt="IF else DFD Diagram" width="284" height="284" /></p>
+<h3>Example of if-else statement</h3>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">IfElseExample<br /></span><span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+     <span class="kwd">int</span><span class="pln"> num</span><span class="pun">=</span><span class="lit">120</span><span class="pun">;</span>
+     <span class="kwd">if</span><span class="pun">(</span><span class="pln"> num </span><span class="pun">&lt;</span> <span class="lit">50</span> <span class="pun">)<br />    {</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"num is less than 50"</span><span class="pun">);</span>
+     <span class="pun">}</span>
+     <span class="kwd">else</span> <br /><span class="pun">     {</span>
+	<span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"num is greater than or equal 50"</span><span class="pun">);</span>
+     <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="pln">num </span><span class="kwd">is</span><span class="pln"> greater than </span><span class="kwd">or</span><span class="pln"> equal </span><span class="lit">50<br /><br /></span></pre>
+<h2>if-else-if Statement</h2>
+<p>if-else-if statement is used when we need to check multiple conditions. In this statement we have only one &ldquo;if&rdquo; and one &ldquo;else&rdquo;, however we can have multiple &ldquo;else if&rdquo;. It is also known as&nbsp;<strong>if else if ladder</strong>. This is how it looks:</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln">condition_1</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="com">/*if condition_1 is true execute this*/</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span>
+<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">condition_2</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="com">/* execute this if condition_1 is not met and
+    * condition_2 is met
+    */</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span>
+<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">condition_3</span><span class="pun">)</span> <span class="pun">{</span>
+   <span class="com">/* execute this if condition_1 &amp; condition_2 are
+    * not met and condition_3 is met
+    */</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span>
+<span class="pun">.</span>
+<span class="pun">.</span>
+<span class="pun">.</span>
+<span class="kwd">else</span> <span class="pun">{</span>
+   <span class="com">/* if none of the condition is true
+    * then these statements gets executed
+    */</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span></pre>
+<p><strong>Note:</strong>&nbsp;The most important point to note here is that in if-else-if statement, as soon as the condition is met, the corresponding set of statements get executed, rest gets ignored. If none of the condition is met then the statements inside &ldquo;else&rdquo; gets executed.</p>
+<h4><strong>Data-flow-diagram of If Else If Block</strong></h4>
+<p><img src="https://www.studytonight.com/java/images/if-else-if.JPG" alt="DFD of if-else-if block" width="296" height="212" /></p>
+<h3>Example of if-else-if</h3>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">IfElseIfExample</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+	<span class="kwd">int</span><span class="pln"> num</span><span class="pun">=</span><span class="lit">1234</span><span class="pun">;</span>
+	<span class="kwd">if</span><span class="pun">(</span><span class="pln">num </span><span class="pun">&lt;</span><span class="lit">100</span> <span class="pun">&amp;&amp;</span><span class="pln"> num</span><span class="pun">&gt;=</span><span class="lit">1</span><span class="pun">)</span> <span class="pun">{</span>
+	  <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Its a two digit number"</span><span class="pun">);</span>
+	<span class="pun">}</span>
+	<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">num </span><span class="pun">&lt;</span><span class="lit">1000</span> <span class="pun">&amp;&amp;</span><span class="pln"> num</span><span class="pun">&gt;=</span><span class="lit">100</span><span class="pun">)</span> <span class="pun">{</span>
+	  <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Its a three digit number"</span><span class="pun">);</span>
+	<span class="pun">}</span>
+	<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">num </span><span class="pun">&lt;</span><span class="lit">10000</span> <span class="pun">&amp;&amp;</span><span class="pln"> num</span><span class="pun">&gt;=</span><span class="lit">1000</span><span class="pun">)</span> <span class="pun">{</span>
+	  <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Its a four digit number"</span><span class="pun">);</span>
+	<span class="pun">}</span>
+	<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln">num </span><span class="pun">&lt;</span><span class="lit">100000</span> <span class="pun">&amp;&amp;</span><span class="pln"> num</span><span class="pun">&gt;=</span><span class="lit">10000</span><span class="pun">)</span> <span class="pun">{</span>
+	  <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Its a five digit number"</span><span class="pun">);</span>			
+	<span class="pun">}</span>
+	<span class="kwd">else</span> <span class="pun">{</span>
+	  <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"number is not between 1 &amp; 99999"</span><span class="pun">);</span>			
+	<span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Its</span><span class="pln"> a four digit number</span></pre>
+<pre class="prettyprint prettyprinted"><span class="lit">&nbsp;</span></pre>
+<pre class="prettyprint prettyprinted"><span class="lit">&nbsp;</span></pre>
+<pre class="prettyprint prettyprinted"><span class="lit">&nbsp;</span></pre>
+</div>
+</header>

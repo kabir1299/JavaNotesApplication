@@ -1,0 +1,403 @@
+<h1>Java Thread Class</h1>
+
+<p>&nbsp;</p>
+<p>Thread class is the main class on which Java's Multithreading system is based. Thread class, along with its companion interface Runnable will be used to create and run threads for utilizing Multithreading feature of Java.</p>
+<p>It provides constructors and methods to support multithreading. It extends object class and implements Runnable interface.</p>
+<h3>Signature of Thread class</h3>
+<pre class=" language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Thread</span> <span class="token keyword">extends</span> <span class="token class-name">Object</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span></code></pre>
+<h3>Thread Class Priority Constants</h3>
+<table class="table table-bordered" style="height: 69px;" width="492">
+<tbody>
+<tr>
+<th style="width: 120px;">Field</th>
+<th style="width: 357.6px;">Description</th>
+</tr>
+<tr>
+<td style="width: 120px;">MAX_PRIORITY</td>
+<td style="width: 357.6px;">It represents the maximum priority that a thread can have.</td>
+</tr>
+<tr>
+<td style="width: 120px;">MIN_PRIORITY</td>
+<td style="width: 357.6px;">It represents the minimum priority that a thread can have.</td>
+</tr>
+<tr>
+<td style="width: 120px;">NORM_PRIORITY</td>
+<td style="width: 357.6px;">It represents the default priority that a thread can have.</td>
+</tr>
+</tbody>
+</table>
+<h2>Constructors of Thread class</h2>
+<ol class="content">
+<li><strong>Thread</strong>()</li>
+<li><strong>Thread</strong>(String str)</li>
+<li><strong>Thread</strong>(Runnable r)</li>
+<li><strong>Thread</strong>(Runnable r, String str)</li>
+<li><strong>Thread</strong>(<strong>ThreadGroup</strong>&nbsp;group,&nbsp;<strong>Runnable</strong>&nbsp;target)</li>
+<li><strong>Thread</strong>(<strong>ThreadGroup</strong>&nbsp;group,&nbsp;<strong>Runnable</strong>&nbsp;target, String name)</li>
+<li><strong>Thread</strong>(<strong>ThreadGroup</strong>&nbsp;group,&nbsp;<strong>Runnable</strong>&nbsp;target, String name, long stackSize)</li>
+<li><strong>Thread</strong>(<strong>ThreadGroup</strong>&nbsp;group,&nbsp;<strong>String</strong>&nbsp;name)</li>
+</ol>
+<h3>Thread Class Methods</h3>
+<p>Thread class also defines many methods for managing threads. Some of them are,</p>
+<p>&nbsp;</p>
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th class="center">Method</th>
+<th class="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setName()</td>
+<td>to give thread a name</td>
+</tr>
+<tr>
+<td>getName()</td>
+<td>return thread's name</td>
+</tr>
+<tr>
+<td>getPriority()</td>
+<td>return thread's priority</td>
+</tr>
+<tr>
+<td>isAlive()</td>
+<td>checks if thread is still running or not</td>
+</tr>
+<tr>
+<td>join()</td>
+<td>Wait for a thread to end</td>
+</tr>
+<tr>
+<td>run()</td>
+<td>Entry point for a thread</td>
+</tr>
+<tr>
+<td>sleep()</td>
+<td>suspend thread for a specified time</td>
+</tr>
+<tr>
+<td>start()</td>
+<td>start a thread by calling run() method</td>
+</tr>
+<tr>
+<td>activeCount()</td>
+<td>Returns an estimate of the number of active threads in the current thread's thread group and its subgroups.</td>
+</tr>
+<tr>
+<td>checkAccess()</td>
+<td>Determines if the currently running thread has permission to modify this thread.</td>
+</tr>
+<tr>
+<td>currentThread()</td>
+<td>Returns a reference to the currently executing thread object.</td>
+</tr>
+<tr>
+<td>dumpStack()</td>
+<td>Prints a stack trace of the current thread to the standard error stream.</td>
+</tr>
+<tr>
+<td>getId()</td>
+<td>Returns the identifier of this Thread.</td>
+</tr>
+<tr>
+<td>getState()</td>
+<td>Returns the state of this thread.</td>
+</tr>
+<tr>
+<td>getThreadGroup()</td>
+<td>Returns the thread group to which this thread belongs.</td>
+</tr>
+<tr>
+<td>interrupt()</td>
+<td>Interrupts this thread.</td>
+</tr>
+<tr>
+<td>interrupted()</td>
+<td>Tests whether the current thread has been interrupted.</td>
+</tr>
+<tr>
+<td>isAlive()</td>
+<td>Tests if this thread is alive.</td>
+</tr>
+<tr>
+<td>isDaemon()</td>
+<td>Tests if this thread is a daemon thread.</td>
+</tr>
+<tr>
+<td>isInterrupted()</td>
+<td>Tests whether this thread has been interrupted.</td>
+</tr>
+<tr>
+<td>setDaemon(boolean on)</td>
+<td>Marks this thread as either a daemon thread or a user thread.</td>
+</tr>
+<tr>
+<td>setPriority(int newPriority)</td>
+<td>Changes the priority of this thread.</td>
+</tr>
+<tr>
+<td>yield()</td>
+<td>A hint to the scheduler that the current thread is willing to yield its current use of a processor.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Some Important points to Remember</h3>
+<ol class="content">
+<li>When we extend Thread class, we cannot override&nbsp;<strong>setName()</strong>&nbsp;and&nbsp;<strong>getName()</strong>&nbsp;functions, because they are declared final in Thread class.</li>
+<li>While using&nbsp;<strong>sleep()</strong>, always handle the exception it throws.
+<pre class="java"><em>static</em> void <strong>sleep</strong>(long <em>milliseconds</em>) throws <strong>InterruptedException</strong></pre>
+</li>
+</ol>
+<h3>Runnable Interface</h3>
+<p>It also used to create thread and should be used if you are only planning to override the&nbsp;<code>run()</code>&nbsp;method and no other Thread methods.</p>
+<h3>Signature</h3>
+<pre class=" language-java"><code class=" language-java">
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Runnable</span>
+</code></pre>
+<h3>Runnable Interface Method</h3>
+<p>It provides only single method that must be implemented by the class.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>run()</td>
+<td>It runs the implemented thread.</td>
+</tr>
+</tbody>
+</table>
+<h3>Shutdown hook</h3>
+<p>In Java, Shutdown hook is used to clean-up all the resource, it means closing all the files, sending alerts etc. We can also save the state when the JVM shuts down. Shutdown hook mostly used when any code is to be executed before any JVM shuts down. Following are some of the reasons when the JVM shut down:</p>
+<ul class="content">
+<li>Pressing ctrl+c on the command prompt</li>
+<li>When the System.exit(int) method is invoked.</li>
+<li>When user logoff or shutdown etc</li>
+</ul>
+<h4>addShutdownHook(Thread hook)</h4>
+<p>The addShutdownHook(Thread hook) method is used to register the thread with the virtual machine. This method is of Runtime class.</p>
+<h1>Creating a thread in Java</h1>
+<p>&nbsp;</p>
+<p>To implement multithreading, Java defines two ways by which a thread can be created.</p>
+<ul class="content">
+<li>By implementing the&nbsp;<strong>Runnable</strong>&nbsp;interface.</li>
+<li>By extending the&nbsp;<strong>Thread</strong>&nbsp;class.</li>
+</ul>
+<h3>Implementing the Runnable Interface</h3>
+<p>The easiest way to create a thread is to create a class that implements the runnable interface. After implementing runnable interface, the class needs to implement the&nbsp;<code>run()</code>&nbsp;method.</p>
+<h3>Run Method Syntax:</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<ul class="content">
+<li>It introduces a concurrent thread into your program. This thread will end when&nbsp;<code>run()</code>&nbsp;method terminates.</li>
+<li>You must specify the code that your thread will execute inside&nbsp;<code>run()</code>&nbsp;method.</li>
+<li><code>run()</code>&nbsp;method can call other methods, can use other classes and declare variables just like any other normal method.</li>
+</ul>
+<p>&nbsp;</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"concurrent thread started running.."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyThreadDemo</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        MyThread mt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Thread t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>mt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="output">concurrent thread started running..</p>
+<p>To call the&nbsp;<code>run()</code>method,&nbsp;<code>start()</code>&nbsp;method is used. On calling start(), a new stack is provided to the thread and run() method is called to introduce the new thread into the program.</p>
+<p><strong>Note:&nbsp;</strong>If you are implementing Runnable interface in your class, then you need to explicitly create a Thread class object and need to pass the Runnable interface implemented class object as a parameter in its constructor.</p>
+<div>&nbsp;</div>
+<hr />
+<h2>Extending Thread class</h2>
+<p>This is another way to create a thread by a new class that extends&nbsp;<strong>Thread</strong>&nbsp;class and create an instance of that class. The extending class must override&nbsp;<code>run()</code>&nbsp;method which is the entry point of new thread.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"concurrent thread started running.."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+classMyThreadDemo
+<span class="token punctuation">{</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ 	<span class="token punctuation">{</span>
+  		MyThread mt <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  		mt<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">concurrent thread started running..</p>
+<p>In this case also, we must override the&nbsp;<code>run()</code>&nbsp;and then use the&nbsp;<code>start()</code>&nbsp;method to run the thread. Also, when you create MyThread class object, Thread class constructor will also be invoked, as it is the super class, hence MyThread class object acts as Thread class object.</p>
+<h3>What if we call&nbsp;<code>run()</code>&nbsp;method directly without using&nbsp;<code>start()</code>&nbsp;method?</h3>
+<p>In above program if we directly call&nbsp;<code>run()</code>&nbsp;method, without using&nbsp;<code>start()</code>&nbsp;method,</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ 	MyThread mt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	mt<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Doing so, the thread won't be allocated a new call stack, and it will start running in the current call stack, that is the call stack of the&nbsp;<strong>main</strong>&nbsp;thread. Hence Multithreading won't be there.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/thread-without-new-call-stack.gif" alt="calling run without start method" width="296" height="197" /></p>
+<hr />
+<h3>Can we Start a thread twice?</h3>
+<p>No, a thread cannot be started twice. If you try to do so,&nbsp;<strong>IllegalThreadStateException</strong>&nbsp;will be thrown.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ 	MyThread mt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	mt<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	mt<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment" spellcheck="true">//Exception thrown</span>
+<span class="token punctuation">}</span></code></pre>
+<p>When a thread is in running state, and you try to start it again, or any method try to invoke that thread again using&nbsp;<strong>start()</strong>&nbsp;method, exception is thrown.</p>
+<h3>Thread Pool</h3>
+<p>In Java, is used for reusing the threads which were created previously for executing the current task. It also provides the solution if any problem occurs in the thread cycle or in resource thrashing. In Java Thread pool a group of threads are created, one thread is selected and assigned job and after completion of job, it is sent back in the group.</p>
+<p><img src="https://www.studytonight.com/java/images/thread-pool.JPG" alt="thread-pool" width="360" height="214" /></p>
+<h3>There are three methods of a Thread pool. They are as following:</h3>
+<p>1. newFixedThreadPool(int)</p>
+<p>2. newCachedThreadPool()</p>
+<p>3. newSingleThreadExecutor()</p>
+<h3>Following are the steps for creating a program of the thread pool</h3>
+<p>1. create a runnable object to execute.</p>
+<p>2. using executors create an executor pool</p>
+<p>3. Now Pass the object to the executor pool</p>
+<p>4. At last shutdown the executor pool.</p>
+<p>&nbsp;</p>
+<h1>Joining threads in Java</h1>
+<p>&nbsp;</p>
+<p>Sometimes one thread needs to know when other thread is terminating. In java,&nbsp;<strong>isAlive()</strong>&nbsp;and&nbsp;<strong>join()</strong>&nbsp;are two different methods that are used to check whether a thread has finished its execution or not.</p>
+<p>The&nbsp;<strong>isAlive()</strong>&nbsp;method returns&nbsp;<strong>true</strong>&nbsp;if the thread upon which it is called is still running otherwise it returns&nbsp;<strong>false</strong>.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">isAlive</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>But,&nbsp;<strong>join()</strong>&nbsp;method is used more commonly than&nbsp;<strong>isAlive()</strong>. This method waits until the thread on which it is called terminates.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> InterruptedException</code></pre>
+<p>Using&nbsp;<strong>join()</strong>&nbsp;method, we tell our thread to wait until the specified thread completes its execution. There are overloaded versions of&nbsp;<strong>join()</strong>&nbsp;method, which allows us to specify time for which you want to wait for the specified thread to terminate.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">join</span><span class="token punctuation">(</span><span class="token keyword">long</span> milliseconds<span class="token punctuation">)</span> <span class="token keyword">throws</span> InterruptedException</code></pre>
+<p>As we have seen in the Introduction to multithreadig&nbsp;the main thread must always be the last thread to finish its execution. Therefore, we can use Thread join() method to ensure that all the threads created by the program has been terminated before the execution of the main thread.</p>
+<h2>Java&nbsp;<code>isAlive</code>&nbsp;method</h2>
+<p>Lets take an example and see how the&nbsp;<code>isAlive()</code>&nbsp;method works. It returns true if thread status is live, false otherwise.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"r1 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">try</span> <span class="token punctuation">{</span>
+        		Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    		<span class="token punctuation">}</span>
+    	<span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span> 
+    	<span class="token punctuation">{</span> 
+    		<span class="token comment" spellcheck="true">// do something</span>
+    	<span class="token punctuation">}</span>
+       	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"r2 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		MyThread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span><span class="token function">isAlive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span><span class="token function">isAlive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">r1</p>
+<p class="output">true</p>
+<p class="output">true</p>
+<p class="output">r1</p>
+<p class="output">r2</p>
+<p class="output">r2</p>
+<div>&nbsp;</div>
+<h2>Example of thread without&nbsp;<code>join()</code>&nbsp;method</h2>
+<p>If we run a thread without using join() method then the execution of thread cannot be predict. Thread scheduler schedules the execution of thread.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   	<span class="token punctuation">{</span>
+       		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"r1 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       		<span class="token keyword">try</span> <span class="token punctuation">{</span>
+        		Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    		<span class="token punctuation">}</span>
+    		<span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">}</span>
+       		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"r2 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		MyThread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">r1 r1 r2 r2</p>
+<p>In this above program two thread t1 and t2 are created. t1 starts first and after printing "r1" on console thread t1 goes to sleep for 500 ms. At the same time Thread t2 will start its process and print "r1" on console and then go into sleep for 500 ms. Thread t1 will wake up from sleep and print "r2" on console similarly thread t2 will wake up from sleep and print "r2" on console. So you will get output like&nbsp;<code>r1 r1 r2 r2</code></p>
+<h3>Example of thread with&nbsp;<code>join()</code>&nbsp;method</h3>
+<p>In this example, we are using join() method to ensure that thread finished its execution before starting other thread. It is helpful when we want to executes multiple threads based on our requirement.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   	<span class="token punctuation">{</span>
+       		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"r1 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       		<span class="token keyword">try</span> <span class="token punctuation">{</span>
+        		Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    		<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">}</span>
+       		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"r2 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		MyThread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">try</span><span class="token punctuation">{</span>
+  			t1<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment" spellcheck="true">//Waiting for t1 to finish</span>
+		<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+		t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">r1 r2 r1 r2</p>
+<p>In this above program join() method on thread t1 ensures that t1 finishes it process before thread t2 starts.</p>
+<h3>Specifying time with join()</h3>
+<p>If in the above program, we specify time while using&nbsp;<strong>join()</strong>&nbsp;with&nbsp;<strong>t1</strong>, then&nbsp;<strong>t1</strong>&nbsp;will execute for that time, and then&nbsp;<strong>t2</strong>&nbsp;will join it.</p>
+<pre class="java language-java"><code class=" language-java">
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span>
+<span class="token punctuation">{</span> 
+	    <span class="token function">MyThread</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	    	<span class="token keyword">super</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token punctuation">}</span>
+	
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+                MyThread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"first thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                MyThread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token string">"second thread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">try</span><span class="token punctuation">{</span>
+                        t1<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//Waiting for t1 to finish</span>
+                <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ie<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                
+                <span class="token keyword">try</span><span class="token punctuation">{</span>
+                    t2<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//Waiting for t2 to finish</span>
+                <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>InterruptedException ie<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ie<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Doing so, initially t1 will execute for 1.5 seconds, after which t2 will join it.</p>

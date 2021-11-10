@@ -1,0 +1,101 @@
+<h1>Steps to connect a Java Application to Database</h1>
+
+<p>&nbsp;</p>
+<p>The following 5 steps are the basic steps involve in connecting a Java application with Database using JDBC.</p>
+<ol class="content">
+<li>Register the Driver</li>
+<li>Create a Connection</li>
+<li>Create SQL Statement</li>
+<li>Execute SQL Statement</li>
+<li>Closing the connection</li>
+</ol>
+<p class="center"><img src="https://www.studytonight.com/java/images/steps-to-connect-to-database.jpg" alt="steps to connect to database" width="285" height="214" /></p>
+<h3>Register the Driver</h3>
+<p>It is first an essential part to create JDBC connection. JDBC API provides a method&nbsp;<code>Class.forName()</code>&nbsp;which is used to load the driver class explicitly. For example, if we want to load a jdbc-odbc driver then the we call it like following.</p>
+<h3>Example to register with JDBC-ODBC Driver</h3>
+<pre class="java language-java"><code class=" language-java">Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"sun.jdbc.odbc.JdbcOdbcDriver"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>Create a Connection</h3>
+<p>After registering and loading the driver in step1, now we will create a connection using&nbsp;<code>getConnection()</code>&nbsp;method of DriverManager class. This method has several overloaded methods that can be used based on the requirement. Basically it require the database name, username and password to establish connection. Syntax of this method is given below.</p>
+<h3>Syntax</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token function">getConnection</span><span class="token punctuation">(</span>String url<span class="token punctuation">)</span>
+<span class="token function">getConnection</span><span class="token punctuation">(</span>String url<span class="token punctuation">,</span> String username<span class="token punctuation">,</span> String password<span class="token punctuation">)</span>
+<span class="token function">getConnection</span><span class="token punctuation">(</span>String url<span class="token punctuation">,</span> Properties info<span class="token punctuation">)</span></code></pre>
+<p>This is a sample example to establish connection with Oracle Driver</p>
+<pre class="java language-java"><code class=" language-java">Connection con <span class="token operator">=</span> DriverManager<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token string">"jdbc:oracle:thin:@localhost:1521:XE"</span><span class="token punctuation">,</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">//Loading driver</span>
+   Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"oracle.jdbc.driver.OracleDriver"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment" spellcheck="true">//creating connection</span>
+   Connection con <span class="token operator">=</span> DriverManager<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token string">"jdbc:oracle:thin:@localhost:1521:XE"</span><span class="token punctuation">,</span> <span class="token string">"username"</span><span class="token punctuation">,</span> <span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   Statement s <span class="token operator">=</span> con<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//creating statement</span>
+
+   ResultSet rs <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token string">"select * from Student"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//executing statement</span>
+
+   <span class="token keyword">while</span> <span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   con<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//closing connection</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   e<span class="token punctuation">.</span><span class="token function">printStacktrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+	</code></pre>
+<h3>Create SQL Statement</h3>
+<p>In this step we will create statement object using createStatement() method. It is used to execute the sql queries and defined in Connection class. Syntax of the method is given below.</p>
+<h3>Syntax</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> Statement <span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException</code></pre>
+<h3>Example to create a SQL statement</h3>
+<pre class="java language-java"><code class=" language-java">Statement s<span class="token operator">=</span>con<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>Execute SQL Statement</h3>
+<p>After creating statement, now execute using&nbsp;<code>executeQuery()</code>&nbsp;method of Statement interface. This method is used to execute SQL statements. Syntax of the method is given below.</p>
+<h3>Syntax</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> ResultSet <span class="token function">executeQuery</span><span class="token punctuation">(</span>String query<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException</code></pre>
+<h3>Example to execute a SQL statement</h3>
+<p>In this example, we are executing a sql query to select all the records from the user table and stored into resultset that further is used to display the records.</p>
+<pre class="java language-java"><code class=" language-java">ResultSet rs<span class="token operator">=</span>s<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token string">"select * from user"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">" "</span><span class="token operator">+</span>rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span></code></pre>
+<h3>Closing the connection</h3>
+<p>This is final step which includes closing all the connection that we opened in our previous steps. After executing SQL statement you need to close the connection and release the session. The&nbsp;<code>close()</code>&nbsp;method of Connection interface is used to close the connection.</p>
+<h3>Syntax</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException</code></pre>
+<h3>Example of closing a connection</h3>
+<pre class="java language-java"><code class=" language-java">con<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Now lets combine all these steps into a single example and create a complete example of JDBC connectivity.</p>
+<h3>Example: All Steps into one place</h3>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">//Loading driver</span>
+   Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"oracle.jdbc.driver.OracleDriver"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment" spellcheck="true">//creating connection</span>
+   Connection con <span class="token operator">=</span> DriverManager<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token string">"jdbc:oracle:thin:@localhost:1521:XE"</span><span class="token punctuation">,</span> <span class="token string">"username"</span><span class="token punctuation">,</span> <span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   Statement s <span class="token operator">=</span> con<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//creating statement</span>
+
+   ResultSet rs <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token string">"select * from Student"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//executing statement</span>
+
+   <span class="token keyword">while</span> <span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   con<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//closing connection</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   e<span class="token punctuation">.</span><span class="token function">printStacktrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+	</code></pre>

@@ -1,0 +1,993 @@
+<header class="entry-header"></header>
+
+<div class="entry-content">
+<h1>Java Swing</h1>
+<p class="mosimage">&nbsp;</p>
+<p>Java Swing is a GUI Framework that contains a set of classes to provide more powerful and flexible GUI components than&nbsp;<strong>AWT. Swing</strong>&nbsp;provides the look and feel of modern Java GUI. Swing library is an official Java GUI tool kit released by Sun Microsystems. It is used to create graphical user interface with Java.</p>
+<p>Swing classes are defined in&nbsp;<strong>javax.swing</strong>&nbsp;package and its sub-packages.</p>
+<h3>Features of Swing</h3>
+<ol class="content">
+<li>Platform Independent</li>
+<li>Customizable</li>
+<li>Extensible</li>
+<li>Configurable</li>
+<li>Lightweight</li>
+<li>Rich Controls</li>
+<li>Pluggable Look and Feel</li>
+</ol>
+<h3>Swing and JFC</h3>
+<p>JFC is an abbreviation for Java Foundation classes which encompass a group of features for building Graphical User Interfaces(GUI) and adding rich graphical functionalities and interactivity to Java applications. Java Swing is a part of Java Foundation Classes (JFC).</p>
+<h3>Features of JFC</h3>
+<ul class="content">
+<li>Swing GUI components.</li>
+<li>Look and Feel support.</li>
+<li>Java 2D.</li>
+</ul>
+<h3>AWT and Swing Hierarchy</h3>
+<p class="center"><img src="https://www.studytonight.com/java/images/swing-heirarchy-1.gif" alt="swing heirarchy" width="281" height="201" /></p>
+<div>&nbsp;</div>
+<h3>Introduction to Swing Classes</h3>
+<p><strong>JPanel :</strong>&nbsp;JPanel is Swing's version of AWT class Panel and uses the same default layout, FlowLayout. JPanel is descended directly from JComponent.</p>
+<p><strong>JFrame :</strong>&nbsp;JFrame is Swing's version of Frame and is descended directly from&nbsp;<strong>Frame</strong>&nbsp;class. The component which is added to the&nbsp;<strong>Frame</strong>, is refered as its Content.</p>
+<p><strong>JWindow :&nbsp;</strong>This is Swing's version of Window and has descended directly from&nbsp;<strong>Window</strong>&nbsp;class. Like&nbsp;<strong>Window</strong>&nbsp;it uses BorderLayout by default.</p>
+<p><strong>JLabel :</strong>&nbsp;JLabel has descended from JComponent, and is used to create text labels.</p>
+<p><strong>JButton :</strong>&nbsp;JButton class provides the functioning of push button. JButton allows an icon, string or both associated with a button.</p>
+<p><strong>JTextField :</strong>&nbsp;JTextFields allow editing of a single line of text.</p>
+<h3>Creating a JFrame</h3>
+<p>There are two ways to create a JFrame Window.</p>
+<ol class="content">
+<li>By instantiating JFrame class.</li>
+<li>By extending JFrame class.</li>
+</ol>
+<h3>Creating JFrame window by Instantiating JFrame class</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//importing swing package</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//importing swing package</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//importing awt package</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">First</span>
+<span class="token punctuation">{</span>
+	JFrame jf<span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token function">First</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		jf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JFrame</span><span class="token punctuation">(</span><span class="token string">"MyWindow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//Creating a JFrame with name MyWindow</span>
+		JButton btn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"Say Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Creating a Button named Say Hello</span>
+		jf<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>btn<span class="token punctuation">)</span><span class="token punctuation">;</span>                            <span class="token comment" spellcheck="true">//adding button to frame</span>
+		jf<span class="token punctuation">.</span><span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//setting layout using FlowLayout object</span>
+		jf<span class="token punctuation">.</span><span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//setting close  operation.</span>
+		jf<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                   <span class="token comment" spellcheck="true">//setting size</span>
+		jf<span class="token punctuation">.</span><span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">//setting frame visibility</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">new</span> <span class="token class-name">First</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/jframe-using-composition.jpg" alt="creating jframe using composition" width="279" height="279" /></p>
+<h3>Creating JFrame window by extending JFrame class</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//importing swing package</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//importing awt package</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Second</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token function">Second</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token string">"MyWindow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//setting title of frame as  MyWindow</span>
+		JLabel lb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JLabel</span><span class="token punctuation">(</span><span class="token string">"Welcome to My Second Window"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Creating a label named Welcome to My Second Window</span>
+		<span class="token function">add</span><span class="token punctuation">(</span>lb<span class="token punctuation">)</span><span class="token punctuation">;</span>                        <span class="token comment" spellcheck="true">//adding label to frame.</span>
+		<span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//setting layout using FlowLayout object.</span>
+		<span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//setting close operation.</span>
+		<span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//setting size</span>
+		<span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">//setting frame visibility</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">new</span> <span class="token class-name">Second</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}<br /></span>output<br />javac&nbsp;Second.java<br />java&nbsp;Second</code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/jframe-using-inheritance.jpg" alt="creating jframe using inheritance" width="258" height="258" /></p>
+<h3>Points To Remember</h3>
+<ol class="content">
+<li>Import the javax.swing and java.awt package to use the classes and methods of Swing.</li>
+<li>While creating a frame (either by instantiating or extending Frame class), following two attributes are must for visibility of the frame:
+<pre class="java language-java"><code class=" language-java"><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</li>
+<li>When you create objects of other components like Buttons, TextFields, etc. Then you need to add it to the frame by using the method -&nbsp;<strong>add(Component's Object);</strong></li>
+<li>You can add the following method also for resizing the frame -&nbsp;<strong>setResizable(true);</strong></li>
+</ol>
+<h2>A Simple swing example</h2>
+<p>In the below example we would be using several swing components that you have not learnt so far in this tutorial. We will be discussing each and everything in detail in the coming swing tutorials.<br />The below swing program would create a login screen.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JButton</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JFrame</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JLabel</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JPanel</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JPasswordField</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JTextField</span><span class="pun">;</span> 
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">SwingFirstExample</span> <span class="pun">{</span><span class="pln">
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;</span><span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Creating instance of JFrame</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JFrame</span><span class="pln"> frame </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JFrame</span><span class="pun">(</span><span class="str">"My First Swing Example"</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Setting the width and height of frame</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setSize</span><span class="pun">(</span><span class="lit">350</span><span class="pun">,</span> <span class="lit">200</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setDefaultCloseOperation</span><span class="pun">(</span><span class="typ">JFrame</span><span class="pun">.</span><span class="pln">EXIT_ON_CLOSE</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* Creating panel. This is same as a div tag in HTML
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * We can create several panels and add them to specific 
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * positions in a JFrame. Inside panels we can add text 
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * fields, buttons and other components.
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JPanel</span><span class="pln"> panel </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JPanel</span><span class="pun">();</span><span class="pln">&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// adding panel to frame</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">panel</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* calling user defined method for adding components
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * to the panel.
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;placeComponents</span><span class="pun">(</span><span class="pln">panel</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Setting the frame visibility to true</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setVisible</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;</span><span class="kwd">private</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> placeComponents</span><span class="pun">(</span><span class="typ">JPanel</span><span class="pln"> panel</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* We will discuss about layouts in the later sections
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * of this tutorial. For now we are setting the layout 
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * to null
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;panel</span><span class="pun">.</span><span class="pln">setLayout</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Creating JLabel</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JLabel</span><span class="pln"> userLabel </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JLabel</span><span class="pun">(</span><span class="str">"User"</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* This method specifies the location and size
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * of component. setBounds(x, y, width, height)
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * here (x,y) are cordinates from the top left 
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * corner and remaining two arguments are the width
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * and height of the component.
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;userLabel</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">25</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;panel</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">userLabel</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* Creating text field where user is supposed to
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * enter user name.
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JTextField</span><span class="pln"> userText </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JTextField</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;userText</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">165</span><span class="pun">,</span><span class="lit">25</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;panel</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">userText</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Same process for password label and text field.</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JLabel</span><span class="pln"> passwordLabel </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JLabel</span><span class="pun">(</span><span class="str">"Password"</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;passwordLabel</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">50</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">25</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;panel</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">passwordLabel</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/*This is similar to text field but it hides the user
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * entered data and displays dots instead to protect
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * the password like we normally see on login screens.
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JPasswordField</span><span class="pln"> passwordText </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JPasswordField</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;passwordText</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="lit">50</span><span class="pun">,</span><span class="lit">165</span><span class="pun">,</span><span class="lit">25</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;panel</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">passwordText</span><span class="pun">);</span><span class="pln">
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Creating login button</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JButton</span><span class="pln"> loginButton </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JButton</span><span class="pun">(</span><span class="str">"login"</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;loginButton</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">80</span><span class="pun">,</span> <span class="lit">80</span><span class="pun">,</span> <span class="lit">25</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;panel</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">loginButton</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;</span><span class="pun">}</span>
+
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<p><img class="aligncenter size-full wp-image-6074" src="https://beginnersbook.com/wp-content/uploads/2015/07/Swing_login_screen_Example.png" sizes="(max-width: 350px) 100vw, 350px" srcset="https://beginnersbook.com/wp-content/uploads/2015/07/Swing_login_screen_Example.png 350w, https://beginnersbook.com/wp-content/uploads/2015/07/Swing_login_screen_Example-300x171.png 300w" alt="Swing Login Screen Example" width="252" height="144" /></p>
+<header class="entry-header">
+<h1 class="entry-title">Swing &ndash; JButton tutorial and examples</h1>
+</header>
+<div class="entry-content">
+<p>JButton class is used for adding platform independent buttons to a swing application. In this tutorial we will learn how to create a button in Swing application and how to tweak their appearance as per the requirement. I have also shared some code snippets that may be useful for you while developing a Swing application.</p>
+<h2>Swing JButton Example</h2>
+<p>This example shows how to create a button in a Swing application and how to add it to a frame. Along with this, we will see various methods of JButton class.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JButton</span><span class="pun">;</span><span class="pln"> &nbsp;
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.</span><span class="typ">JFrame</span><span class="pun">;</span><span class="pln"> &nbsp;
+</span><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JButtonExample</span> <span class="pun">{</span><span class="pln">
+&nbsp;&nbsp; &nbsp;</span><span class="typ">JButtonExample</span><span class="pun">(){</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* JFrame is a top level container (window)
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * where we would be adding our button
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JFrame</span><span class="pln"> frame</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">JFrame</span><span class="pun">();</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Creating Button&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JButton</span><span class="pln"> b</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">JButton</span><span class="pun">(</span><span class="str">"Click Me.."</span><span class="pun">);</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* This method specifies the location and size
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * of button. In method setBounds(x, y, width, height)
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * x,y) are cordinates from the top left 
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * corner and remaining two arguments are the width
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * and height of the button.
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">50</span><span class="pun">,</span><span class="lit">50</span><span class="pun">,</span><span class="lit">90</span><span class="pun">,</span> <span class="lit">50</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">//Adding button onto the frame</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Setting Frame size. This is the window size</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setSize</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setLayout</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setVisible</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setDefaultCloseOperation</span><span class="pun">(</span><span class="typ">JFrame</span><span class="pun">.</span><span class="pln">EXIT_ON_CLOSE</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;</span><span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">new</span> <span class="typ">JButtonExample</span><span class="pun">();</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> &nbsp;
+</span><span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<p><img class="aligncenter size-full wp-image-6078" src="https://beginnersbook.com/wp-content/uploads/2015/07/JButton_example.png" alt="Jbutton example - Swing" width="275" height="183" /></p>
+<div class="lq">&nbsp;</div>
+<h2>Some Useful JButton examples</h2>
+<p>You would find some useful code snippets in this section that you can use in your projects.</p>
+<h3>1) Adding image to JButton</h3>
+<p>The simplest way is this:</p>
+<pre class="prettyprint prettyprinted"><span class="typ">JButton</span><span class="pln"> b</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">JButton</span><span class="pun">(</span><span class="kwd">new</span> <span class="typ">ImageIcon</span><span class="pun">(</span><span class="str">"imageName.png"</span><span class="pun">));</span></pre>
+<p>The above statement would work if you have the image in the folder where your Swing program files are stored.<br />However if you have image in some other folder then do like this:<br />For example if you have programs in &ldquo;src&rdquo; folder and image in &ldquo;src/resources&rdquo; folder then code it like this: This is the recommended way of adding image/icons to your buttons as this will reduce the chances of any ambiguities further.</p>
+<pre class="prettyprint prettyprinted"><span class="typ">JButton</span><span class="pln"> button </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JButton</span><span class="pun">();</span>
+<span class="kwd">try</span> <span class="pun">{</span>
+    <span class="typ">Image</span><span class="pln"> img </span><span class="pun">=</span> <span class="typ">ImageIO</span><span class="pun">.</span><span class="pln">read</span><span class="pun">(</span><span class="pln">getClass</span><span class="pun">().</span><span class="pln">getResource</span><span class="pun">(</span><span class="str">"resources/myimage.png"</span><span class="pun">));</span><span class="pln">
+    button</span><span class="pun">.</span><span class="pln">setIcon</span><span class="pun">(</span><span class="kwd">new</span> <span class="typ">ImageIcon</span><span class="pun">(</span><span class="pln">img</span><span class="pun">));</span>
+<span class="pun">}</span> <span class="kwd">catch</span> <span class="pun">(</span><span class="typ">IOException</span><span class="pln"> ex</span><span class="pun">)</span> <span class="pun">{</span>
+  <span class="pun">}</span></pre>
+<p>Here is the complete code: Here I have a image play.gif placed in the folder where my program files are.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">awt</span><span class="pun">.</span><span class="typ">Image</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">IOException</span><span class="pun">;</span>
+
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">imageio</span><span class="pun">.</span><span class="typ">ImageIO</span><span class="pun">;</span>
+<span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">swing</span><span class="pun">.*;</span>
+
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">JButtonIcon</span> <span class="pun">{</span><span class="pln">
+&nbsp;&nbsp; &nbsp;</span><span class="typ">JButtonIcon</span><span class="pun">(){</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">/* JFrame is a top level container (window)
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; * where we would be adding our button
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; */</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JFrame</span><span class="pln"> frame</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">JFrame</span><span class="pun">();</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Creating Button&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="typ">JButton</span><span class="pln"> b </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">JButton</span><span class="pun">();</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="kwd">try</span> <span class="pun">{</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span><span class="typ">Image</span><span class="pln"> img </span><span class="pun">=</span> <span class="typ">ImageIO</span><span class="pun">.</span><span class="pln">read</span><span class="pun">(</span><span class="pln">getClass</span><span class="pun">().</span><span class="pln">getResource</span><span class="pun">(</span><span class="str">"play.gif"</span><span class="pun">));</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; b</span><span class="pun">.</span><span class="pln">setIcon</span><span class="pun">(</span><span class="kwd">new</span> <span class="typ">ImageIcon</span><span class="pun">(</span><span class="pln">img</span><span class="pun">));</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span><span class="pun">}</span> <span class="kwd">catch</span> <span class="pun">(</span><span class="typ">IOException</span><span class="pln"> ex</span><span class="pun">)</span> <span class="pun">{</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span><span class="pun">}</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">setBounds</span><span class="pun">(</span><span class="lit">50</span><span class="pun">,</span><span class="lit">50</span><span class="pun">,</span><span class="lit">90</span><span class="pun">,</span> <span class="lit">50</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">//Adding button onto the frame</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span><span class="com">// Setting Frame size. This is the window size</span><span class="pln">
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setSize</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setLayout</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setVisible</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;frame</span><span class="pun">.</span><span class="pln">setDefaultCloseOperation</span><span class="pun">(</span><span class="typ">JFrame</span><span class="pun">.</span><span class="pln">EXIT_ON_CLOSE</span><span class="pun">);</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;</span><span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">new</span> <span class="typ">JButtonIcon</span><span class="pun">();</span><span class="pln"> &nbsp;
+&nbsp;&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> &nbsp;
+</span><span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<p><img class="aligncenter size-full wp-image-6079" src="https://beginnersbook.com/wp-content/uploads/2015/07/JButton_icon_image_example.png" alt="Adding image/icon to JButton example" width="300" height="200" /></p>
+<h2>Program&nbsp;to Make a Calculator in Java Using Swing</h2>
+<div dir="ltr">
+<div id="crayon-5ee9f46003aca129790096" class="crayon-syntax crayon-theme-prism-like crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover">
+<div class="crayon-plain-wrap">&nbsp;</div>
+<div class="crayon-main">
+<table class="crayon-table" style="height: 3672px;" width="501">
+<tbody>
+<tr class="crayon-row">
+<td class="crayon-nums " style="width: 27.2px;" data-settings="hide">
+<div class="crayon-nums-content">
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-1">1</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-2">2</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-3">3</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-4">4</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-5">5</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-6">6</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-7">7</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-8">8</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-9">9</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-10">10</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-11">11</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-12">12</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-13">13</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-14">14</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-15">15</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-16">16</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-17">17</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-18">18</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-19">19</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-20">20</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-21">21</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-22">22</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-23">23</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-24">24</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-25">25</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-26">26</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-27">27</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-28">28</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-29">29</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-30">30</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-31">31</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-32">32</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-33">33</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-34">34</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-35">35</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-36">36</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-37">37</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-38">38</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-39">39</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-40">40</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-41">41</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-42">42</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-43">43</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-44">44</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-45">45</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-46">46</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-47">47</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-48">48</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-49">49</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-50">50</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-51">51</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-52">52</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-53">53</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-54">54</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-55">55</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-56">56</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-57">57</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-58">58</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-59">59</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-60">60</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-61">61</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-62">62</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-63">63</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-64">64</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-65">65</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-66">66</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-67">67</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-68">68</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-69">69</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-70">70</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-71">71</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-72">72</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-73">73</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-74">74</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-75">75</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-76">76</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-77">77</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-78">78</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-79">79</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-80">80</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-81">81</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-82">82</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-83">83</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-84">84</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-85">85</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-86">86</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-87">87</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-88">88</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-89">89</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-90">90</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-91">91</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-92">92</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-93">93</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-94">94</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-95">95</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-96">96</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-97">97</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-98">98</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-99">99</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-100">100</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-101">101</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-102">102</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-103">103</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-104">104</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-105">105</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-106">106</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-107">107</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-108">108</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-109">109</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-110">110</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-111">111</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-112">112</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-113">113</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-114">114</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-115">115</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-116">116</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-117">117</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-118">118</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-119">119</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-120">120</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-121">121</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-122">122</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-123">123</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-124">124</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-125">125</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-126">126</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-127">127</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-128">128</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-129">129</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-130">130</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-131">131</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-132">132</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-133">133</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-134">134</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-135">135</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-136">136</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-137">137</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-138">138</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-139">139</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-140">140</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-141">141</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-142">142</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-143">143</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-144">144</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-145">145</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-146">146</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-147">147</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-148">148</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-149">149</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-150">150</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-151">151</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-152">152</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-153">153</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-154">154</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-155">155</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-156">156</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-157">157</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-158">158</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-159">159</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-160">160</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-161">161</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-162">162</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-163">163</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-164">164</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-165">165</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-166">166</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-167">167</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-168">168</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-169">169</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-170">170</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-171">171</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-172">172</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-173">173</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-174">174</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-175">175</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-176">176</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-177">177</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-178">178</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-179">179</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-180">180</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-181">181</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-182">182</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-183">183</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-184">184</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-185">185</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-186">186</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-187">187</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-188">188</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-189">189</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-190">190</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-191">191</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-192">192</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-193">193</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-194">194</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-195">195</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-196">196</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-197">197</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-198">198</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-199">199</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-200">200</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-201">201</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-202">202</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-203">203</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-204">204</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-205">205</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-206">206</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-207">207</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-208">208</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-209">209</div>
+<div class="crayon-num" data-line="crayon-5ee9f46003aca129790096-210">210</div>
+</div>
+</td>
+<td class="crayon-code" style="width: 516.8px;">
+<div class="crayon-pre">
+<div id="crayon-5ee9f46003aca129790096-1" class="crayon-line"><span class="crayon-r">import</span> <span class="crayon-v">javax</span><span class="crayon-sy">.</span><span class="crayon-v">swing</span><span class="crayon-sy">.</span><span class="crayon-o">*</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-2" class="crayon-line"><span class="crayon-r">import</span> <span class="crayon-v">java</span><span class="crayon-sy">.</span><span class="crayon-v">awt</span><span class="crayon-sy">.</span><span class="crayon-v">event</span><span class="crayon-sy">.</span><span class="crayon-o">*</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-3" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-4" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-5" class="crayon-line"><span class="crayon-t">class</span> <span class="crayon-e">Calc</span> <span class="crayon-r">implements</span> <span class="crayon-e">ActionListener</span></div>
+<div id="crayon-5ee9f46003aca129790096-6" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-7" class="crayon-line"><span class="crayon-i">JFrame</span> <span class="crayon-v">f</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-8" class="crayon-line"><span class="crayon-i">JTextField</span> <span class="crayon-v">t</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-9" class="crayon-line"><span class="crayon-e">JButton </span><span class="crayon-v">b1</span><span class="crayon-sy">,</span><span class="crayon-v">b2</span><span class="crayon-sy">,</span><span class="crayon-v">b3</span><span class="crayon-sy">,</span><span class="crayon-v">b4</span><span class="crayon-sy">,</span><span class="crayon-v">b5</span><span class="crayon-sy">,</span><span class="crayon-v">b6</span><span class="crayon-sy">,</span><span class="crayon-v">b7</span><span class="crayon-sy">,</span><span class="crayon-v">b8</span><span class="crayon-sy">,</span><span class="crayon-v">b9</span><span class="crayon-sy">,</span><span class="crayon-v">b0</span><span class="crayon-sy">,</span><span class="crayon-v">bdiv</span><span class="crayon-sy">,</span><span class="crayon-v">bmul</span><span class="crayon-sy">,</span><span class="crayon-v">bsub</span><span class="crayon-sy">,</span><span class="crayon-v">badd</span><span class="crayon-sy">,</span><span class="crayon-v">bdec</span><span class="crayon-sy">,</span><span class="crayon-v">beq</span><span class="crayon-sy">,</span><span class="crayon-v">bdel</span><span class="crayon-sy">,</span><span class="crayon-v">bclr</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-10" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-11" class="crayon-line"><span class="crayon-m">static</span> <span class="crayon-t">double</span> <span class="crayon-v">a</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-v">b</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-v">result</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-12" class="crayon-line"><span class="crayon-m">static</span> <span class="crayon-t">int</span> <span class="crayon-v">operator</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-13" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-14" class="crayon-line"><span class="crayon-e">Calc</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-15" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-16" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JFrame</span><span class="crayon-sy">(</span><span class="crayon-s">"Calculator"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-17" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JTextField</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-18" class="crayon-line"><span class="crayon-v">b1</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"1"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-19" class="crayon-line"><span class="crayon-v">b2</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"2"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-20" class="crayon-line"><span class="crayon-v">b3</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"3"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-21" class="crayon-line"><span class="crayon-v">b4</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"4"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-22" class="crayon-line"><span class="crayon-v">b5</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"5"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-23" class="crayon-line"><span class="crayon-v">b6</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"6"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-24" class="crayon-line"><span class="crayon-v">b7</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"7"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-25" class="crayon-line"><span class="crayon-v">b8</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"8"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-26" class="crayon-line"><span class="crayon-v">b9</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"9"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-27" class="crayon-line"><span class="crayon-v">b0</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"0"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-28" class="crayon-line"><span class="crayon-v">bdiv</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"/"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-29" class="crayon-line"><span class="crayon-v">bmul</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"*"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-30" class="crayon-line"><span class="crayon-v">bsub</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"-"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-31" class="crayon-line"><span class="crayon-v">badd</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"+"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-32" class="crayon-line"><span class="crayon-v">bdec</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"."</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-33" class="crayon-line"><span class="crayon-v">beq</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"="</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-34" class="crayon-line"><span class="crayon-v">bdel</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"Delete"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-35" class="crayon-line"><span class="crayon-v">bclr</span><span class="crayon-o">=</span><span class="crayon-r">new</span> <span class="crayon-e">JButton</span><span class="crayon-sy">(</span><span class="crayon-s">"Clear"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-36" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-37" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">30</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">,</span><span class="crayon-cn">280</span><span class="crayon-sy">,</span><span class="crayon-cn">30</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-38" class="crayon-line"><span class="crayon-v">b7</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">40</span><span class="crayon-sy">,</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-39" class="crayon-line"><span class="crayon-v">b8</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">110</span><span class="crayon-sy">,</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-40" class="crayon-line"><span class="crayon-v">b9</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">180</span><span class="crayon-sy">,</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-41" class="crayon-line"><span class="crayon-v">bdiv</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">250</span><span class="crayon-sy">,</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-42" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-43" class="crayon-line"><span class="crayon-v">b4</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">40</span><span class="crayon-sy">,</span><span class="crayon-cn">170</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-44" class="crayon-line"><span class="crayon-v">b5</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">110</span><span class="crayon-sy">,</span><span class="crayon-cn">170</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-45" class="crayon-line"><span class="crayon-v">b6</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">180</span><span class="crayon-sy">,</span><span class="crayon-cn">170</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-46" class="crayon-line"><span class="crayon-v">bmul</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">250</span><span class="crayon-sy">,</span><span class="crayon-cn">170</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-47" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-48" class="crayon-line"><span class="crayon-v">b1</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">40</span><span class="crayon-sy">,</span><span class="crayon-cn">240</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-49" class="crayon-line"><span class="crayon-v">b2</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">110</span><span class="crayon-sy">,</span><span class="crayon-cn">240</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-50" class="crayon-line"><span class="crayon-v">b3</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">180</span><span class="crayon-sy">,</span><span class="crayon-cn">240</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-51" class="crayon-line"><span class="crayon-v">bsub</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">250</span><span class="crayon-sy">,</span><span class="crayon-cn">240</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-52" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-53" class="crayon-line"><span class="crayon-v">bdec</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">40</span><span class="crayon-sy">,</span><span class="crayon-cn">310</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-54" class="crayon-line"><span class="crayon-v">b0</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">110</span><span class="crayon-sy">,</span><span class="crayon-cn">310</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-55" class="crayon-line"><span class="crayon-v">beq</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">180</span><span class="crayon-sy">,</span><span class="crayon-cn">310</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-56" class="crayon-line"><span class="crayon-v">badd</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">250</span><span class="crayon-sy">,</span><span class="crayon-cn">310</span><span class="crayon-sy">,</span><span class="crayon-cn">50</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-57" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-58" class="crayon-line"><span class="crayon-v">bdel</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">60</span><span class="crayon-sy">,</span><span class="crayon-cn">380</span><span class="crayon-sy">,</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-59" class="crayon-line"><span class="crayon-v">bclr</span><span class="crayon-sy">.</span><span class="crayon-e">setBounds</span><span class="crayon-sy">(</span><span class="crayon-cn">180</span><span class="crayon-sy">,</span><span class="crayon-cn">380</span><span class="crayon-sy">,</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-cn">40</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-60" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-61" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-62" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b7</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-63" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b8</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-64" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b9</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-65" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">bdiv</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-66" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b4</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-67" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b5</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-68" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b6</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-69" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">bmul</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-70" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-71" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-72" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b3</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-73" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">bsub</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-74" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">bdec</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-75" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">b0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-76" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">beq</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-77" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">badd</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-78" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">bdel</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-79" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">bclr</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-80" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-81" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">setLayout</span><span class="crayon-sy">(</span><span class="crayon-t">null</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-82" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">setVisible</span><span class="crayon-sy">(</span><span class="crayon-t">true</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-83" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">setSize</span><span class="crayon-sy">(</span><span class="crayon-cn">350</span><span class="crayon-sy">,</span><span class="crayon-cn">500</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-84" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">setDefaultCloseOperation</span><span class="crayon-sy">(</span><span class="crayon-v">JFrame</span><span class="crayon-sy">.</span><span class="crayon-v">EXIT_ON_CLOSE</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-85" class="crayon-line"><span class="crayon-v">f</span><span class="crayon-sy">.</span><span class="crayon-e">setResizable</span><span class="crayon-sy">(</span><span class="crayon-t">false</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-86" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-87" class="crayon-line"><span class="crayon-v">b1</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-88" class="crayon-line"><span class="crayon-v">b2</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-89" class="crayon-line"><span class="crayon-v">b3</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-90" class="crayon-line"><span class="crayon-v">b4</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-91" class="crayon-line"><span class="crayon-v">b5</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-92" class="crayon-line"><span class="crayon-v">b6</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-93" class="crayon-line"><span class="crayon-v">b7</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-94" class="crayon-line"><span class="crayon-v">b8</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-95" class="crayon-line"><span class="crayon-v">b9</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-96" class="crayon-line"><span class="crayon-v">b0</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-97" class="crayon-line"><span class="crayon-v">badd</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-98" class="crayon-line"><span class="crayon-v">bdiv</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-99" class="crayon-line"><span class="crayon-v">bmul</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-100" class="crayon-line"><span class="crayon-v">bsub</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-101" class="crayon-line"><span class="crayon-v">bdec</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-102" class="crayon-line"><span class="crayon-v">beq</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-103" class="crayon-line"><span class="crayon-v">bdel</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-104" class="crayon-line"><span class="crayon-v">bclr</span><span class="crayon-sy">.</span><span class="crayon-e">addActionListener</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-105" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-106" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-107" class="crayon-line"><span class="crayon-m">public</span> <span class="crayon-t">void</span> <span class="crayon-e">actionPerformed</span><span class="crayon-sy">(</span><span class="crayon-i">ActionEvent</span> <span class="crayon-v">e</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-108" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-109" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b1</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-110" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"1"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-111" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-112" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b2</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-113" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"2"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-114" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-115" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b3</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-116" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"3"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-117" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-118" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b4</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-119" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"4"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-120" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-121" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b5</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-122" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"5"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-123" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-124" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b6</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-125" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"6"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-126" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-127" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b7</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-128" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"7"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-129" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-130" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b8</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-131" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"8"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-132" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-133" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b9</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-134" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"9"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-135" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-136" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">b0</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-137" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"0"</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-138" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-139" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">bdec</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-140" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">concat</span><span class="crayon-sy">(</span><span class="crayon-s">"."</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-141" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-142" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">badd</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-143" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-144" class="crayon-line"><span class="crayon-v">a</span><span class="crayon-o">=</span><span class="crayon-t">Double</span><span class="crayon-sy">.</span><span class="crayon-e">parseDouble</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-145" class="crayon-line"><span class="crayon-v">operator</span><span class="crayon-o">=</span><span class="crayon-cn">1</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-146" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-147" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-148" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-149" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">bsub</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-150" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-151" class="crayon-line"><span class="crayon-v">a</span><span class="crayon-o">=</span><span class="crayon-t">Double</span><span class="crayon-sy">.</span><span class="crayon-e">parseDouble</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-152" class="crayon-line"><span class="crayon-v">operator</span><span class="crayon-o">=</span><span class="crayon-cn">2</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-153" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-154" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-155" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-156" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">bmul</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-157" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-158" class="crayon-line"><span class="crayon-v">a</span><span class="crayon-o">=</span><span class="crayon-t">Double</span><span class="crayon-sy">.</span><span class="crayon-e">parseDouble</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-159" class="crayon-line"><span class="crayon-v">operator</span><span class="crayon-o">=</span><span class="crayon-cn">3</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-160" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-161" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-162" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-163" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">bdiv</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-164" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-165" class="crayon-line"><span class="crayon-v">a</span><span class="crayon-o">=</span><span class="crayon-t">Double</span><span class="crayon-sy">.</span><span class="crayon-e">parseDouble</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-166" class="crayon-line"><span class="crayon-v">operator</span><span class="crayon-o">=</span><span class="crayon-cn">4</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-167" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-168" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-169" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-170" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">beq</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-171" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-172" class="crayon-line"><span class="crayon-v">b</span><span class="crayon-o">=</span><span class="crayon-t">Double</span><span class="crayon-sy">.</span><span class="crayon-e">parseDouble</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-173" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-174" class="crayon-line"><span class="crayon-st">switch</span><span class="crayon-sy">(</span><span class="crayon-v">operator</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-175" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-176" class="crayon-line"><span class="crayon-st">case</span> <span class="crayon-cn">1</span><span class="crayon-o">:</span> <span class="crayon-v">result</span><span class="crayon-o">=</span><span class="crayon-v">a</span><span class="crayon-o">+</span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-177" class="crayon-line"><span class="crayon-st">break</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-178" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-179" class="crayon-line"><span class="crayon-st">case</span> <span class="crayon-cn">2</span><span class="crayon-o">:</span> <span class="crayon-v">result</span><span class="crayon-o">=</span><span class="crayon-v">a</span><span class="crayon-o">-</span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-180" class="crayon-line"><span class="crayon-st">break</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-181" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-182" class="crayon-line"><span class="crayon-st">case</span> <span class="crayon-cn">3</span><span class="crayon-o">:</span> <span class="crayon-v">result</span><span class="crayon-o">=</span><span class="crayon-v">a</span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-183" class="crayon-line"><span class="crayon-st">break</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-184" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-185" class="crayon-line"><span class="crayon-st">case</span> <span class="crayon-cn">4</span><span class="crayon-o">:</span> <span class="crayon-v">result</span><span class="crayon-o">=</span><span class="crayon-v">a</span><span class="crayon-o">/</span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-186" class="crayon-line"><span class="crayon-st">break</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-187" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-188" class="crayon-line"><span class="crayon-st">default</span><span class="crayon-o">:</span> <span class="crayon-v">result</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-189" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-190" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-191" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-o">+</span><span class="crayon-v">result</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-192" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-193" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-194" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">bclr</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-195" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-196" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-197" class="crayon-line"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">e</span><span class="crayon-sy">.</span><span class="crayon-e">getSource</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-v">bdel</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-198" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-199" class="crayon-line"><span class="crayon-t">String</span> <span class="crayon-v">s</span><span class="crayon-o">=</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-200" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-201" class="crayon-line"><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-t">int</span> <span class="crayon-v">i</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">;</span><span class="crayon-v">i</span><span class="crayon-o">&lt;</span><span class="crayon-v">s</span><span class="crayon-sy">.</span><span class="crayon-e">length</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-sy">;</span><span class="crayon-v">i</span><span class="crayon-o">++</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-202" class="crayon-line"><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">t</span><span class="crayon-sy">.</span><span class="crayon-e">getText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">+</span><span class="crayon-v">s</span><span class="crayon-sy">.</span><span class="crayon-e">charAt</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-203" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-204" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-205" class="crayon-line">&nbsp;</div>
+<div id="crayon-5ee9f46003aca129790096-206" class="crayon-line"><span class="crayon-m">public</span> <span class="crayon-m">static</span> <span class="crayon-t">void</span> <span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-t">String</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-v">s</span><span class="crayon-sy">)</span></div>
+<div id="crayon-5ee9f46003aca129790096-207" class="crayon-line"><span class="crayon-sy">{</span></div>
+<div id="crayon-5ee9f46003aca129790096-208" class="crayon-line"><span class="crayon-r">new</span> <span class="crayon-e">Calc</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div>
+<div id="crayon-5ee9f46003aca129790096-209" class="crayon-line"><span class="crayon-sy">}</span></div>
+<div id="crayon-5ee9f46003aca129790096-210" class="crayon-line"><span class="crayon-sy">}</span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>output</p>
+<p>javac Calc.java</p>
+<p>java Calc</p>
+<p><a href="https://3.bp.blogspot.com/-ZoC2gO28aoY/U58n-_G5uvI/AAAAAAAACeU/l7eTxi9k_AQ/s1600/Program+to+Create+Calculator+Using+Java+Swing.jpg"><img title="Program to Create Calculator Using Java Swing" src="https://3.bp.blogspot.com/-ZoC2gO28aoY/U58n-_G5uvI/AAAAAAAACeU/l7eTxi9k_AQ/s1600/Program+to+Create+Calculator+Using+Java+Swing.jpg" alt="Program to Create Calculator Using Java Swing" width="244" height="349" border="0" /></a></p>
+<p>&nbsp;</p>
+<h1>Java Swing Components and Containers</h1>
+<p>&nbsp;</p>
+<p>A component is an independent visual control and Java Swing Framework contains a large set of these components which provide rich functionalities and allow high level of customization. They all are derived from JComponent class. All these components are lightweight components. This class provides some common functionality like pluggable look and feel, support for accessibility, drag and drop, layout, etc.</p>
+<p>A container holds a group of components. It provides a space where a component can be managed and displayed. Containers are of two types:</p>
+<ol class="content">
+<li><strong>Top level Containers</strong></li>
+<ul class="content">
+<li>It inherits Component and Container of AWT.</li>
+<li>It cannot be contained within other containers.</li>
+<li>Heavyweight.</li>
+<li>Example: JFrame, JDialog, JApplet</li>
+</ul>
+<li><strong>Lightweight Containers</strong>
+<ul class="content">
+<li>It inherits JComponent class.</li>
+<li>It is a general purpose container.</li>
+<li>It can be used to organize related components together.</li>
+<li>Example: JPanel</li>
+</ul>
+</li>
+</ol>
+<h3>Swing JButton</h3>
+<h3>JButton class provides functionality of a button. It is used to create button component. JButton class has three constuctors,</h3>
+<p>&nbsp;</p>
+<h3>Example of JButton</h3>
+<p>In this example, we are creating two buttons using Jbutton class and adding them into Jframe container.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">testswing</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span>
+<span class="token punctuation">{</span>
+
+  <span class="token function">testswing</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    JButton bt1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"Yes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">//Creating a Yes Button.</span>
+    JButton bt2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"No"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//Creating a No Button.</span>
+    <span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//setting close operation.</span>
+    <span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//setting layout using FlowLayout object</span>
+    <span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">//setting size of Jframe</span>
+    <span class="token function">add</span><span class="token punctuation">(</span>bt1<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">//adding Yes button to frame.</span>
+    <span class="token function">add</span><span class="token punctuation">(</span>bt2<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">//adding No button to frame.</span>
+
+    <span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">new</span> <span class="token class-name">testswing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/swing-program.jpg" alt="swing button example" width="266" height="266" /></p>
+<h3>JCheckBox</h3>
+<p>The JcheckBox class is used to create chekbox in swing framework. In this example, we are creating three checkboxes to get user response.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token function">JCheckBox</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span></code></pre>
+<p class="center">using JCheckBox</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    JCheckBox jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JCheckBox</span><span class="token punctuation">(</span><span class="token string">"yes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//creating JCheckBox.</span>
+    <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>                               <span class="token comment" spellcheck="true">//adding JCheckBox to frame.</span>
+    jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JCheckBox</span><span class="token punctuation">(</span><span class="token string">"no"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//creating JCheckBox.</span>
+    <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>                               <span class="token comment" spellcheck="true">//adding JCheckBox to frame.</span>
+    jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JCheckBox</span><span class="token punctuation">(</span><span class="token string">"maybe"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">//creating JCheckBox.</span>
+    <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>                               <span class="token comment" spellcheck="true">//adding JCheckBox to frame.</span>
+    <span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/jcheckbox-example.jpg" alt="jcheckbox example" /></p>
+<h3>JRadioButton</h3>
+<p>Radio button is a group of related button in which only one can be selected. JRadioButton class is used to create a radio button in Frames. Following is the constructor for JRadioButton,</p>
+<pre class="java language-java"><code class=" language-java"><span class="token function">JRadioButton</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span></code></pre>
+<h3>Example using JRadioButton</h3>
+<p>To create radio button in swing, we used jradiobutton class. It is used to get single user response at a time.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  JRadioButton jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JRadioButton</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment" spellcheck="true">//creating JRadioButton.</span>
+  <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>					<span class="token comment" spellcheck="true">//adding JRadioButton to frame.</span>
+  jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JRadioButton</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment" spellcheck="true">//creating JRadioButton.</span>
+  <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>					<span class="token comment" spellcheck="true">//adding JRadioButton to frame.</span>
+  jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JRadioButton</span><span class="token punctuation">(</span><span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment" spellcheck="true">//creating JRadioButton.</span>
+  <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>					<span class="token comment" spellcheck="true">//adding JRadioButton to frame.</span>
+  jcb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JRadioButton</span><span class="token punctuation">(</span><span class="token string">"none"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">add</span><span class="token punctuation">(</span>jcb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/jradiobutton-example.jpg" alt="jradiobutton example" width="283" height="155" /></p>
+<h3>JComboBox</h3>
+<p>Combo box is a combination of text fields and drop-down list.<strong>JComboBox</strong>&nbsp;component is used to create a combo box in Swing. Following is the constructor for JComboBox,</p>
+<pre class="java language-java"><code class=" language-java"><span class="token function">JComboBox</span><span class="token punctuation">(</span>String arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<h3>Example using JComboBox</h3>
+<p>Lets create an example to add combobox to the jframe . Combo box is used to create a drop-down menu. See the below example.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span>
+<span class="token punctuation">{</span>
+ String name<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Abhi"</span><span class="token punctuation">,</span><span class="token string">"Adam"</span><span class="token punctuation">,</span><span class="token string">"Alex"</span><span class="token punctuation">,</span><span class="token string">"Ashkay"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//list of name.</span>
+ <span class="token keyword">public</span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  JComboBox jc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JComboBox</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment" spellcheck="true">//initialzing combo box with list of name.</span>
+  <span class="token function">add</span><span class="token punctuation">(</span>jc<span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment" spellcheck="true">//adding JComboBox to frame.</span>
+  <span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+  <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="center"><img src="https://www.studytonight.com/java/images/jcombobox-example.jpg" alt="jcombobox example" width="280" height="175" /></p>
+<h3>A program to change background color of a frame (Using Action Event)</h3>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>*<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//importing awt package</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>*<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//importing swing package</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>*<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//importing event package</span>
+
+<span class="token comment" spellcheck="true">//For an event to occur upon clicking the button, ActionListener interface should be implemented</span>
+<span class="token keyword">class</span> <span class="token class-name">StColor</span> <span class="token keyword">extends</span> <span class="token class-name">JFrame</span> <span class="token keyword">implements</span> <span class="token class-name">ActionListener</span><span class="token punctuation">{</span>
+
+JFrame frame<span class="token punctuation">;</span>
+JPanel panel<span class="token punctuation">;</span>
+JButton b1<span class="token punctuation">,</span>b2<span class="token punctuation">,</span>b3<span class="token punctuation">,</span>b4<span class="token punctuation">,</span>b5<span class="token punctuation">;</span>
+
+<span class="token function">StColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+   frame <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JFrame</span><span class="token punctuation">(</span><span class="token string">"COLORS"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   frame<span class="token punctuation">.</span><span class="token function">setDefaultCloseOperation</span><span class="token punctuation">(</span>JFrame<span class="token punctuation">.</span>EXIT_ON_CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   panel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JPanel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Creating a panel which is a container and will hold all the buttons</span>
+   panel<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   b1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"BLUE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Creating a button named BLUE</span>
+   b1<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Registering the button with the listener</span>
+
+   b2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"RED"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Creating a button named RED</span>
+   b2<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Registering the button with the listener</span>
+
+   b3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"CYAN"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Creating a button named CYAN</span>
+   b3<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Registering the button with the listener</span>
+
+   b4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"PINK"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Creating a button named PINK</span>
+   b4<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Registering the button with the listener</span>
+
+   b5 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JButton</span><span class="token punctuation">(</span><span class="token string">"MAGENTA"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Creating a button named MAGENTA</span>
+   b5<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Registering the button with the listener</span>
+
+   <span class="token comment" spellcheck="true">//Adding buttons to the Panel</span>
+   panel<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   panel<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   panel<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   panel<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   panel<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>b5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   frame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>panel<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//adding panel to the frame</span>
+   frame<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   frame<span class="token punctuation">.</span><span class="token function">setVisible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   frame<span class="token punctuation">.</span><span class="token function">setLayout</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FlowLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//The below method is called whenever a button is clicked</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actionPerformed</span><span class="token punctuation">(</span>ActionEvent e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//This method returns an object of the button on which the Event-</span>
+        Pressing of button initially occurred
+        Object see <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>see <span class="token operator">==</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//Checking if the object returned is of button1</span>
+        frame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setBackground</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>Color<span class="token punctuation">.</span>blue<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//changing the panel color to blue</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>see <span class="token operator">==</span> b2<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//Checking if the object returned is of button2</span>
+            frame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setBackground</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>Color<span class="token punctuation">.</span>red<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//changing the panel color to red</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>see <span class="token operator">==</span> b3<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//Checking if the object returned is of button3</span>
+        frame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setBackground</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>Color<span class="token punctuation">.</span>cyan<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//changing the panel color to cyan</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>see <span class="token operator">==</span> b4<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//Checking if the object returned is of button4</span>
+            frame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setBackground</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>Color<span class="token punctuation">.</span>pink<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//changing the panel color to pink</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>see <span class="token operator">==</span> b5<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//Checking if the object returned is of button5</span>
+        frame<span class="token punctuation">.</span><span class="token function">getContentPane</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setBackground</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>Color<span class="token punctuation">.</span>magenta<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//changing the panel color to magenta</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        StColor o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3>Output:</h3>
+<p class="center"><img src="https://www.studytonight.com/java/images/background-color.png" alt="Background Color of a frame" width="272" height="163" /></p>
+<table class="table table-bordered" style="height: 890px;" width="258">
+<tbody>
+<tr class="headerBackground">
+<th style="width: 100px;">AWT</th>
+<th style="width: 143.2px;">Swing</th>
+</tr>
+<tr class="evenRow">
+<td class="diffCol" style="width: 100px;">AWT stands for Abstract windows toolkit.</td>
+<td class="diffCol" style="width: 143.2px;">Swing is also called as JFC�s (Java Foundation classes).</td>
+</tr>
+<tr>
+<td class="diffCol" style="width: 100px;">AWT components are called Heavyweight component.</td>
+<td class="diffCol" style="width: 143.2px;">Swings are called light weight component because swing components sits on the top of AWT components and do the work.</td>
+</tr>
+<tr class="evenRow">
+<td class="diffCol" style="width: 100px;">AWT components require java.awt package.</td>
+<td class="diffCol" style="width: 143.2px;">Swing components require javax.swing package.</td>
+</tr>
+<tr>
+<td class="diffCol" style="width: 100px;">AWT components are platform dependent.</td>
+<td class="diffCol" style="width: 143.2px;">Swing components are made in purely java and they are platform independent.</td>
+</tr>
+<tr class="evenRow">
+<td class="diffCol" style="width: 100px;">This feature is not supported in AWT.</td>
+<td class="diffCol" style="width: 143.2px;">We can have different look and feel in Swing.</td>
+</tr>
+<tr>
+<td class="diffCol" style="width: 100px;">These feature is not available in AWT.</td>
+<td class="diffCol" style="width: 143.2px;">Swing has many advanced features like JTabel, Jtabbed pane which is not available in AWT. Also. Swing components are called "lightweight" because they do not require a native OS object to implement their functionality. JDialog and JFrame are heavyweight, because they do have a peer. So components like JButton, JTextArea, etc., are lightweight because they do not have an OS peer.</td>
+</tr>
+<tr class="evenRow">
+<td class="diffCol" style="width: 100px;">With AWT, you have 21 "peers" (one for each control and one for the dialog itself). A "peer" is a widget provided by the operating system, such as a button object or an entry field object.</td>
+<td class="diffCol" style="width: 143.2px;">With Swing, you would have only one peer, the operating system's window object. All of the buttons, entry fields, etc. are drawn by the Swing package on the drawing surface provided by the window object. This is the reason that Swing has more code. It has to draw the button or other control and implement its behavior instead of relying on the host operating system to perform those functions.</td>
+</tr>
+<tr>
+<td class="diffCol" style="width: 100px;">AWT is a thin layer of code on top of the OS.</td>
+<td class="diffCol" style="width: 143.2px;">Swing is much larger. Swing also has very much richer functionality.</td>
+</tr>
+<tr class="evenRow">
+<td class="diffCol" style="width: 100px;">Using AWT, you have to implement a lot of things yourself.</td>
+<td class="diffCol" style="width: 143.2px;">Swing has them built in.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<header class="entry-header"></header>
+<div class="entry-content">&nbsp;</div>
+</div>

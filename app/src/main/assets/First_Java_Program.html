@@ -1,0 +1,69 @@
+<h1>Java Hello World! Program</h1>
+
+<p>&nbsp;</p>
+<p>Creating a Hello World Program in Java is not a single line program. It consists of various other lines of code. Since Java is an Object-oriented language so it require to write a code inside a class. Let us look at a simple java program.</p>
+<p>&nbsp;</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">MyFirstJavaProgram</span> <span class="pun">{</span>
+
+   <span class="com">/* This is my first java program.
+    * This will print 'Hello World' as the output
+    */</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span> <span class="pun">[]</span><span class="pln">args</span><span class="pun">)</span> <span class="pun">{</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Hello World"</span><span class="pun">);</span> <span class="com">// prints Hello World</span>
+   <span class="pun">}</span>
+<span class="pun">}<br /><br /></span></pre>
+<h3>Output</h3>
+<pre class="result notranslate">C:\Users\HP\Desktop\javaprogs&gt; javac MyFirstJavaProgram.java
+C:\Users\HP\Desktop\javaprogs&gt; java MyFirstJavaProgram 
+Hello World<br /><br /></pre>
+<p>Let's look at how to save the file, compile, and run the program. Please follow the subsequent steps &minus;</p>
+<ul class="list">
+<li>
+<p>Create a folder in the desktop named as javaprogs</p>
+</li>
+<li>Open notepad and add the code as above</li>
+<li>
+<p>Save the file as: MyFirstJavaProgram.java in javaprogs folder</p>
+</li>
+<li>
+<p>Open a command prompt window and type cd Desktop then&nbsp; press enter&nbsp;</p>
+</li>
+<li>then type cd javaprogs and press enter</li>
+<li>C:\Users\HP\Desktop\javaprogs&gt;</li>
+<li>
+<p>Type 'javac MyFirstJavaProgram.java' and press enter to compile your code. If there are no errors in your code, the command prompt will take you to the next line (Assumption : The path variable is set).</p>
+</li>
+<li>
+<p>Now, type ' java MyFirstJavaProgram ' to run your program.</p>
+</li>
+<li>
+<p>You will be able to see ' Hello World ' printed on the window.</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h2>Basic Syntax</h2>
+<p>About Java programs, it is very important to keep in mind the following points.</p>
+<ul class="list">
+<li>
+<p><strong>Case Sensitivity</strong>&nbsp;&minus; Java is case sensitive, which means identifier&nbsp;<strong>Hello</strong>&nbsp;and&nbsp;<strong>hello</strong>&nbsp;would have different meaning in Java.</p>
+</li>
+<li>
+<p><strong>Class Names</strong>&nbsp;&minus; For all class names the first letter should be in Upper Case. If several words are used to form a name of the class, each inner word's first letter should be in Upper Case.</p>
+<p><strong>Example:</strong>&nbsp;<em>class MyFirstJavaClass</em></p>
+</li>
+<li>
+<p><strong>Method Names</strong>&nbsp;&minus; All method names should start with a Lower Case letter. If several words are used to form the name of the method, then each inner word's first letter should be in Upper Case.</p>
+<p><strong>Example:</strong>&nbsp;<em>public void myMethodName()</em></p>
+</li>
+<li>
+<p><strong>Program File Name</strong>&nbsp;&minus; Name of the program file should exactly match the class name.</p>
+<p>When saving the file, you should save it using the class name (Remember Java is case sensitive) and append '.java' to the end of the name (if the file name and the class name do not match, your program will not compile).</p>
+<p>But please make a note that in case you do not have a public class present in the file then file name can be different than class name. It is also not mandatory to have a public class in the file.</p>
+<p><strong>Example:</strong>&nbsp;Assume 'MyFirstJavaProgram' is the class name. Then the file should be saved as&nbsp;<em>'MyFirstJavaProgram.java'</em></p>
+</li>
+<li>
+<p><strong>public static void main(String args[])</strong>&nbsp;&minus; Java program processing starts from the main() method which is a mandatory part of every Java program.</p>
+</li>
+</ul>
+<pre class="prettyprint notranslate prettyprinted">&nbsp;</pre>

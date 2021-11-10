@@ -1,0 +1,460 @@
+<h1 style="text-align: justify;">Java Operators</h1>
+
+<ul class="list" style="text-align: justify;">
+<li><strong>Arithmetic Operators</strong></li>
+<li><strong>Relational Operators</strong></li>
+<li><strong>Bitwise Operators</strong></li>
+<li><strong>Logical Operators</strong></li>
+<li><strong>Assignment Operators</strong></li>
+<li><strong>Unary Operators</strong></li>
+<li><strong>Misc Operators</strong></li>
+</ul>
+<h2 style="text-align: justify;">The Arithmetic Operators</h2>
+<p style="text-align: justify;">Arithmetic operators are used in mathematical expressions in the same way that they are used in algebra. The following table lists the arithmetic operators &minus;</p>
+<p style="text-align: justify;">Assume integer variable A holds 10 and variable B holds 20, then &minus;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>+ (Addition)</td>
+<td>Adds values on either side of the operator.</td>
+<td>A + B will give 30</td>
+</tr>
+<tr>
+<td>- (Subtraction)</td>
+<td>Subtracts right-hand operand from left-hand operand.</td>
+<td>A - B will give -10</td>
+</tr>
+<tr>
+<td>* (Multiplication)</td>
+<td>Multiplies values on either side of the operator.</td>
+<td>A * B will give 200</td>
+</tr>
+<tr>
+<td>/ (Division)</td>
+<td>Divides left-hand operand by right-hand operand.</td>
+<td>B / A will give 2</td>
+</tr>
+<tr>
+<td>% (Modulus)</td>
+<td>Divides left-hand operand by right-hand operand and returns remainder.</td>
+<td>B % A will give 0</td>
+</tr>
+<tr>
+<td>++ (Increment)</td>
+<td>Increases the value of operand by 1.</td>
+<td>B++ gives 21</td>
+</tr>
+<tr>
+<td>-- (Decrement)</td>
+<td>Decreases the value of operand by 1.</td>
+<td>B-- gives 19</td>
+</tr>
+</tbody>
+</table>
+<pre class="java-exec"><code class="java hljs"></code></pre>
+<h3 style="text-align: justify;">Example : Arithmetic Operator</h3>
+<pre class="java-exec"><code class="java hljs"></code></pre>
+<pre class="java-exec"><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArithmeticOperator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    	
+        <span class="hljs-keyword">double</span> number1 = <span class="hljs-number">12.5</span>, number2 = <span class="hljs-number">3.5</span>, result;
+    	
+        <span class="hljs-comment">// Using addition operator</span>
+        result = number1 + number2;
+        System.out.println(<span class="hljs-string">"number1 + number2 = "</span> + result);
+    	
+        <span class="hljs-comment">// Using subtraction operator</span>
+        result = number1 - number2;
+        System.out.println(<span class="hljs-string">"number1 - number2 = "</span> + result);
+    	
+        <span class="hljs-comment">// Using multiplication operator</span>
+        result = number1 * number2;
+        System.out.println(<span class="hljs-string">"number1 * number2 = "</span> + result);
+
+        <span class="hljs-comment">// Using division operator</span>
+        result = number1 / number2;
+        System.out.println(<span class="hljs-string">"number1 / number2 = "</span> + result);
+    	
+        <span class="hljs-comment">// Using remainder operator</span>
+        result = number1 % number2;
+        System.out.println(<span class="hljs-string">"number1 % number2 = "</span> + result);
+    }
+}<br />TO Run this code :-<br />C:\Users\RUPESH&gt;javac ArithmeticOperator.java<br /><br />C:\Users\RUPESH&gt;java ArithmeticOperator</code></pre>
+<pre class="java-exec"><code class="java hljs"></code></pre>
+<h2 style="text-align: justify;">The Relational Operators</h2>
+<p style="text-align: justify;">There are following relational operators supported by Java language.</p>
+<p style="text-align: justify;">Assume variable A holds 10 and variable B holds 20, then &minus;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>== (equal to)</td>
+<td>Checks if the values of two operands are equal or not, if yes then condition becomes true.</td>
+<td>(A == B) is not true.</td>
+</tr>
+<tr>
+<td>!= (not equal to)</td>
+<td>Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.</td>
+<td>(A != B) is true.</td>
+</tr>
+<tr>
+<td>&gt; (greater than)</td>
+<td>Checks if the value of left operand is greater than the value of right operand, if yes then condition becomes true.</td>
+<td>(A &gt; B) is not true.</td>
+</tr>
+<tr>
+<td>&lt; (less than)</td>
+<td>Checks if the value of left operand is less than the value of right operand, if yes then condition becomes true.</td>
+<td>(A &lt; B) is true.</td>
+</tr>
+<tr>
+<td>&gt;= (greater than or equal to)</td>
+<td>Checks if the value of left operand is greater than or equal to the value of right operand, if yes then condition becomes true.</td>
+<td>(A &gt;= B) is not true.</td>
+</tr>
+<tr>
+<td>&lt;= (less than or equal to)</td>
+<td>Checks if the value of left operand is less than or equal to the value of right operand, if yes then condition becomes true.</td>
+<td>(A &lt;= B) is true.</td>
+</tr>
+</tbody>
+</table>
+<h3 style="text-align: justify;">Example : Equality and Relational Operators</h3>
+<pre class="java-exec"><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RelationalOperator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    	
+        <span class="hljs-keyword">int</span> number1 = <span class="hljs-number">5</span>, number2 = <span class="hljs-number">6</span>;
+
+        <span class="hljs-keyword">if</span> (number1 &gt; number2) {
+            System.out.println(<span class="hljs-string">"number1 is greater than number2."</span>);
+        }
+        <span class="hljs-keyword">else</span> {
+            System.out.println(<span class="hljs-string">"number2 is greater than number1."</span>);
+        }
+    }
+}<br /><br /><br />C:\Users\RUPESH&gt;javac RelationalOperator.java<br /><br />C:\Users\RUPESH&gt;C:\Users\RUPESH&gt;java RelationalOperator</code></pre>
+<h2 style="text-align: justify;">The Bitwise Operators</h2>
+<p style="text-align: justify;">Java defines several bitwise operators, which can be applied to the integer types, long, int, short, char, and byte.</p>
+<p style="text-align: justify;">Bitwise operator works on bits and performs bit-by-bit operation. Assume if a = 60 and b = 13; now in binary format they will be as follows &minus;</p>
+<p style="text-align: justify;">a = 0011 1100</p>
+<p style="text-align: justify;">b = 0000 1101</p>
+<p style="text-align: justify;">-----------------</p>
+<p style="text-align: justify;">a&amp;b = 0000 1100</p>
+<p style="text-align: justify;">a|b = 0011 1101</p>
+<p style="text-align: justify;">a^b = 0011 0001</p>
+<p style="text-align: justify;">~a&nbsp; = 1100 0011</p>
+<p style="text-align: justify;">The following table lists the bitwise operators &minus;</p>
+<p style="text-align: justify;">Assume integer variable A holds 60 and variable B holds 13 then &minus;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>&amp; (bitwise and)</td>
+<td>Binary AND Operator copies a bit to the result if it exists in both operands.</td>
+<td>(A &amp; B) will give 12 which is 0000 1100</td>
+</tr>
+<tr>
+<td>| (bitwise or)</td>
+<td>Binary OR Operator copies a bit if it exists in either operand.</td>
+<td>(A | B) will give 61 which is 0011 1101</td>
+</tr>
+<tr>
+<td>^ (bitwise XOR)</td>
+<td>Binary XOR Operator copies the bit if it is set in one operand but not both.</td>
+<td>(A ^ B) will give 49 which is 0011 0001</td>
+</tr>
+<tr>
+<td>~ (bitwise compliment)</td>
+<td>Binary Ones Complement Operator is unary and has the effect of 'flipping' bits.</td>
+<td>(~A ) will give -61 which is 1100 0011 in 2's complement form due to a signed binary number.</td>
+</tr>
+<tr>
+<td>&lt;&lt; (left shift)</td>
+<td>Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.</td>
+<td>A &lt;&lt; 2 will give 240 which is 1111 0000</td>
+</tr>
+<tr>
+<td>&gt;&gt; (right shift)</td>
+<td>Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.</td>
+<td>A &gt;&gt; 2 will give 15 which is 1111</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt; (zero fill right shift)</td>
+<td>Shift right zero fill operator. The left operands value is moved right by the number of bits specified by the right operand and shifted values are filled up with zeros.</td>
+<td>A &gt;&gt;&gt;2 will give 15 which is 0000 1111</td>
+</tr>
+</tbody>
+</table>
+<table border="0">
+<tbody>
+<tr>
+<th>Operator</th>
+<th>Example</th>
+<th>Equivalent to</th>
+</tr>
+<tr>
+<td><code>+=</code></td>
+<td>x += 5</td>
+<td>x = x + 5</td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td>x -= 5</td>
+<td>x = x - 5</td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td>x *= 5</td>
+<td>x = x * 5</td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td>x /= 5</td>
+<td>x = x / 5</td>
+</tr>
+<tr>
+<td><code>%=</code></td>
+<td>x %= 5</td>
+<td>x = x % 5</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;=</code></td>
+<td>x &lt;&lt;= 5</td>
+<td>x = x &lt;&lt; 5</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;=</code></td>
+<td>x &gt;&gt;= 5</td>
+<td>x = x &gt;&gt; 5</td>
+</tr>
+<tr>
+<td><code>&amp;=</code></td>
+<td>x &amp;= 5</td>
+<td>x = x &amp; 5</td>
+</tr>
+<tr>
+<td><code>^=</code></td>
+<td>x ^= 5</td>
+<td>x = x ^ 5</td>
+</tr>
+<tr>
+<td><code>|=</code></td>
+<td>x |= 5</td>
+<td>x = x | 5</td>
+</tr>
+</tbody>
+</table>
+<h2 style="text-align: justify;">The Logical Operators</h2>
+<p style="text-align: justify;">The following table lists the logical operators &minus;</p>
+<p style="text-align: justify;">Assume Boolean variables A holds true and variable B holds false, then &minus;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>&amp;&amp; (logical and)</td>
+<td>Called Logical AND operator. If both the operands are non-zero, then the condition becomes true.</td>
+<td>(A &amp;&amp; B) is false</td>
+</tr>
+<tr>
+<td>|| (logical or)</td>
+<td>Called Logical OR Operator. If any of the two operands are non-zero, then the condition becomes true.</td>
+<td>(A || B) is true</td>
+</tr>
+<tr>
+<td>! (logical not)</td>
+<td>Called Logical NOT Operator. Use to reverses the logical state of its operand. If a condition is true then Logical NOT operator will make false.</td>
+<td>!(A &amp;&amp; B) is true</td>
+</tr>
+</tbody>
+</table>
+<h3 style="text-align: justify;">Example : Logical Operators</h3>
+<pre class="java-exec"><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogicalOperator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    	
+        <span class="hljs-keyword">int</span> number1 = <span class="hljs-number">1</span>, number2 = <span class="hljs-number">2</span>, number3 = <span class="hljs-number">9</span>;
+        <span class="hljs-keyword">boolean</span> result;
+    	
+        <span class="hljs-comment">// At least one expression needs to be true for the result to be true</span>
+        result = (number1 &gt; number2) || (number3 &gt; number1);
+
+        <span class="hljs-comment">// result will be true because (number1 &gt; number2) is true</span>
+        System.out.println(result);
+    			
+        <span class="hljs-comment">// All expression must be true from result to be true	</span>
+        result = (number1 &gt; number2) &amp;&amp; (number3 &gt; number1);
+
+        <span class="hljs-comment">// result will be false because (number3 &gt; number1) is false</span>
+        System.out.println(result);
+    }
+}<br /><br />C:\Users\RUPESH&gt;javac LogicalOperator.java<br />C:\Users\RUPESH&gt;java LogicalOperator</code></pre>
+<h2 style="text-align: justify;">The Assignment Operators</h2>
+<p style="text-align: justify;">Following are the assignment operators supported by Java language &minus;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>=</td>
+<td>Simple assignment operator. Assigns values from right side operands to left side operand.</td>
+<td>C = A + B will assign value of A + B into C</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>Add AND assignment operator. It adds right operand to the left operand and assign the result to left operand.</td>
+<td>C += A is equivalent to C = C + A</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>Subtract AND assignment operator. It subtracts right operand from the left operand and assign the result to left operand.</td>
+<td>C -= A is equivalent to C = C &ndash; A</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>Multiply AND assignment operator. It multiplies right operand with the left operand and assign the result to left operand.</td>
+<td>C *= A is equivalent to C = C * A</td>
+</tr>
+<tr>
+<td class="ts">/=</td>
+<td>Divide AND assignment operator. It divides left operand with the right operand and assign the result to left operand.</td>
+<td>C /= A is equivalent to C = C / A</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>Modulus AND assignment operator. It takes modulus using two operands and assign the result to left operand.</td>
+<td>C %= A is equivalent to C = C % A</td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>Left shift AND assignment operator.</td>
+<td>C &lt;&lt;= 2 is same as C = C &lt;&lt; 2</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>Right shift AND assignment operator.</td>
+<td>C &gt;&gt;= 2 is same as C = C &gt;&gt; 2</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>Bitwise AND assignment operator.</td>
+<td>C &amp;= 2 is same as C = C &amp; 2</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>bitwise exclusive OR and assignment operator.</td>
+<td>C ^= 2 is same as C = C ^ 2</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>bitwise inclusive OR and assignment operator.</td>
+<td>C |= 2 is same as C = C | 2</td>
+</tr>
+</tbody>
+</table>
+<h3 style="text-align: justify;">Example 1: Assignment Operator</h3>
+<pre class="java-exec"><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AssignmentOperator</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    	
+        <span class="hljs-keyword">int</span> number1, number2;
+    	
+        <span class="hljs-comment">// Assigning 5 to number1 </span>
+        number1 = <span class="hljs-number">5</span>;
+        System.out.println(number1);
+    	    	
+        <span class="hljs-comment">// Assigning value of variable number2 to number1</span>
+        number2 = number1;
+        System.out.println(number2);
+    }
+}<br /><br />C:\Users\RUPESH&gt;javac AssignmentOperator.java<br /><br /><br />C:\Users\RUPESH&gt;java AssignmentOperator<br />
+</code></pre>
+<p style="text-align: justify;">&nbsp;<strong>Unary Operators:</strong></p>
+<p style="text-align: justify;">&nbsp;Unary operators need only one operand. They are used to increment, decrement or negate a value.</p>
+<ul style="text-align: justify;">
+<li><strong>&ndash; :Unary minus</strong>, used for negating the values.</li>
+<li><strong>+ :Unary plus</strong>, used for giving positive values. Only used when deliberately converting a negative value to positive.</li>
+<li><strong>++ :Increment operator</strong>, used for incrementing the value by 1. There are two varieties of increment operator.
+<ul>
+<li><strong>Post-Increment :&nbsp;</strong>Value is first used for computing the result and then incremented.</li>
+<li><strong>Pre-Increment :&nbsp;</strong>Value is incremented first and then result is computed.</li>
+</ul>
+</li>
+<li><strong>&mdash; : Decrement operator</strong>, used for decrementing the value by 1. There are two varieties of decrement operator.
+<ul>
+<li><strong>Post-decrement :&nbsp;</strong>Value is first used for computing the result and then decremented.</li>
+<li><strong>Pre-Decrement :&nbsp;</strong>Value is decremented first and then result is computed.</li>
+<li></li>
+</ul>
+</li>
+<li>
+<div class="line number3 index2 alt2"><code class="keyword">public</code>&nbsp;<code class="keyword">class</code>&nbsp;<code class="plain">operators {</code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">public</code>&nbsp;<code class="keyword">static</code>&nbsp;<code class="keyword">void</code>&nbsp;<code class="plain">main(String[] args)</code></div>
+<div class="line number5 index4 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">int</code>&nbsp;<code class="plain">a =&nbsp;</code><code class="value">20</code><code class="plain">, b =&nbsp;</code><code class="value">10</code><code class="plain">, c =&nbsp;</code><code class="value">0</code><code class="plain">, d =&nbsp;</code><code class="value">20</code><code class="plain">, e =&nbsp;</code><code class="value">40</code><code class="plain">, f =&nbsp;</code><code class="value">30</code><code class="plain">;</code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">boolean</code>&nbsp;<code class="plain">condition =&nbsp;</code><code class="keyword">true</code><code class="plain">;</code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// pre-increment operator</code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// a = a+1 and then c = a;</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">c = ++a;</code></div>
+<div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">System.out.println(</code><code class="string">"Value of c (++a) = "</code>&nbsp;<code class="plain">+ c);</code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// post increment operator</code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// c=b then b=b+1</code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">c = b++;</code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">System.out.println(</code><code class="string">"Value of c (b++) = "</code>&nbsp;<code class="plain">+ c);</code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// pre-decrement operator</code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// d=d-1 then c=d</code></div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">c = --d;</code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">System.out.println(</code><code class="string">"Value of c (--d) = "</code>&nbsp;<code class="plain">+ c);</code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// post-decrement operator</code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// c=e then e=e-1</code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">c = e--;</code></div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">System.out.println(</code><code class="string">"Value of c (e--) = "</code>&nbsp;<code class="plain">+ c);</code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Logical not operator</code></div>
+<div class="line number30 index29 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">System.out.println(</code><code class="string">"Value of !condition ="</code></div>
+<div class="line number31 index30 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">+ !condition);</code></div>
+<div class="line number32 index31 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div>
+<div class="line number33 index32 alt2"><code class="plain">}</code></div>
+<div class="line number33 index32 alt2"><code class="java hljs"><br />C:\Users\RUPESH&gt;javac operators.java</code></div>
+<div class="line number33 index32 alt2"><code class="java hljs"><br />C:\Users\RUPESH&gt;java operators</code><code class="plain"></code></div>
+<strong>Output:</strong>
+<pre>Value of c (++a) = 21
+Value of c (b++) = 10
+Value of c (--d) = 19
+Value of c (e--) = 40
+Value of !condition =false</pre>
+</li>
+<li><code class="plain"></code></li>
+</ul>
+<h2 style="text-align: justify;">Miscellaneous Operators</h2>
+<p style="text-align: justify;">There are few other operators supported by Java Language.</p>
+<h3 style="text-align: justify;">Conditional Operator ( ? : )</h3>
+<p style="text-align: justify;">Conditional operator is also known as the&nbsp;<strong>ternary operator</strong>. This operator consists of three operands and is used to evaluate Boolean expressions. The goal of the operator is to decide, which value should be assigned to the variable. The operator is written as &minus;</p>
+<pre class="result notranslate">variable x = (expression) ? value if true : value if false</pre>
+<p style="text-align: justify;">&nbsp;</p>

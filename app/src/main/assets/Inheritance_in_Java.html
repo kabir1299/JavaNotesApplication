@@ -1,0 +1,267 @@
+<h1>Inheritance (IS-A relationship) in Java</h1>
+
+<p>&nbsp;</p>
+<p>Inheritance is one of the key features of Object Oriented Programming. Inheritance provided mechanism that allowed&nbsp;<strong>a class to inherit property of another class</strong>. When a Class extends another class it inherits all non-private members including fields and methods. Inheritance in Java can be best understood in terms of Parent and Child relationship, also known as&nbsp;<strong>Super class</strong>(Parent) and&nbsp;<strong>Sub class</strong>(child) in Java language.</p>
+<p>Inheritance defines&nbsp;<strong>is-a</strong>&nbsp;relationship between a Super class and its Sub class.&nbsp;<code>extends</code>&nbsp;and&nbsp;<code>implements</code>&nbsp;keywords are used to describe inheritance in Java.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/inheritance-in-java.jpg" alt="Inheritance in Java" width="261" height="141" /></p>
+<p>Let us see how&nbsp;<strong>extends</strong>&nbsp;keyword is used to achieve Inheritance. It shows super class and sub-class relationship.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Vehicle</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token comment" spellcheck="true">//extends the property of vehicle class</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Now based on above example. In OOPs term we can say that,</p>
+<ul class="content">
+<li><strong>Vehicle</strong>&nbsp;is super class of&nbsp;<strong>Car</strong>.</li>
+<li><strong>Car</strong>&nbsp;is sub class of&nbsp;<strong>Vehicle</strong>.</li>
+<li>Car IS-A Vehicle.</li>
+</ul>
+<hr />
+<h2>Purpose of Inheritance</h2>
+<ol class="content">
+<li>It promotes the code reusabilty i.e the same methods and variables which are defined in a parent/super/base class can be used in the child/sub/derived class.</li>
+<li>It promotes polymorphism by allowing method overriding.</li>
+</ol>
+<hr />
+<h2>Disadvantages of Inheritance</h2>
+<p>Main disadvantage of using inheritance is that the two classes (parent and child class) gets&nbsp;<strong>tightly coupled</strong>.</p>
+<p>This means that if we change code of parent class, it will affect to all the child classes which is inheriting/deriving the parent class, and hence,&nbsp;<strong>it cannot be independent of each other</strong>.</p>
+<hr />
+<h3>Simple example of Inheritance</h3>
+<p>Before moving ahead let's take a quick example and try to understand the concept of Inheritance better,</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Parent</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">p1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Parent method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">c1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Child method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Child cobj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cobj<span class="token punctuation">.</span><span class="token function">c1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//method of Child class</span>
+        cobj<span class="token punctuation">.</span><span class="token function">p1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//method of Parent class</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Child method Parent method</p>
+<p>In the code above we have a class&nbsp;<strong>Parent</strong>&nbsp;which has a method&nbsp;<code>p1()</code>. We then create a new class&nbsp;<strong>Child</strong>&nbsp;which inherits the class&nbsp;<strong>Parent</strong>&nbsp;using the&nbsp;<code>extends</code>&nbsp;keyword and defines its own method&nbsp;<code>c1()</code>. Now by virtue of inheritance the class&nbsp;<strong>Child</strong>&nbsp;can also access the&nbsp;<code>public</code>&nbsp;method&nbsp;<code>p1()</code>&nbsp;of the class&nbsp;<strong>Parent</strong>.</p>
+<div>&nbsp;</div>
+<p>&nbsp;</p>
+<h3>Inheriting variables of super class</h3>
+<p>All the members of super class implicitly inherits to the child class. Member consists of instance variable and methods of the class.</p>
+<h4>Example</h4>
+<p>In this example the sub-class will be accessing the variable defined in the super class.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Vehicle</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// variable defined</span>
+    String vehicleType<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+
+    String modelType<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showDetail</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        vehicleType <span class="token operator">=</span> <span class="token string">"Car"</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//accessing Vehicle class member variable</span>
+        modelType <span class="token operator">=</span> <span class="token string">"Sports"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>modelType <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> vehicleType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Car car <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        car<span class="token punctuation">.</span><span class="token function">showDetail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Sports Car</p>
+<hr />
+<h2>Types of Inheritance</h2>
+<p>Java mainly supports only three types of inheritance that are listed below.</p>
+<ol class="content">
+<li>Single Inheritance</li>
+<li>Multilevel Inheritance</li>
+<li>Heirarchical Inheritance</li>
+</ol>
+<p><strong>NOTE:</strong>&nbsp;Multiple inheritance is not supported in java</p>
+<p>We can get a quick view of type of inheritance from the below image.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/types-of-inheritance.png" alt="Types of Inheritance in Java" width="242" height="128" /></p>
+<hr />
+<h3>Single Inheritance</h3>
+<p>When a class extends to another class then it forms single inheritance. In the below example, we have two classes in which class A extends to class B that forms single inheritance.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a = "</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    B b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">a=10</p>
+<p>Here, we can notice that show() method is declared in class A, but using child class Demo object, we can call it. That shows the inheritance between these two classes.</p>
+<h3>Multilevel Inheritance</h3>
+<p>When a class extends to another class that also extends some other class forms a multilevel inheritance. For example a class C extends to class B that also extends to class A and all the data members an methods of class A and B are now accessible in class C.</p>
+<h4>Example:</h4>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a = "</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">showB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"b = "</span><span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">B</span><span class="token punctuation">{</span>
+    
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    C c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">showB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">a=10 b=10</p>
+<h3>Hierarchical Inheritance</h3>
+<p>When a class is extended by two or more classes, it forms hierarchical inheritance. For example, class B extends to class A and class C also extends to class A in that case both B and C share properties of class A.</p>
+<pre class=" language-java"><code class=" language-java">
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a = "</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">showB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"b = "</span><span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        C c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        c<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        B b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        b<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+    </code></pre>
+<p class="output">a = 10 a = 10</p>
+<h3>Why multiple inheritance is not supported in Java?</h3>
+<ul class="content">
+<li>To remove ambiguity.</li>
+<li>To provide more maintainable and clear design.</li>
+</ul>
+<p><img src="https://www.studytonight.com/java/images/multiple-inheritance-problem.jpg" alt="problem with multiple inheritance" width="262" height="181" /></p>
+<hr />
+<h3><code>super</code>&nbsp;keyword</h3>
+<p>In Java,&nbsp;<code>super</code>&nbsp;keyword is used to refer to immediate parent class of a child class. In other words&nbsp;<strong>super</strong>&nbsp;keyword is used by a subclass whenever it need to refer to its immediate super class.</p>
+<p><img src="https://www.studytonight.com/java/images/super-example.jpg" alt="example of super keyword in java" width="244" height="143" /></p>
+<h4>Example of Child class referring Parent class property using&nbsp;<code>super</code>&nbsp;keyword</h4>
+<p>In this examle we will only focus on accessing the parent class property or variables.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Parent</span>
+<span class="token punctuation">{</span>
+    String name<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+    String name<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Parent"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//refers to parent class member</span>
+        name <span class="token operator">=</span> <span class="token string">"Child"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">" and "</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Child cobj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cobj<span class="token punctuation">.</span><span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Parent and Child</p>
+<hr />
+<h4>Example of Child class refering Parent class methods using&nbsp;<code>super</code>&nbsp;keyword</h4>
+<p>In this examle we will only focus on accessing the parent class methods.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Parent</span>
+<span class="token punctuation">{</span>
+    String name<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      name <span class="token operator">=</span> <span class="token string">"Parent"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+    String name<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment" spellcheck="true">//calling Parent class details() method</span>
+        name <span class="token operator">=</span> <span class="token string">"Child"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Child cobj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cobj<span class="token punctuation">.</span><span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Parent Child</p>
+<hr />
+<h4>Example of Child class calling Parent class&nbsp;<code>constructor</code>&nbsp;using&nbsp;<code>super</code>&nbsp;keyword</h4>
+<p>In this examle we will focus on accessing the parent class constructor.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">class</span> <span class="token class-name">Parent</span>
+<span class="token punctuation">{</span>
+    String name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Parent</span><span class="token punctuation">(</span>String n<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        name <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+    String name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Child</span><span class="token punctuation">(</span>String n1<span class="token punctuation">,</span> String n2<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+        <span class="token keyword">super</span><span class="token punctuation">(</span>n1<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//passing argument to parent class constructor</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> n2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">" and "</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Child cobj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token string">"Parent"</span><span class="token punctuation">,</span><span class="token string">"Child"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cobj<span class="token punctuation">.</span><span class="token function">details</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Parent and Child</p>
+<p><strong>Note:</strong>&nbsp;When calling the parent class constructor from the child class using super keyword, super keyword should always be the first line in the method/constructor of the child class.</p>
+<h4>Q. Can you use both&nbsp;<code>this()</code>&nbsp;and&nbsp;<code>super()</code>&nbsp;in a Constructor?</h4>
+<p>NO, because both super() and this() must be first statement inside a constructor. Hence we cannot use them together.</p>

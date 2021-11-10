@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <RelativeLayout
+        android:id="@+id/rewqa"
+        android:layout_width="match_parent"
+        android:elevation="5dp"
+        android:background="@drawable/tool"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Java Notes"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rewa"
+        android:layout_below="@id/rewqa"
+        android:layout_width="match_parent"
+        android:layout_height="610dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/title_layout_recyclerview"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:elevation="5dp"
+        android:background="@drawable/bottom"
+        app:menu="@menu/menu_items"
+        app:itemIconSize="30dp"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemIconTint="@drawable/item_selector"
+        android:id="@+id/bottomselected"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>

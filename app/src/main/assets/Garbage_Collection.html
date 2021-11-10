@@ -1,0 +1,73 @@
+<h1>Garbage Collection in Java</h1>.
+
+<p>&nbsp;</p>
+<p>Java garbage collection is the&nbsp;<strong>process of releasing unused memory</strong>&nbsp;occupied by unused objects. This process is done by the JVM automatically because it is essential for memory management.</p>
+<p>When a Java programs run on the JVM, objects are created on the heap, which is a portion of memory dedicated to the program. Eventually, some objects will no longer be needed.</p>
+<p>When there is no reference to an object, then that object is assumed to be no longer needed and the memory occupied by the object are released. This technique is called&nbsp;<strong>Garbage Collection</strong>.</p>
+<h3>How Garbage Collection Works?</h3>
+<p>The garbage collection is a part of the JVM and is an automatic process done by JVM. We do not need to explicitly mark objects to be deleted. However, we can request to the JVM for garbage collection of an object but ultimately it depends on the JVM to call garbage collector.</p>
+<p>Unlike C++ there is no explicit way to destroy object.</p>
+<p>In the below image, you can understand that if an object does not have any reference than it will be dumped by the JVM.</p>
+<p class="center"><img src="https://www.studytonight.com/java/images/garbage-collection.jpg" alt="garbage collection in java" width="245" height="118" /></p>
+<hr />
+<h3>Can the Garbage Collection be forced explicitly ?</h3>
+<p>No, the Garbage Collection can not be forced explicitly. We may request JVM for&nbsp;<strong>garbage collection</strong>&nbsp;by calling&nbsp;<strong>System.gc()</strong>&nbsp;method. But This does not guarantee that JVM will perform the garbage collection.</p>
+<hr />
+<h3>Advantages of Garbage Collection</h3>
+<ol class="content">
+<li>Programmer doesn't need to worry about dereferencing an object.</li>
+<li>It is done automatically by JVM.</li>
+<li>Increases memory efficiency and decreases the chances for memory leak.</li>
+</ol>
+<p>An object is able to get garbage collect if it is non-reference. We can make an object non-reference by using three ways.</p>
+<p>1. set null to object reference which makes it able for garbage collection. For example:</p>
+<pre class=" language-java"><code class=" language-java">
+Demo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+demo <span class="token operator">=</span> null<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ready for garbage collection</span>
+</code></pre>
+<p>2. We can non-reference an object by setting new reference to it which makes it able for garbage collection. For example</p>
+<pre class=" language-java"><code class=" language-java">
+Demo demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Demo demo2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+demo2 <span class="token operator">=</span> demo <span class="token comment" spellcheck="true">// referring object</span>
+    </code></pre>
+<p>3.&nbsp;<strong>Anonymous object</strong>&nbsp;does not have any reference so if it is not in use, it is ready for the garbage collection.</p>
+<div>&nbsp;</div>
+<hr />
+<h2><code>finalize()</code>&nbsp;method</h2>
+<p>Sometime an object will need to perform some specific task before it is destroyed such as closing an open connection or releasing any resources held. To handle such situation&nbsp;<strong>finalize()</strong>&nbsp;method is used.</p>
+<p>The&nbsp;<strong>finalize()</strong>&nbsp;method is&nbsp;<strong>called by garbage collection thread before collecting object</strong>. Its the last chance for any object to perform cleanup utility.</p>
+<p>Signature of&nbsp;<strong>finalize()</strong>&nbsp;method</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">finalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true">//finalize-code</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&nbsp;</p>
+<hr />
+<h4>Some Important Points to Remember</h4>
+<ol class="content">
+<li>It is defined in java.lang.Object class, therefore it is available to all the classes.</li>
+<li>It is declare as proctected inside Object class.</li>
+<li>It gets called only once by a Daemon thread named GC (Garbage Collector) thread.</li>
+</ol>
+<hr />
+<h3>Request for Garbage Collection</h3>
+<p>We can request to JVM for garbage collection however, it is upto the JVM when to start the garbage collector.</p>
+<p>Java&nbsp;<strong>gc()</strong>&nbsp;method is used to call garbage collector explicitly. However gc() method does not guarantee that JVM will perform the garbage collection. It only request the JVM for garbage collection. This method is present in&nbsp;<strong>System and Runtime class</strong>.</p>
+<h4>Example of gc() Method</h4>
+<p>Let's take an example and understand the functioning of the gc() method.</p>
+<pre class="java language-java"><code class=" language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Test t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token operator">=</span>null<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span><span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">finalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Garbage Collected"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="output">Garbage Collected</p>

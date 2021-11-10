@@ -1,0 +1,153 @@
+<header class="entry-header"><header class="entry-header">
+
+<h1 class="entry-title">Break statement in Java with example</h1>
+</header>
+<div class="entry-content">
+<p>The&nbsp;<strong>break statement</strong>&nbsp;is usually used in following two scenarios:</p>
+<p>a) Use break statement to come out of the loop instantly. Whenever a break statement is encountered inside a loop, the control directly comes out of loop and the loop gets terminated for rest of the iterations. It is used along with if statement, whenever used inside loop so that the loop gets terminated for a particular condition.</p>
+<p>The important point to note here is that when a break statement is used inside a nested loop, then only the inner loop gets terminated.</p>
+<p>b) It is also used in switch case&nbsp;control. Generally all cases in switch case are followed by a break statement so that whenever the program control jumps to a case, it doesn&rsquo;t execute subsequent cases (see the example below). As soon as a break is encountered in switch-case block, the control comes out of the switch-case body.</p>
+<div class="lq">&nbsp;</div>
+<p><strong>Syntax of break statement:</strong><br />&ldquo;break&rdquo; word followed by semi colon</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">break</span><span class="pun">;</span></pre>
+<h2>Example &ndash; Use of break in a while loop</h2>
+<p>In the example below, we have a while loop&nbsp;running from o to 100 but since we have a break statement that only occurs when the loop value reaches 2, the loop gets terminated and the control gets passed to the next statement in program after the loop body.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">BreakExample1</span> <span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+      <span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span>
+      <span class="kwd">while</span><span class="pun">(</span><span class="pln">num</span><span class="pun">&lt;=</span><span class="lit">100</span><span class="pun">)</span>
+      <span class="pun">{</span>
+          <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Value of variable is: "</span><span class="pun">+</span><span class="pln">num</span><span class="pun">);</span>
+          <span class="kwd">if</span> <span class="pun">(</span><span class="pln">num</span><span class="pun">==</span><span class="lit">2</span><span class="pun">)</span>
+          <span class="pun">{</span>
+             <span class="kwd">break</span><span class="pun">;</span>
+          <span class="pun">}</span><span class="pln">
+          num</span><span class="pun">++;</span>
+      <span class="pun">}</span>
+      <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Out of while-loop"</span><span class="pun">);</span>
+  <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Value</span><span class="pln"> of variable </span><span class="kwd">is</span><span class="pun">:</span> <span class="lit">0</span>
+<span class="typ">Value</span><span class="pln"> of variable </span><span class="kwd">is</span><span class="pun">:</span> <span class="lit">1</span>
+<span class="typ">Value</span><span class="pln"> of variable </span><span class="kwd">is</span><span class="pun">:</span> <span class="lit">2</span>
+<span class="typ">Out</span><span class="pln"> of </span><span class="kwd">while</span><span class="pun">-</span><span class="pln">loop</span></pre>
+<h2>Example &ndash; Use of break in a for loop</h2>
+<p>The same thing you can see here. As soon as the&nbsp;<code>var</code>&nbsp;value hits 99, the for loop gets terminated.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">BreakExample2</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+	<span class="kwd">int</span> <span class="kwd">var</span><span class="pun">;</span>
+	<span class="kwd">for</span> <span class="pun">(</span><span class="kwd">var</span> <span class="pun">=</span><span class="lit">100</span><span class="pun">;</span> <span class="kwd">var</span><span class="pun">&gt;=</span><span class="lit">10</span><span class="pun">;</span> <span class="kwd">var</span> <span class="pun">--)</span>
+	<span class="pun">{</span>
+	    <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"var: "</span><span class="pun">+</span><span class="kwd">var</span><span class="pun">);</span>
+	    <span class="kwd">if</span> <span class="pun">(</span><span class="kwd">var</span><span class="pun">==</span><span class="lit">99</span><span class="pun">)</span>
+	    <span class="pun">{</span>
+	         <span class="kwd">break</span><span class="pun">;</span>
+	    <span class="pun">}</span>
+	 <span class="pun">}</span>
+	 <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Out of for-loop"</span><span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="kwd">var</span><span class="pun">:</span> <span class="lit">100</span>
+<span class="kwd">var</span><span class="pun">:</span> <span class="lit">99</span>
+<span class="typ">Out</span><span class="pln"> of </span><span class="kwd">for</span><span class="pun">-</span><span class="pln">loop</span></pre>
+<h2>Example &ndash; Use of break statement in switch-case</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">BreakExample3</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+	<span class="kwd">int</span><span class="pln"> num</span><span class="pun">=</span><span class="lit">2</span><span class="pun">;</span>
+	      
+	<span class="kwd">switch</span> <span class="pun">(</span><span class="pln">num</span><span class="pun">)</span>
+	<span class="pun">{</span>
+	    <span class="kwd">case</span> <span class="lit">1</span><span class="pun">:</span>
+	       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Case 1 "</span><span class="pun">);</span>
+	       <span class="kwd">break</span><span class="pun">;</span>
+	    <span class="kwd">case</span> <span class="lit">2</span><span class="pun">:</span>
+	       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Case 2 "</span><span class="pun">);</span>
+	       <span class="kwd">break</span><span class="pun">;</span>
+	    <span class="kwd">case</span> <span class="lit">3</span><span class="pun">:</span>
+	       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Case 3 "</span><span class="pun">);</span>
+	       <span class="kwd">break</span><span class="pun">;</span>
+	    <span class="kwd">default</span><span class="pun">:</span>
+	       <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Default "</span><span class="pun">);</span>
+	<span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+</pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="typ">Case</span> <span class="lit">2</span></pre>
+<p>In this example, we have break statement after each Case block, this is because if we don&rsquo;t have it then the subsequent case block would also execute. The output of the same program without break would be&nbsp;<code>Case 2 Case 3 Default</code>.</p>
+</div>
+<h1 class="entry-title">&nbsp;</h1>
+<h1 class="entry-title">Continue Statement in Java with example</h1>
+</header>
+<div class="entry-content">
+<p><strong>Continue statement</strong>&nbsp;is mostly used inside loops. Whenever it is encountered inside a loop, control directly jumps to the beginning of the loop for next iteration, skipping the execution of statements inside loop&rsquo;s body for the current iteration. This is particularly useful when you want to continue the loop but do not want the rest of the statements(after continue statement) in loop body to execute for that particular iteration.</p>
+<p><strong>Syntax:</strong><br />continue word followed by semi colon.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">continue</span><span class="pun">;</span></pre>
+<h2>Example: continue statement inside for loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">ContinueExample</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+	<span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> j</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">&lt;=</span><span class="lit">6</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span>
+	<span class="pun">{</span>
+           <span class="kwd">if</span> <span class="pun">(</span><span class="pln">j</span><span class="pun">==</span><span class="lit">4</span><span class="pun">)</span>
+           <span class="pun">{</span>
+	      <span class="kwd">continue</span><span class="pun">;</span>
+	   <span class="pun">}</span>
+
+           <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">j</span><span class="pun">+</span><span class="str">" "</span><span class="pun">);</span>
+	<span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="lit">0</span> <span class="lit">1</span> <span class="lit">2</span> <span class="lit">3</span> <span class="lit">5</span> <span class="lit">6</span></pre>
+<blockquote>
+<p>As you may have noticed, the value 4 is missing in the output, why? because when the value of variable j is 4, the program encountered a&nbsp;<strong>continue statement</strong>, which makes it to jump at the beginning of for loop for next iteration, skipping the statements for current iteration (that&rsquo;s the reason&nbsp;<code>println</code>&nbsp;didn&rsquo;t execute when the value of j was 4).</p>
+<div class="lq">&nbsp;</div>
+</blockquote>
+<p>&nbsp;</p>
+<h2>Example: Use of continue in While loop</h2>
+<p>Same thing you can see here. We are iterating this loop from 10 to 0 for&nbsp;<code>counter</code>&nbsp;value and when the counter value is 7 the loop skipped the print statement and started next iteration of the while loop.</p>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">ContinueExample2</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+	<span class="kwd">int</span><span class="pln"> counter</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span>
+	<span class="kwd">while</span> <span class="pun">(</span><span class="pln">counter </span><span class="pun">&gt;=</span><span class="lit">0</span><span class="pun">)</span>
+	<span class="pun">{</span>
+           <span class="kwd">if</span> <span class="pun">(</span><span class="pln">counter</span><span class="pun">==</span><span class="lit">7</span><span class="pun">)</span>
+           <span class="pun">{</span><span class="pln">
+	       counter</span><span class="pun">--;</span>
+	       <span class="kwd">continue</span><span class="pun">;</span>
+           <span class="pun">}</span>
+           <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">counter</span><span class="pun">+</span><span class="str">" "</span><span class="pun">);</span><span class="pln">
+           counter</span><span class="pun">--;</span>
+	<span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+</pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="lit">10</span> <span class="lit">9</span> <span class="lit">8</span> <span class="lit">6</span> <span class="lit">5</span> <span class="lit">4</span> <span class="lit">3</span> <span class="lit">2</span> <span class="lit">1</span> <span class="lit">0</span></pre>
+<h2>Example of continue in do-While loop</h2>
+<pre class="prettyprint prettyprinted"><span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">ContinueExample3</span> <span class="pun">{</span>
+
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[]){</span>
+	<span class="kwd">int</span><span class="pln"> j</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span>
+        <span class="kwd">do</span>
+	<span class="pun">{</span>
+	   <span class="kwd">if</span> <span class="pun">(</span><span class="pln">j</span><span class="pun">==</span><span class="lit">7</span><span class="pun">)</span>
+	   <span class="pun">{</span><span class="pln">
+		 j</span><span class="pun">++;</span>
+		 <span class="kwd">continue</span><span class="pun">;</span>
+	   <span class="pun">}</span>
+	   <span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">j</span><span class="pun">+</span> <span class="str">" "</span><span class="pun">);</span><span class="pln">
+	   j</span><span class="pun">++;</span>
+       <span class="pun">}</span><span class="kwd">while</span><span class="pun">(</span><span class="pln">j</span><span class="pun">&lt;</span><span class="lit">10</span><span class="pun">);</span>
+		  
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint prettyprinted"><span class="lit">0</span> <span class="lit">1</span> <span class="lit">2</span> <span class="lit">3</span> <span class="lit">4</span> <span class="lit">5</span> <span class="lit">6</span> <span class="lit">8</span> <span class="lit">9</span> </pre>
+</div>
